@@ -1,0 +1,29 @@
+span {
+  background: linear-gradient(
+    to right,
+    #19b7d3,
+    #d018e0,
+    rgb(218, 19, 13),
+    lime,
+    #19b7d3
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 100vw;
+  background-position: 100vw;
+  animation: colorgrad-anim 20s infinite linear alternate;
+}
+@keyframes colorgrad-anim {
+  0% {
+    background-position: 200vw;
+  }
+  25% {
+    background-position: 300vw;
+  }
+  50% {
+    background-position: 400vw;
+  }
+  75% {
+    background-position: 200vw;
+  }
+}
