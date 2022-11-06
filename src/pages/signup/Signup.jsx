@@ -11,10 +11,11 @@ export default function Signup() {
     const [loading, setLoading] = useState(false)
     const [isUnique, setIsUnique] = useState(false)
 
-    const staticUserRef = '123'
+    const staticUserRef = 'haseeb'
 
     const [openSnack, setOpenSnack] = useState(false)
     const [snackText, setSnackText] = useState(false)
+    const [severity, setSeverity] = useState()
 
     const usernameRef = useRef()
     const emailRef = useRef()
@@ -36,21 +37,32 @@ export default function Signup() {
         }
 
         else {
+            setSeverity("Error")
             setOpenSnack(!openSnack)
             setSnackText("Passwords don't match")
         }
     }
 
     function CheckUsername(event) {
-        if (event.target.value === staticUserRef) {
-            setIsDisabled(false)
-            setIsUnique(true)
+        if ((event.target.value).length >= 5) {
+
+            if (event.target.value === staticUserRef) {
+                setIsDisabled(false)
+                setIsUnique(true)
+                setOpenSnack(true)
+                setSeverity("success")
+                setSnackText(event.target.value + ' is Available')
+            }
+            else {
+                setOpenSnack(!openSnack)
+                setIsUnique(false)
+                setSeverity("warning")
+                setIsDisabled(true)
+                setSnackText("THIS USERNAME IS ALREADY TAKEN!")
+            }
         }
         else {
-            setOpenSnack(!openSnack)
-            setIsUnique(false)
-            setIsDisabled(true)
-            setSnackText("Please choose a different username")
+            console.log('Not long enough')
         }
     }
 
@@ -63,7 +75,7 @@ export default function Signup() {
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
                     autoHideDuration={6000}
                     onClose={() => setOpenSnack(!openSnack)}>
-                    <Alert severity="error" variant='filled'>{snackText}</Alert>
+                    <Alert severity={severity} variant='filled'>{snackText}</Alert>
                 </Snackbar>
 
                 <Stack sx={{ textAlign: 'center' }}>
