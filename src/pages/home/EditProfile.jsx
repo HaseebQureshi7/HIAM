@@ -1,5 +1,5 @@
-import { Done, NavigateNext } from "@mui/icons-material";
-import { Alert, Avatar, Box, Button, Grid, CircularProgress, Snackbar, Stack, TextField, Typography, Divider, Switch } from "@mui/material";
+import { Add, Close, Done, Google, Instagram, LinkedIn, LinkOff, NavigateNext, Upgrade } from "@mui/icons-material";
+import { Alert, Avatar, Box, Button, Grid, CircularProgress, Snackbar, Stack, TextField, Typography, Divider, Switch, Modal, Card } from "@mui/material";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,9 @@ export default function EditProfile() {
     const editProfileURL = 'https://haseebxqureshi.pythonanywhere.com/api/edituserprofile/'
     const updateProfilePictureURL = 'https://haseebxqureshi.pythonanywhere.com/api/editprofilepicture/'
 
+    const userLinksURL = 'https://haseebxqureshi.pythonanywhere.com/api/viewuserlink/'
+    const editUserLinksURL = 'https://haseebxqureshi.pythonanywhere.com/api/edituserlink/'
+
     const navigate = useNavigate()
 
     const [isDisabled, setIsDisabled] = useState(false)
@@ -22,6 +25,7 @@ export default function EditProfile() {
     const [snackText, setSnackText] = useState(false)
     const [severity, setSeverity] = useState()
 
+    const [openModal, setOpenModal] = useState(false)
 
     const [dpChanged, setDpChanged] = useState(false)
 
@@ -40,8 +44,15 @@ export default function EditProfile() {
 
     const [dp, setDp] = useState()
 
+    const googleRef = useRef()
+    const linkedInRef = useRef()
+    const personalRef = useRef()
+    const instagramRef = useRef()
+
     const [userId, setUserId] = useState()
     const [accessToken, setAccessToken] = useState()
+
+    const [userLinks, setUserLinks] = useState()
 
     let axiosConfig = {
         headers: {
@@ -50,6 +61,10 @@ export default function EditProfile() {
             // 'charset': "utf-8"
         }
     };
+
+    async function UpdateLinks(link, name, id) {
+        axios.put(editUserLinksURL + id, JSON.stringify({ name: name, link: link.current.value }), axiosConfig).then(res => { setOpenModal(false); setOpenSnack(true); setSeverity("success"); setSnackText(name + ' was updated!') }).catch(res => console.log(res))
+    }
 
     async function UpdateDp() {
         // e.preventDefault()
@@ -62,6 +77,7 @@ export default function EditProfile() {
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
+            navigate('/home')
         }).catch(res => {
             {
                 console.log(profilePic);
@@ -96,7 +112,6 @@ export default function EditProfile() {
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
-            // navigate('/')
             console.log(JSON.stringify(form))
         }).catch(res => {
             {
@@ -118,7 +133,7 @@ export default function EditProfile() {
         }
 
         else {
-            navigate('/')
+            navigate('/home')
         }
 
     }
@@ -136,6 +151,8 @@ export default function EditProfile() {
         }
 
         axios.get(viewProfileURL + GetUID()).then(res => { setUserData(res.data.data); setDp('https://haseebxqureshi.pythonanywhere.com' + res.data.data[0].profilePicture); setIsDiscoverable(res.data.data[0].isDiscoverable) }).catch(res => console.log(res))
+
+        axios.get(userLinksURL + GetUID()).then(res => { setUserLinks(res.data.data); }).catch(res => console.log(res))
 
     }, [])
 
@@ -156,8 +173,6 @@ export default function EditProfile() {
     return (
         <>
 
-            {/* <Navbar /> */}
-
             <Fade>
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', marginTop: '5vh', marginBottom: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
@@ -170,12 +185,108 @@ export default function EditProfile() {
                         <Alert severity={severity} variant='filled'>{snackText}</Alert>
                     </Snackbar>
 
-                    <Box sx={{ maxHeight: '10vh' }}>
 
-                        <Typography sx={{ fontWeight: '700' }} variant='h4' component="div">EDIT PROFILE</Typography>
-                        <Typography sx={{ fontWeight: '500' }} variant='subtitle2' component="div">CHANGES WILL BE INSTANTLY INFLICTED UPON YOUR PROFILE</Typography>
 
-                    </Box>
+                    <Modal
+                        open={openModal}
+                        onClose={() => setOpenModal(false)}
+                    >
+                        <Box sx={{ width: { xs: '100%', md: '50%' }, height: '100vh', m: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                            <Box sx={{ width: '100%', p: 2.5, minHeight: '50vh', borderRadius: 5, bgcolor: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
+                                <Stack sx={{ width: '100%' }} direction="row">
+                                    <Typography sx={{ fontWeight: '700', mt: 0, }} variant='h4'>EDIT LINKS</Typography>
+                                    <Avatar onClick={() => setOpenModal(false)} sx={{ bgcolor: 'error.light', ml: 'auto' }}><Close /></Avatar>
+                                </Stack>
+                                <Typography sx={{ fontWeight: '700', color: 'text.secondary' }} variant='subtitle2'>ADD YOUR LINKS WITH FULL URL TO MAKE THEM INTRACTABLE</Typography>
+
+                                <Divider sx={{ width: '100%', mb: 5 }} />
+
+
+                                <form style={{ width: { xs: '100%', lg: '90%' }, margin: 'auto' }} >
+                                    <Stack sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-end' }} >
+
+                                        <Grid container sx={{ width: '100%', height: "auto" }} gap={{ xs: 5, md: 5 }}>
+
+
+                                            {userLinks ? userLinks.map((data => {
+                                                return (
+
+                                                    <div style={{ width: '100%' }} key={data.id}>
+                                                        {data.name == 'linkedIn' ? <Grid item xs={12} md={12}>
+                                                            <Card elevation={3} sx={{ display: 'flex', border: '2px solid', borderColor: 'primary.main', justifyContent: 'space-between', alignItems: 'center', p: 0.5, borderRadius: 100 }}>
+                                                                <Avatar sx={{ bgcolor: 'primary.main' }}>
+                                                                    <LinkedIn />
+                                                                </Avatar>
+                                                                <TextField inputRef={linkedInRef} defaultValue={data.link} sx={{ width: '75%', m: 'auto', ml: 2, height: '20%' }} InputLabelProps={{ shrink: true }} placeholder="http://linkedin.com/haseebqureshisihere" variant="standard" required />
+                                                                <Avatar onClick={() => UpdateLinks(linkedInRef, data.name, data.id)} sx={{ bgcolor: 'success.main' }}>
+                                                                    <Done />
+                                                                </Avatar>
+                                                            </Card>
+                                                        </Grid> : null}
+
+                                                        {data.name == 'G-mail' ? <Grid item xs={12} md={12}>
+                                                            <Card elevation={3} sx={{ display: 'flex', border: '2px solid', borderColor: 'primary.main', justifyContent: 'space-between', alignItems: 'center', p: 0.5, borderRadius: 100 }}>
+                                                                <Avatar sx={{ bgcolor: ' #DB4437' }}>
+                                                                    <Google />
+                                                                </Avatar>
+                                                                <TextField inputRef={googleRef} defaultValue={data.link} sx={{ width: '75%', m: 'auto', ml: 2, height: '20%' }} InputLabelProps={{ shrink: true }} placeholder="qureshihaxeeb2@gmail.com" variant="standard" required />
+                                                                <Avatar onClick={() => UpdateLinks(googleRef, data.name, data.id)} sx={{ bgcolor: 'success.main' }}>
+                                                                    <Done />
+                                                                </Avatar>
+                                                            </Card>
+                                                        </Grid> : null}
+
+                                                        {data.name == 'Instagram' ? <Grid item xs={12} md={12}>
+                                                            <Card elevation={3} sx={{ display: 'flex', border: '2px solid', borderColor: 'primary.main', justifyContent: 'space-between', alignItems: 'center', p: 0.5, borderRadius: 100 }}>
+                                                                <Avatar sx={{ background: 'linear-gradient(90deg,rgba(255, 0, 0, 1) 0%,rgba(255, 154, 0, 1) 10%,rgba(208, 222, 33, 1) 20%,rgba(79, 220, 74, 1) 30%,rgba(63, 218, 216, 1) 40%,rgba(47, 201, 226, 1) 50%,rgba(28, 127, 238, 1) 60%,rgba(95, 21, 242, 1) 70%,rgba(186, 12, 248, 1) 80%,rgba(251, 7, 217, 1) 90%,rgba(255, 0, 0, 1) 100%)' }}>
+                                                                    <Instagram />
+                                                                </Avatar>
+                                                                <TextField inputRef={instagramRef} defaultValue={data.link} sx={{ width: '75%', m: 'auto', ml: 2, height: '20%' }} InputLabelProps={{ shrink: true }} placeholder="https://instagram.com/haseebxqureshi" variant="standard" required />
+                                                                <Avatar onClick={() => UpdateLinks(instagramRef, data.name, data.id)} sx={{ bgcolor: 'success.main' }}>
+                                                                    <Done />
+                                                                </Avatar>
+                                                            </Card>
+                                                        </Grid> : null}
+
+                                                        {data.name == 'Personal Website' ? <Grid item xs={12} md={12}>
+                                                            <Card elevation={3} sx={{ display: 'flex', border: '2px solid', borderColor: 'primary.main', justifyContent: 'space-between', alignItems: 'center', p: 0.5, borderRadius: 100 }}>
+                                                                <Avatar sx={{ bgcolor: 'primary.main' }}>
+                                                                </Avatar>
+                                                                <TextField inputRef={personalRef} defaultValue={data.link} sx={{ width: '75%', m: 'auto', ml: 2, height: '20%' }} InputLabelProps={{ shrink: true }} placeholder="https://yourpersonalwebsite.com" variant="standard" required />
+                                                                <Avatar onClick={() => UpdateLinks(personalRef, data.name, data.id)} sx={{ bgcolor: 'success.main' }}>
+                                                                    <Done />
+                                                                </Avatar>
+                                                            </Card>
+                                                        </Grid> : null}
+                                                    </div>
+
+                                                )
+                                            })) : null}
+
+                                            <Grid sx={{ textAlign: 'center' }} item xs={12} md={12}>
+                                                <Typography variant='subtitle2'>CLICK THE ICON NEXT TO THE LINK TO UPDATE{'***'}</Typography>
+                                            </Grid>
+
+                                        </Grid>
+
+                                    </Stack>
+                                </form>
+                            </Box>
+
+                        </Box>
+                    </Modal>
+
+
+                    <Stack sx={{ width: '100%', mt: 0, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <Box >
+                            <Typography sx={{ fontWeight: '700' }} variant='h4' component="div">EDIT PROFILE</Typography>
+                            <Typography sx={{ fontWeight: '500' }} variant='subtitle2' component="div">CHANGES WILL BE INSTANTLY INFLICTED UPON YOUR PROFILE</Typography>
+                        </Box>
+
+                        <Button onClick={() => setOpenModal(true)} startIcon={<LinkOff />} sx={{ display: { xs: 'none', lg: 'inherit' }, fontWeight: 700 }} variant='outlined'>EDIT LINKS</Button>
+                        <Avatar onClick={() => setOpenModal(true)} sx={{ bgcolor: 'primary.main' }}><LinkOff /></Avatar>
+                    </Stack>
 
                     <Divider sx={{ width: '100%' }} />
 
