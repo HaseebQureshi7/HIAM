@@ -89,7 +89,7 @@ export default function MakeCertificate() {
                         <Alert severity={severity} variant='filled'>{snackText}</Alert>
                     </Snackbar>
 
-                    <Typography sx={{ fontWeight: '500' }} variant='h2' component="div">WELCOME TO HIAM
+                    <Typography sx={{ fontWeight: '500', fontSize:{xs:'3rem',lg:'4rem'} }} variant='h2' component="div">WELCOME TO HIAM
                         <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER YOUR DETAILS TO MAKE YOUR PROFILE</Typography>
                     </Typography>
 

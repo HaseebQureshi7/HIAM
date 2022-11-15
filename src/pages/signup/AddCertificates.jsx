@@ -3,6 +3,7 @@ import { Alert, Box, Button, Card, CardActions, CardContent, CircularProgress, D
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Fade } from '../../components/AnimationEngine'
 
 export default function AddCertificates() {
 
@@ -40,6 +41,8 @@ export default function AddCertificates() {
     return (
         <>
 
+            <Fade>
+
             <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', marginTop: '5vh', marginBottom: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
 
                 <Snackbar
@@ -50,7 +53,7 @@ export default function AddCertificates() {
                     <Alert severity={severity} variant='filled'>{snackText}</Alert>
                 </Snackbar>
 
-                <Typography sx={{ fontWeight: '500' }} variant='h2' component="div">WELCOME TO HIAM
+                <Typography sx={{ fontWeight: '500', fontSize:{xs:'3rem',lg:'4rem'} }} variant='h2' component="div">WELCOME TO HIAM
                     <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER YOUR DETAILS TO MAKE YOUR PROFILE</Typography>
                 </Typography>
 
@@ -58,7 +61,7 @@ export default function AddCertificates() {
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '100%', md: '100%', lg: '100%' }, m: 'auto', marginTop: '0vh', marginBottom: { xs: '1vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
 
-                    <Grid container sx={{ width: '100%', }}>
+                    <Grid container sx={{ width: '100%', gap: {xs:5,lg:0} }}>
                         <Grid xs={12} md={6} item >
                             <Typography sx={{ fontWeight: '500' }} variant='h4' component="div">ADD CERTIFICATES ({xpLength})
                                 <Typography sx={{ fontWeight: '500', color: 'grey', fontSize: '0.75rem' }} variant='subtitle2'>YOUR CERTIFICATES WILL BE AUTOMATICALLY SORTED</Typography>
@@ -118,6 +121,8 @@ export default function AddCertificates() {
                 }
 
             </Box>
+
+            </Fade>
 
         </>
     )

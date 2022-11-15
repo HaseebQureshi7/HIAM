@@ -119,7 +119,7 @@ export default function MakeProject() {
                         <Alert severity={severity} variant='filled'>{snackText}</Alert>
                     </Snackbar>
 
-                    <Typography sx={{ fontWeight: '500' }} variant='h2' component="div">WELCOME TO HIAM
+                    <Typography sx={{ fontWeight: '500', fontSize:{xs:'3rem',lg:'4rem'} }} variant='h2' component="div">WELCOME TO HIAM
                         <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER YOUR DETAILS TO MAKE YOUR PROFILE</Typography>
                     </Typography>
 
@@ -155,7 +155,7 @@ export default function MakeProject() {
                                     <Avatar variant="square" src={dp} sx={{ height: 200, width: 220 }} />
                                     <Button onChange={LiveDp} variant="outlined" component="label">
                                         + ADD A PROJECT SCREEN
-                                        <input type="file" hidden />
+                                        <input type="file"  accept="image/png, image/gif, image/jpeg"  hidden />
                                     </Button>
                                 </Stack>
                             </Box>

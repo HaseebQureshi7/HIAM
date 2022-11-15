@@ -14,9 +14,9 @@ export default function SignupComplete() {
 
     const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/viewuserprofile/'
 
-    useEffect(()=> {
+    useEffect(() => {
         axios.get(baseURL + GetUID()).then(res => setUserData(res.data.data[0])).catch(res => console.log(res))
-    },[])
+    }, [])
 
     return (
         <>
