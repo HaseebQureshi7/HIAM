@@ -336,7 +336,7 @@ export default function EditProfile() {
                                             <Avatar src={dp} sx={{ height: 200, width: 200 }} />
                                             <Button onChange={LiveDp} variant="outlined" accept="image/*" component="label">
                                                 CHANGE PROFILE PICTURE
-                                                <input type="file" hidden />
+                                                <input type="file" accept="image/png, image/gif, image/jpeg" hidden />
                                             </Button>
                                         </Stack>
                                     </Box>

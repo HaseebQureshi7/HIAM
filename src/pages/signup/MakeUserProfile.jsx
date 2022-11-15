@@ -158,7 +158,7 @@ export default function MakeUserProfile() {
                                     <Avatar src={dp} sx={{ height: 200, width: 200 }} />
                                     <Button onChange={LiveDp} variant="outlined" component="label">
                                         + ADD PROFILE PICTURE
-                                        <input type="file" hidden />
+                                        <input type="file" accept="image/png, image/gif, image/jpeg" hidden />
                                     </Button>
                                 </Stack>
                             </Box>
