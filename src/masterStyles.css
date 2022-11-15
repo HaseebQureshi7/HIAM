@@ -1,4 +1,13 @@
-span {
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome browsers */
+}
+
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* mozilla */
+}
+
+strong {
   background: linear-gradient(
     to right,
     #19b7d3,

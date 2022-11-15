@@ -1,9 +1,11 @@
 import { Done, Error } from '@mui/icons-material'
 import { Alert, Box, Button, CircularProgress, Grid, InputAdornment, Snackbar, Stack, TextField, Typography } from '@mui/material'
-import { AnimatePresence } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
+import axios from 'axios'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Fade } from '../../components/AnimationEngine'
+import TokenDecoder from '../../components/TokenDecoder'
+import { RefreshContext } from '../../context/RefreshContext'
 
 export default function Signup() {
 
@@ -11,7 +13,12 @@ export default function Signup() {
     const [loading, setLoading] = useState(false)
     const [isUnique, setIsUnique] = useState(false)
 
-    const staticUserRef = 'haseeb'
+    const {update, setUpdate} = useContext(RefreshContext)
+
+    const [immediateError, setImmediateError] = useState()
+
+    const checkUserURL = 'http://haseebxqureshi.pythonanywhere.com/api/checkuseravailability'
+    const signUpURL = 'http://haseebxqureshi.pythonanywhere.com/api/signup'
 
     const [openSnack, setOpenSnack] = useState(false)
     const [snackText, setSnackText] = useState(false)
@@ -27,42 +34,64 @@ export default function Signup() {
 
     async function HandleSubmit(e) {
         e.preventDefault()
+        const username = usernameRef.current.value
+        const email = emailRef.current.value
         const pass1 = passwordRef1.current.value
         const pass2 = passwordRef2.current.value
+
         if (pass1 === pass2) {
-            setIsDisabled(!isDisabled)
             setLoading(true)
-            console.log(pass1, pass2)
-            console.log('submitted!')
+            setIsDisabled(!isDisabled)
+            await axios.post(signUpURL, { username: username, email: email, password: pass2 }).then(res => {
+                navigate('/makeuserprofile')
+                setLoading(false)
+                setIsDisabled(!isDisabled)
+                localStorage.setItem("Access", res.data.access)
+                localStorage.setItem("Refresh", res.data.refresh)
+                localStorage.setItem("Signup-mode", true)
+                TokenDecoder()
+                setUpdate(update+1) // RefreshToken State Update
+            }).catch(res => {
+                setLoading(false)
+                setIsDisabled(false)
+                setSeverity("error")
+                setOpenSnack(true)
+                setSnackText("COULDN'T SIGN YOU IN!")
+            })
         }
 
         else {
-            setSeverity("Error")
+            setSeverity("error")
             setOpenSnack(!openSnack)
             setSnackText("Passwords don't match")
         }
     }
 
-    function CheckUsername(event) {
+    async function CheckUsername(event) {
         if ((event.target.value).length >= 5) {
 
-            if (event.target.value === staticUserRef) {
+            await axios.post(checkUserURL, { username: event.target.value }).then(res => {
                 setIsDisabled(false)
                 setIsUnique(true)
                 setOpenSnack(true)
                 setSeverity("success")
                 setSnackText(event.target.value + ' is Available')
-            }
-            else {
-                setOpenSnack(!openSnack)
+            }).catch(res => {
+                setImmediateError(res)
+                setOpenSnack(true)
                 setIsUnique(false)
                 setSeverity("warning")
                 setIsDisabled(true)
                 setSnackText("THIS USERNAME IS ALREADY TAKEN!")
-            }
+            })
+
         }
         else {
-            console.log('Not long enough')
+            setOpenSnack(true)
+            setIsUnique(false)
+            setSeverity("warning")
+            setIsDisabled(true)
+            setSnackText("USERNAME SHOULD BE OVER 5 CHARACTERS!")
         }
     }
 
@@ -79,27 +108,27 @@ export default function Signup() {
                 </Snackbar>
 
                 <Stack sx={{ textAlign: 'center' }}>
-                    <Typography sx={{ fontWeight: 500 }} component='span' variant='h2'>HIAM</Typography>
+                    <Typography sx={{ fontWeight: 500 }} component='strong' variant='h2'>HIAM</Typography>
                     <Typography sx={{ fontWeight: 500, color: 'text.secondary' }} variant='h6'>LIVE AND INTERACTIVE</Typography>
                 </Stack>
 
                 <Box sx={{ width: { sm: '85%', lg: '30%' } }} >
                     <form onSubmit={(e) => HandleSubmit(e)}>
-                        <Stack gap={5} direction={'column'}>
-                            <TextField onChange={CheckUsername} inputRef={usernameRef} label="Username" variant="standard" placeholder='Select a unique username' required InputProps={{
+                        <Stack gap={{xs:6, lg:4}} direction={'column'}>
+                            <TextField onChange={CheckUsername} inputRef={usernameRef} label="Username" variant="outlined" InputLabelProps={{ shrink: true }} placeholder='Select a Unique Username' required InputProps={{
                                 endAdornment: (
                                     <InputAdornment position="start">
                                         {isUnique == true ? <Done sx={{ color: 'green' }} /> : <Error sx={{ color: 'red' }} />}
                                     </InputAdornment>
                                 ),
                             }} />
-                            <TextField inputRef={emailRef} label="email" variant="standard" type="email" required />
+                            <TextField inputRef={emailRef} label="email" InputLabelProps={{ shrink: true }} variant="outlined" placeholder='Enter Your Email' type="email" required />
                             <Grid container spacing={2}>
                                 <Grid item xs={6}>
-                                    <TextField inputRef={passwordRef1} label="Password" type="password" variant="standard" required />
+                                    <TextField inputRef={passwordRef1} InputLabelProps={{ shrink: true }} label="Password" placeholder='Enter Password' type="password" variant="outlined" required />
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <TextField inputRef={passwordRef2} label="Confirm Password" type="password" variant="standard" required />
+                                    <TextField inputRef={passwordRef2} InputLabelProps={{ shrink: true }} label="Confirm Password" placeholder='Confirm Password' type="password" variant="outlined" required />
                                 </Grid>
                             </Grid>
                             <Button disabled={isDisabled} type="submit" sx={{ padding: '5px 90px' }} variant="contained" >SIGNUP</Button>

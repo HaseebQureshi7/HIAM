@@ -42,7 +42,35 @@ export const Fade = ({ children }) => {
             opacity: 0,
         },
         transition: {
-            duration: '.35'
+            duration: '.5'
+        }
+    }
+
+    return (
+        <motion.div initial={Animations.initial} animate={Animations.animate} exit={Animations.exit} transition={Animations.transition}>
+            {children}
+        </motion.div>
+    )
+}
+
+
+export const PopOut = ({ children }) => {
+
+    const Animations = {
+        initial: {
+            scale:0
+        },
+        animate: {
+            scale:1
+        },
+        exit: {
+            scale:0
+        },
+        transition: {
+            duration: '.35',
+            type: "spring",
+            stiffness: 300,
+            damping: 8
         }
     }
 

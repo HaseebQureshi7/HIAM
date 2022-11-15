@@ -1,9 +1,19 @@
 import axios from "axios";
 
+var Access = null
+
+if (localStorage.getItem('Access')) {
+    Access = JSON.parse(localStorage.getItem('UserID'))
+    console.log(Access)
+}
+else {
+    console.log('NO UID FOUND!')
+}
+
 export const AxiosInstance = axios.create({
-    baseURL : 'http://127.0.0.1:8000/',
+    baseURL : 'http://haseebxqureshi.pythonanywhere.com/api/makeuserprofile',
     timeout : 2000,
     headers : {
-        'Accept': 'application/json',
+        "Authorization" : `Bearer ${Access}`
     }
 })
