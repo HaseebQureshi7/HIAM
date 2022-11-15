@@ -40,7 +40,7 @@ export default function Navbar() {
                     <Box sx={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
                         {userProfile ? userProfile.map((data => {
                             return (
-                                <Avatar size='large' onClick={(e) => { setOpenDrawer(!open) }} key={data.id} src={`http://127.0.0.1:8000${data.profilePicture}`} sx={{ float: 'right', width: '35px', height: '35px' }} />
+                                <Avatar size='large' onClick={(e) => { setOpenDrawer(!open) }} key={data.id} src={`https://haseebxqureshi.pythonanywhere.com${data.profilePicture}`} sx={{ float: 'right', width: '35px', height: '35px' }} />
                             )
                         })) : null}
                     </Box>
@@ -110,7 +110,7 @@ export default function Navbar() {
 
                         {userProfile ? userProfile.map((data => {
                             return (
-                                <Avatar onClick={(e) => { setOpen(!open); setAnchorEl(e.currentTarget) }} key={data.id} src={`http://127.0.0.1:8000${data.profilePicture}`} sx={{ width: '30px', height: '30px' }} />
+                                <Avatar onClick={(e) => { setOpen(!open); setAnchorEl(e.currentTarget) }} key={data.id} src={`https://haseebxqureshi.pythonanywhere.com${data.profilePicture}`} sx={{ width: '30px', height: '30px' }} />
                             )
                         })) : null}
 

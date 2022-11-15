@@ -135,7 +135,7 @@ export default function EditProfile() {
             setSnackText("FATAL ERROR! UID/ACCESS TOKEN WAS NOT FOUND!")
         }
 
-        axios.get(viewProfileURL + GetUID()).then(res => { setUserData(res.data.data); setDp('http://127.0.0.1:8000' + res.data.data[0].profilePicture); setIsDiscoverable(res.data.data[0].isDiscoverable) }).catch(res => console.log(res))
+        axios.get(viewProfileURL + GetUID()).then(res => { setUserData(res.data.data); setDp('https://haseebxqureshi.pythonanywhere.com' + res.data.data[0].profilePicture); setIsDiscoverable(res.data.data[0].isDiscoverable) }).catch(res => console.log(res))
 
     }, [])
 

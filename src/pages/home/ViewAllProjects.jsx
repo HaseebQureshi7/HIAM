@@ -67,7 +67,7 @@ export default function ViewAllProjects() {
 
                                 <Box sx={{ flex: 1, mb: 2.5, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
-                                    <Avatar src={`http://127.0.0.1:8000${data.projectImage}`} variant='square' sx={{ width: { xs: '80%', lg: '100%' }, height: { xs: '200px', lg: '300px' }, borderRadius: 2 }} />
+                                    <Avatar src={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} variant='square' sx={{ width: { xs: '80%', lg: '100%' }, height: { xs: '200px', lg: '300px' }, borderRadius: 2 }} />
 
                                 </Box>
 

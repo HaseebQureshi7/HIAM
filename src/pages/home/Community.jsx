@@ -42,7 +42,7 @@ export default function Community() {
                                 <InputAdornment position="end">
                                     {searchedUser ? <>
                                         <Link style={{ 'textDecoration': 'none' }} to={`/users/${searchedUser.belongsTo}`}>
-                                            <Chip sx={{ fontSize: '1rem', fontWeight: 700, }} avatar={<Avatar src={`http://127.0.0.1:8000${searchedUser.profilePicture}`} />} label={`${searchedUser.fname} ${searchedUser.lname} ?`} variant="outlined" />
+                                            <Chip sx={{ fontSize: '1rem', fontWeight: 700, }} avatar={<Avatar src={`https://haseebxqureshi.pythonanywhere.com${searchedUser.profilePicture}`} />} label={`${searchedUser.fname} ${searchedUser.lname} ?`} variant="outlined" />
                                         </Link>
                                     </> : null}
                                 </InputAdornment>
@@ -69,7 +69,7 @@ export default function Community() {
 
                                         {/* PEOPLE DESKTOP */}
                                         <Stack sx={{ display: { xs: 'none', lg: 'flex' }, width: '75%', height: 'auto', p: 0.5, justifyContent: 'space-between', alignItems: 'center', border: '2px solid black', borderRadius: '50px' }} direction="row">
-                                            <Avatar src={`http://127.0.0.1:8000${data.profilePicture}`} />
+                                            <Avatar src={`https://haseebxqureshi.pythonanywhere.com${data.profilePicture}`} />
                                             <Typography sx={{ fontWeight: 700 }} variant="h6">{data.fname + ' ' + data.lname}</Typography>
                                             <Typography sx={{ fontWeight: 700 }} variant="h6">{data.position}</Typography>
                                             <Typography sx={{ fontWeight: 700 }} variant="h6">{data.experience} YEARS</Typography>
@@ -81,7 +81,7 @@ export default function Community() {
 
                                             <Stack sx={{ width: '100%', m: '10px 0px', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', gap: 1, alignItems: 'flex-start', borderLeft: '2px solid black', pl: 1.75 }}>
 
-                                                <Avatar src={`http://127.0.0.1:8000${data.profilePicture}`} variant="square" sx={{ width: '100px', height: '100px' }} />
+                                                <Avatar src={`https://haseebxqureshi.pythonanywhere.com${data.profilePicture}`} variant="square" sx={{ width: '100px', height: '100px' }} />
                                                 <Typography sx={{ fontWeight: 700 }} variant="h6">{data.fname + ' ' + data.lname}</Typography>
                                                 <Typography sx={{ fontWeight: 700 }} variant="h6">{data.position}</Typography>
 

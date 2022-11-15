@@ -131,7 +131,7 @@ export default function Home() {
 
                                                 <Box sx={{ mb: { xs: 5, lg: 0 }, flex: 1, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
-                                                    <Avatar src={`http://127.0.0.1:8000${data.profilePicture}`} variant='square' sx={{ width: '175px', height: '175px', borderRadius: 2 }} />
+                                                    <Avatar src={`https://haseebxqureshi.pythonanywhere.com${data.profilePicture}`} variant='square' sx={{ width: '175px', height: '175px', borderRadius: 2 }} />
 
                                                 </Box>
 
@@ -244,8 +244,8 @@ export default function Home() {
                                         return (
 
                                             <Box key={data.id} sx={{ maxWidth: '25%' }}>
-                                                <CardMedia sx={{ height: { xs: '100px', lg: '150px' }, width: { xs: '100px', lg: '150px' }, objectFit: 'cover', borderRadius: 2 }} image={`http://127.0.0.1:8000${data.projectImage}`} />
-                                                {/* <img style={{ height: '150px', width: '150px', objectFit: 'cover' }} src={`http://127.0.0.1:8000${data.projectImage}`} alt="" /> */}
+                                                <CardMedia sx={{ height: { xs: '100px', lg: '150px' }, width: { xs: '100px', lg: '150px' }, objectFit: 'cover', borderRadius: 2 }} image={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} />
+                                                {/* <img style={{ height: '150px', width: '150px', objectFit: 'cover' }} src={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} alt="" /> */}
                                             </Box>
 
                                         )

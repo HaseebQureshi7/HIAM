@@ -120,7 +120,7 @@ export default function AddProjects() {
                                     <CardMedia
                                         component="img"
                                         height="194"
-                                        image={`http://127.0.0.1:8000${data.projectImage}`}
+                                        image={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`}
                                         alt={data.name}
                                     />
                                     <CardContent>
