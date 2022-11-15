@@ -11,7 +11,7 @@ export default function ViewUserProfile() {
 
     const navigate = useNavigate()
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/'
 
     const getUsernameURL = baseURL + 'getusername/'
 

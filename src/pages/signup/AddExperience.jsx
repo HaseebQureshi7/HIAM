@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function AddExperience() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/viewuserexperience/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/viewuserexperience/'
 
     const [userId, setUserId] = useState()
     const [xpData, setXpData] = useState()

@@ -7,7 +7,7 @@ import { Fade } from "../../components/AnimationEngine";
 
 export default function MakeCertificate() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/makeusercertificate'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/makeusercertificate'
 
     const navigate = useNavigate()
 

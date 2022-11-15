@@ -7,7 +7,7 @@ import { Fade, FadeUp } from '../../components/AnimationEngine'
 
 export default function Landing() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/token/refresh/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/token/refresh/'
 
     const [animate, setAnimate] = useState(true)
     const navigate = useNavigate()

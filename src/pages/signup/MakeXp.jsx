@@ -7,7 +7,7 @@ import { Fade } from "../../components/AnimationEngine";
 
 export default function MakeXp() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/makeuserexperience'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/makeuserexperience'
 
     const navigate = useNavigate()
 

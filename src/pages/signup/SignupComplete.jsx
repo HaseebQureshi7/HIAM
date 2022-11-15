@@ -12,7 +12,7 @@ export default function SignupComplete() {
 
     const [userData, setUserData] = useState()
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/viewuserprofile/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/viewuserprofile/'
 
     useEffect(()=> {
         axios.get(baseURL + GetUID()).then(res => setUserData(res.data.data[0])).catch(res => console.log(res))

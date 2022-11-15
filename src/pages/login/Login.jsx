@@ -9,7 +9,7 @@ import { RefreshContext } from '../../context/RefreshContext'
 
 export default function Login() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/token/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/token/'
 
     const usernameRef = useRef()
     const passwordRef = useRef()

@@ -17,8 +17,8 @@ export default function Signup() {
 
     const [immediateError, setImmediateError] = useState()
 
-    const checkUserURL = 'http://haseebxqureshi.pythonanywhere.com/api/checkuseravailability'
-    const signUpURL = 'http://haseebxqureshi.pythonanywhere.com/api/signup'
+    const checkUserURL = 'https://haseebxqureshi.pythonanywhere.com/api/checkuseravailability'
+    const signUpURL = 'https://haseebxqureshi.pythonanywhere.com/api/signup'
 
     const [openSnack, setOpenSnack] = useState(false)
     const [snackText, setSnackText] = useState(false)

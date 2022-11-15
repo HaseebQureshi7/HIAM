@@ -8,10 +8,10 @@ import { GetUID } from "../../components/GetUID";
 
 export default function EditProfile() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/makeuserprofile'
-    const viewProfileURL = 'http://haseebxqureshi.pythonanywhere.com/api/viewuserprofile/'
-    const editProfileURL = 'http://haseebxqureshi.pythonanywhere.com/api/edituserprofile/'
-    const updateProfilePictureURL = 'http://haseebxqureshi.pythonanywhere.com/api/editprofilepicture/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/makeuserprofile'
+    const viewProfileURL = 'https://haseebxqureshi.pythonanywhere.com/api/viewuserprofile/'
+    const editProfileURL = 'https://haseebxqureshi.pythonanywhere.com/api/edituserprofile/'
+    const updateProfilePictureURL = 'https://haseebxqureshi.pythonanywhere.com/api/editprofilepicture/'
 
     const navigate = useNavigate()
 

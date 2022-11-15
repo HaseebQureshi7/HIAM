@@ -7,7 +7,7 @@ import { Fade } from "../../components/AnimationEngine";
 
 export default function MakeUserProfile() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/makeuserprofile'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/makeuserprofile'
 
     const navigate = useNavigate()
 

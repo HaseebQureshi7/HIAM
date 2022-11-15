@@ -7,8 +7,8 @@ import { Fade } from "../../components/AnimationEngine";
 
 export default function Community() {
 
-    const newUsersURL = 'http://haseebxqureshi.pythonanywhere.com/api/newusers'
-    const searchUsersURL = 'http://haseebxqureshi.pythonanywhere.com/api/searchuser/'
+    const newUsersURL = 'https://haseebxqureshi.pythonanywhere.com/api/newusers'
+    const searchUsersURL = 'https://haseebxqureshi.pythonanywhere.com/api/searchuser/'
 
     const [newUsers, setNewUsers] = useState(null)
     const [searchedUser, setSearchedUser] = useState(null)

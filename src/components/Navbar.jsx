@@ -7,7 +7,7 @@ import { GetUID } from './GetUID'
 
 export default function Navbar() {
 
-    const userProfileURL = 'http://haseebxqureshi.pythonanywhere.com/api/viewuserprofile/'
+    const userProfileURL = 'https://haseebxqureshi.pythonanywhere.com/api/viewuserprofile/'
 
     const [userProfile, setUserProfile] = useState(null)
     const [open, setOpen] = useState(false)

@@ -11,7 +11,7 @@ else {
 }
 
 export const AxiosInstance = axios.create({
-    baseURL : 'http://haseebxqureshi.pythonanywhere.com/api/makeuserprofile',
+    baseURL : 'https://haseebxqureshi.pythonanywhere.com/api/makeuserprofile',
     timeout : 2000,
     headers : {
         "Authorization" : `Bearer ${Access}`

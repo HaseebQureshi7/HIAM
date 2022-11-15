@@ -9,7 +9,7 @@ export default function ViewAllUserProjects() {
 
     const {id} = useParams()
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/'
 
     const userProjectsURL = baseURL + 'viewuserproject/'
 

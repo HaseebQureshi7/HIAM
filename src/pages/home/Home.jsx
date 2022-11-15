@@ -8,7 +8,7 @@ import { GetUID } from '../../components/GetUID'
 
 export default function Home() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/'
 
     const userProfileURL = baseURL + 'viewuserprofile/'
     const getUsernameURL = baseURL + 'getusername/'

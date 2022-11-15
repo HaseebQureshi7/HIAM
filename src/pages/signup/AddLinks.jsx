@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function AddLinks() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/makeuserlink'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/makeuserlink'
 
     const [userId, setUserId] = useState()
     const [accessToken, setAccessToken] = useState()

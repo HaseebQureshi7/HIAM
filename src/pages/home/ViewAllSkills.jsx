@@ -7,7 +7,7 @@ import { GetUID } from "../../components/GetUID"
 
 export default function ViewAllSkills() {
 
-  const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/'
+  const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/'
 
   const userSkillsURL = baseURL + 'viewuserskill/'
 

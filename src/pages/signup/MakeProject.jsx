@@ -7,7 +7,7 @@ import { Fade } from "../../components/AnimationEngine";
 
 export default function MakeProject() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/makeuserproject'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/makeuserproject'
 
     const navigate = useNavigate()
 

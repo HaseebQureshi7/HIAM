@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function AddCertificates() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/viewusercertificate/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/viewusercertificate/'
 
     const [userId, setUserId] = useState()
     const [xpData, setXpData] = useState()

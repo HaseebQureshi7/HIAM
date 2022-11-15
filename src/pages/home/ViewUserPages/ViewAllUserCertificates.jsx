@@ -7,7 +7,7 @@ import { Fade } from "../../../components/AnimationEngine"
 
 export default function ViewAllUserCertificates() {
 
-  const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/'
+  const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/'
 
   const { id } = useParams()
 

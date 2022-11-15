@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default function TokenRefresher() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/token/refresh/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/token/refresh/'
 
     async function UpdateAccessToken() {
         if (localStorage.getItem('Refresh')) {

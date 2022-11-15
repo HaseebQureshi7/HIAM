@@ -6,10 +6,10 @@ import { useNavigate } from 'react-router-dom'
 
 export default function AddProjects() {
 
-    const baseURL = 'http://haseebxqureshi.pythonanywhere.com/api/viewuserproject/'
+    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/viewuserproject/'
 
-    const makeSkillURL = 'http://haseebxqureshi.pythonanywhere.com/api/makeuserskill'
-    const viewSkillURL = 'http://haseebxqureshi.pythonanywhere.com/api/viewuserskill/'
+    const makeSkillURL = 'https://haseebxqureshi.pythonanywhere.com/api/makeuserskill'
+    const viewSkillURL = 'https://haseebxqureshi.pythonanywhere.com/api/viewuserskill/'
 
     const [userId, setUserId] = useState()
     const [accessToken, setAccessToken] = useState()
