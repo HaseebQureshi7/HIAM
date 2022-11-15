@@ -3,7 +3,6 @@ import { AppBar, Avatar, Badge, Link as MUILink, Box, Card, CardActionArea, Card
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Fade } from '../../components/AnimationEngine'
-import Navbar from '../../components/NavBar'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
 export default function ViewUserProfile() {

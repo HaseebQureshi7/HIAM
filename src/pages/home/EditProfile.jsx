@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Fade } from "../../components/AnimationEngine";
 import { GetUID } from "../../components/GetUID";
-import Navbar from "../../components/NavBar";
 
 export default function EditProfile() {
 

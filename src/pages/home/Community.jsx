@@ -4,7 +4,6 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Fade } from "../../components/AnimationEngine";
-import Navbar from "../../components/NavBar";
 
 export default function Community() {
 
