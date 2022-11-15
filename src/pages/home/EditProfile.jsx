@@ -285,7 +285,7 @@ export default function EditProfile() {
                         </Box>
 
                         <Button onClick={() => setOpenModal(true)} startIcon={<LinkOff />} sx={{ display: { xs: 'none', lg: 'inherit' }, fontWeight: 700 }} variant='outlined'>EDIT LINKS</Button>
-                        <Avatar onClick={() => setOpenModal(true)} sx={{ bgcolor: 'primary.main' }}><LinkOff /></Avatar>
+                        <Avatar sx={{  bgcolor: 'primary.main', display: { xs: 'inherit', lg: 'none' } }} onClick={() => setOpenModal(true)}><LinkOff /></Avatar>
                     </Stack>
 
                     <Divider sx={{ width: '100%' }} />
