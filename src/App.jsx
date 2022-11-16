@@ -28,11 +28,15 @@ import ViewAllUserProjects from './pages/home/ViewUserPages/ViewAllUserProjects'
 import ViewAllUserExperiences from './pages/home/ViewUserPages/ViewAllUserExperiences'
 import ViewAllUserCertificates from './pages/home/ViewUserPages/ViewAllUserCertificates'
 import ViewAllUserSkills from './pages/home/ViewUserPages/ViewAllUserSkills'
+import AddNewProject from './pages/home/AddNewPages/AddNewProject'
+import AddNewExperience from './pages/home/AddNewPages/AddNewExperience'
+import AddNewCertificate from './pages/home/AddNewPages/AddNewCertificate'
 
 function App() {
 
   const [update, setUpdate] = useState(false)
 
+  // ACCESS TOKEN WILL REFRESH EVERY 5 MINUTES
   function Refresher() {
     setTimeout(() => {
       TokenRefresher()
@@ -93,12 +97,16 @@ function App() {
                 <Route path='/allexperiences' element={<> <Navbar /> <ViewAllExperiences /> </>} />
                 <Route path='/allcertificates' element={<> <Navbar /> <ViewAllCertificates /> </>} />
                 <Route path='/allskills' element={<> <Navbar /> <ViewAllSkills /> </>} />
-                
-                <Route path='/users/:id' element={<> <Navbar /> <ViewUserProfile /> </>}/>
-                <Route path='/users/:id/allprojects' element={<> <Navbar /> <ViewAllUserProjects /> </>}/>
-                <Route path='/users/:id/allexperiences' element={<> <Navbar /> <ViewAllUserExperiences /> </>}/>
-                <Route path='/users/:id/allcertificates' element={<> <Navbar /> <ViewAllUserCertificates /> </>}/>
-                <Route path='/users/:id/allskills' element={<> <Navbar /> <ViewAllUserSkills /> </>}/>
+
+                <Route path='/users/:id' element={<> <Navbar /> <ViewUserProfile /> </>} />
+                <Route path='/users/:id/allprojects' element={<> <Navbar /> <ViewAllUserProjects /> </>} />
+                <Route path='/users/:id/allexperiences' element={<> <Navbar /> <ViewAllUserExperiences /> </>} />
+                <Route path='/users/:id/allcertificates' element={<> <Navbar /> <ViewAllUserCertificates /> </>} />
+                <Route path='/users/:id/allskills' element={<> <Navbar /> <ViewAllUserSkills /> </>} />
+
+                <Route path='/addnewproject' element={<> <Navbar /> <AddNewProject /> </>} />
+                <Route path='/addnewexperience' element={<> <Navbar /> <AddNewExperience /> </>} />
+                <Route path='/addnewcertificate' element={<> <Navbar /> <AddNewCertificate /> </>} />
               </>)
               :
               (<>

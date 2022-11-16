@@ -101,15 +101,15 @@ export default function Home() {
                                                                                 {data.name == 'G-mail' ? <Google sx={{ color: 'crimson', width: '35px', height: '35px' }} /> : null}
                                                                             </MUILink>
 
-                                                                            <MUILink href={'//'+ data.link}>
+                                                                            <MUILink href={data.link}>
                                                                                 {data.name == 'linkedIn' ? <LinkedIn sx={{ color: 'blue', width: '35px', height: '35px' }} /> : null}
                                                                             </MUILink>
 
-                                                                            <MUILink href={'//'+ data.link}>
+                                                                            <MUILink href={data.link}>
                                                                                 {data.name == 'Personal Website' ? <Language sx={{ color: 'orange', width: '35px', height: '35px' }} /> : null}
                                                                             </MUILink>
 
-                                                                            <MUILink href={'//'+ data.link}>
+                                                                            <MUILink href={data.link}>
                                                                                 {data.name == 'Instagram' ? <Instagram sx={{ color: 'purple', width: '35px', height: '35px' }} /> : null}
                                                                             </MUILink>
 

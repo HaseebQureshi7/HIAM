@@ -2,6 +2,7 @@ import { Add, Edit, Link as LinkIcon } from "@mui/icons-material"
 import { Avatar, Box, Button, Divider, Link, Stack, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { Fade } from "../../components/AnimationEngine"
 import { GetUID } from "../../components/GetUID"
 
@@ -10,6 +11,8 @@ export default function ViewAllExperiences() {
     const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/'
 
     const userExperiencesURL = baseURL + 'viewuserexperience/'
+
+    const navigate = useNavigate()
 
     const [userExperiences, setUserExperiences] = useState(null)
     const [userExperiencesLength, setUserExperiencesLength] = useState(0)
@@ -26,7 +29,7 @@ export default function ViewAllExperiences() {
                     <Stack sx={{ width: '100%', mt: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontSize: { xs: '2rem', lg: '3rem' }, fontWeight: 700 }} variant='h3'>Experiences ({userExperiencesLength})</Typography>
                         <Avatar sx={{ bgcolor: 'primary.main', display: { xs: 'inherit', lg: 'none' }, fontWeight: 700 }}><Add /></Avatar>
-                        <Button sx={{ display: { xs: 'none', lg: 'inherit' }, fontWeight: 700 }} variant='outlined'>+ ADD EXPERIENCES</Button>
+                        <Button onClick={()=> navigate('/addnewexperience')} sx={{ display: { xs: 'none', lg: 'inherit' }, fontWeight: 700 }} variant='outlined'>+ ADD EXPERIENCES</Button>
                     </Stack>
 
                     <Divider sx={{ width: '100%' }} />
