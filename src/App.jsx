@@ -31,6 +31,7 @@ import ViewAllUserSkills from './pages/home/ViewUserPages/ViewAllUserSkills'
 import AddNewProject from './pages/home/AddNewPages/AddNewProject'
 import AddNewExperience from './pages/home/AddNewPages/AddNewExperience'
 import AddNewCertificate from './pages/home/AddNewPages/AddNewCertificate'
+import EditProject from './pages/home/EditPages/EditProject'
 
 function App() {
 
@@ -107,6 +108,10 @@ function App() {
                 <Route path='/addnewproject' element={<> <Navbar /> <AddNewProject /> </>} />
                 <Route path='/addnewexperience' element={<> <Navbar /> <AddNewExperience /> </>} />
                 <Route path='/addnewcertificate' element={<> <Navbar /> <AddNewCertificate /> </>} />
+
+                <Route path='/editproject' element={<> <Navbar /> <EditProject /> </>} />
+                <Route path='/editexperience' element={<> <Navbar /> <AddNewExperience /> </>} />
+                <Route path='/editcertificate' element={<> <Navbar /> <AddNewCertificate /> </>} />
               </>)
               :
               (<>

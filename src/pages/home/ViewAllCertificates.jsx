@@ -28,7 +28,7 @@ export default function ViewAllCertificates() {
 
           <Stack sx={{ width: '100%', mt: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography sx={{ fontSize: { xs: '2rem', lg: '3rem' }, fontWeight: 700 }} variant='h3'>CERTIFICATES ({userCertificatesLength})</Typography>
-            <Avatar sx={{ bgcolor: 'primary.main', display: { xs: 'inherit', lg: 'none' }, fontWeight: 700 }}><Add /></Avatar>
+            <Avatar onClick={()=> navigate('/addnewcertificate')} sx={{ bgcolor: 'primary.main', display: { xs: 'inherit', lg: 'none' }, fontWeight: 700 }}><Add /></Avatar>
             <Button onClick={()=> navigate('/addnewcertificate')} sx={{ display: { xs: 'none', lg: 'inherit' }, fontWeight: 700 }} variant='outlined'>+ ADD CERTIFICATES</Button>
           </Stack>
 
