@@ -1,8 +1,8 @@
 import { Add, Edit, Link as LinkIcon } from "@mui/icons-material"
-import { Avatar, Box, Button, Divider, Link, Stack, Typography } from "@mui/material"
+import { Avatar, Box, Button, Divider, Stack, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Fade } from "../../components/AnimationEngine"
 import { GetUID } from "../../components/GetUID"
 
@@ -55,10 +55,10 @@ export default function ViewAllProjects() {
                                         <Typography sx={{ fontWeight: 700 }} variant='h6'>{data.releaseDate}</Typography>
                                     </Stack>
                                     <Stack gap={2.5} direction='row'>
-                                        <Link href={data.projectLink}>
+                                        <Link to={'//' + data.projectLink}>
                                             <Avatar sx={{ bgcolor: 'black', '&:hover': { rotate: '-45deg', transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 1s ease ' } }} > <LinkIcon /></Avatar>
                                         </Link>
-                                        <Link href={data.projectLink}>
+                                        <Link to={`/editproject/${data.id}`} >
                                             <Avatar sx={{ bgcolor: 'black' }}><Edit /></Avatar>
                                         </Link>
                                     </Stack>

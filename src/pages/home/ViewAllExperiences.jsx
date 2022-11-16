@@ -1,8 +1,8 @@
 import { Add, Edit, Link as LinkIcon } from "@mui/icons-material"
-import { Avatar, Box, Button, Divider, Link, Stack, Typography } from "@mui/material"
+import { Avatar, Box, Button, Divider, Stack, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Fade } from "../../components/AnimationEngine"
 import { GetUID } from "../../components/GetUID"
 
@@ -58,7 +58,7 @@ export default function ViewAllExperiences() {
                                         </Stack>
                                     </Stack>
                                     <Stack gap={2.5} direction='row'>
-                                        <Link href={data.projectLink}>
+                                        <Link to={`/editexperience/${data.id}`}>
                                             <Avatar sx={{ bgcolor: 'black' }}><Edit /></Avatar>
                                         </Link>
                                     </Stack>

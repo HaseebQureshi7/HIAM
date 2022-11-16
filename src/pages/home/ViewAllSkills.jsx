@@ -1,7 +1,8 @@
 import { Add, Close, Delete, DeleteForever, Edit, Launch, Link as LinkIcon } from "@mui/icons-material"
-import { Avatar, Box, Button, Chip, Divider, FormControlLabel, Link, Modal, Radio, RadioGroup, Stack, TextField, Typography } from "@mui/material"
+import { Alert, Avatar, Box, Button, Chip, Divider, FormControlLabel, Link, Modal, Radio, RadioGroup, Snackbar, Stack, TextField, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { Fade } from "../../components/AnimationEngine"
 import { GetUID } from "../../components/GetUID"
 
@@ -9,8 +10,17 @@ export default function ViewAllSkills() {
 
   const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/'
   const makeSkillURL = 'https://haseebxqureshi.pythonanywhere.com/api/makeuserskill'
+  const deleteSkillURL = 'https://haseebxqureshi.pythonanywhere.com/api/deleteuserskill/'
 
   const userSkillsURL = baseURL + 'viewuserskill/'
+
+  const navigate = useNavigate()
+
+  const [openSnack, setOpenSnack] = useState(false)
+  const [snackText, setSnackText] = useState(false)
+  const [severity, setSeverity] = useState()
+
+  const [updateList, setUpdateList] = useState(false)
 
   const [accessToken, setAccessToken] = useState()
 
@@ -28,6 +38,18 @@ export default function ViewAllSkills() {
     }
   };
 
+
+  async function DeleteSkill(sid, name) {
+    await axios.delete(deleteSkillURL + sid, axiosConfig).then(res => {
+      navigate('/allskills');
+      setOpenSnack(true);
+      setSeverity("success");
+      setSnackText(name + ' WAS DELETED SUCCESSFULLY!');
+      setUpdateList(!updateList)
+    }).catch(res => console.log(res))
+  }
+
+
   async function AddSkill(e) {
     e.preventDefault()
     let form = new FormData()
@@ -35,7 +57,13 @@ export default function ViewAllSkills() {
     form.append('name', skillRef.current.value)
     form.append('level', level)
 
-    await axios.post(makeSkillURL, form, axiosConfig).then(res => { console.log(res); setOpenModal(false) }).catch(res => console.log(res))
+    await axios.post(makeSkillURL, form, axiosConfig).then(res => {
+      console.log(res);
+      setOpenModal(false);
+      setOpenSnack(true);
+      setSeverity("success");
+      setSnackText(skillRef.current.value + ' WAS ADDED SUCCESSFULLY!');
+    }).catch(res => console.log(res))
   }
 
   useEffect(() => {
@@ -50,12 +78,20 @@ export default function ViewAllSkills() {
       setSeverity("error")
       setSnackText("FATAL ERROR! UID/ACCESS TOKEN WAS NOT FOUND!")
     }
-  }, [openModal])
+  }, [openModal, updateList])
 
   return (
     <>
       <Fade>
         <Box sx={{ width: { xs: '90%', lg: '75%' }, m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: 5 }}>
+
+          <Snackbar
+            open={openSnack}
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            autoHideDuration={6000}
+            onClose={() => setOpenSnack(!openSnack)}>
+            <Alert severity={severity} variant='filled'>{snackText}</Alert>
+          </Snackbar>
 
           <Stack sx={{ width: '100%', mt: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography sx={{ fontSize: { xs: '2rem', lg: '3rem' }, fontWeight: 700 }} variant='h3'>SKILLS ({userSkillsLength})</Typography>
@@ -112,9 +148,9 @@ export default function ViewAllSkills() {
 
                 <Typography sx={{ flex: 8, mx: 2.5, fontWeight: 700 }} variant="h6">{data.name.toUpperCase()}</Typography>
 
-                <Avatar sx={{ fontWeight: 900, bgcolor: 'transparent', color: 'primary.main' }}><Link href={''}>
-                  <Avatar sx={{ bgcolor: 'error.main' }}><DeleteForever /></Avatar>
-                </Link></Avatar>
+                <Avatar sx={{ fontWeight: 900, bgcolor: 'transparent', color: 'primary.main' }}>
+                  <Avatar onClick={() => DeleteSkill(data.id, data.name)} sx={{ bgcolor: 'error.main' }}><DeleteForever /></Avatar>
+                </Avatar>
 
               </Stack>
 
