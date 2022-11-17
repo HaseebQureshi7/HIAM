@@ -106,11 +106,8 @@ export default function AddLinks() {
                         <Alert severity={severity} variant='filled'>{snackText}</Alert>
                     </Snackbar>
 
-                    <Typography sx={{ fontWeight: '500', fontSize: { xs: '3rem', lg: '4rem' } }} variant='h2' component="div">WELCOME TO HIAM
+                    <Typography sx={{ fontWeight: '500', fontSize: { xs: '2.5rem', lg: '4rem' } }} variant='h2' component="div">WELCOME TO HIAM
                         <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER YOUR DETAILS TO MAKE YOUR PROFILE</Typography>
-                        <Box sx={{ width: { xs: '5%', md: '1%' }, height: 'auto', mr: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                            <img style={{ width: '100%', height: 'auto' }} src="/images/party-emoji-png.png" alt="" />
-                        </Box>
                     </Typography>
 
                     <Divider sx={{ width: '100%' }} />
@@ -122,7 +119,7 @@ export default function AddLinks() {
                         <Grid container sx={{ width: '100%', }}>
 
                             <Grid xs={12} md={10} item >
-                                <Typography sx={{ fontWeight: '500' }} variant='h4' component="div">ADD LINKS
+                                <Typography sx={{ fontWeight: '500', fontSize:{xs:'1.5rem',lg:'2.5rem'} }} variant='h4' component="div">ADD LINKS
                                     <Typography sx={{ fontWeight: '500', color: 'grey', fontSize: '0.75rem' }} variant='subtitle2'>YOUR LINKS WILL BE AUTOMATICALLY SORTED</Typography>
 
                                 </Typography>
@@ -170,6 +167,11 @@ export default function AddLinks() {
 
                     {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 0 } }}>
                         <Button onClick={(e) => PushLinks(e)} disabled={isDisabled} sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>FINISH</Button>
+                        
+                        <Box sx={{ width: { xs: '10%', md: '1%' }, height: 'auto', mr: 'auto', ml:1, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                            <img style={{ width: '100%', height: 'auto' }} src="/images/party-emoji-png.png" alt="" />
+                        </Box>
+
                     </Box> : <Box sx={{ width: '100%' }}>
                         <CircularProgress sx={{ float: 'right', m: 'auto', textAlign: 'center' }} />
                     </Box>

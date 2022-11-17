@@ -158,8 +158,8 @@ export default function EditProject() {
                         <Alert severity={severity} variant='filled'>{snackText}</Alert>
                     </Snackbar>
 
-                    <Typography sx={{ fontWeight: '500', fontSize: { xs: '3rem', lg: '3rem' } }} variant='h2' component="div">EDIT PROJECT
-                        <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>NEW PROJECT DETAILS WILL BE REFLECTED IMMEDIATELY</Typography>
+                    <Typography sx={{ fontWeight: '500', fontSize: { xs: '2.5rem', lg: '3rem' } }} variant='h2' component="div">EDIT PROJECT
+                        <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER NEW DETAILS UPDATE THIS PROJECT RECORD.</Typography>
                     </Typography>
 
                     <Divider sx={{ width: '100%' }} />
@@ -201,12 +201,12 @@ export default function EditProject() {
                         </Box>
 
                         {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 5 } }}>
-                            <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>SAVE CHANGES</Button>
+                            <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' color='success' endIcon={<NavigateNext sx={{ color: 'white' }} />}>SAVE CHANGES</Button>
 
                             {sure == false ? <Button onClick={() => setSure(true)} color="error" disabled={isDisabled} sx={{ float: 'right', mr: { xs: 0, lg: 5 }, mt: { xs: 3, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>DELETE PROJECT</Button> : <Button onClick={() => DeleteProject()} color="error" disabled={isDisabled} sx={{ float: 'right', mr: { xs: 0, lg: 5 }, mt: { xs: 3, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>ARE YOU SURE ?</Button>}
 
                         </Box> : <Box sx={{ width: '100%' }}>
-                            <CircularProgress sx={{ float: 'right', textAlign: 'center' }} />
+                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt:{xs:2.5,lg:0} }} />
                         </Box>
                         }
                     </form> : null}

@@ -119,7 +119,7 @@ export default function MakeUserProfile() {
                         <Alert severity={severity} variant='filled'>{snackText}</Alert>
                     </Snackbar>
 
-                    <Typography sx={{ fontWeight: '500', fontSize:{xs:'3rem',lg:'4rem'} }} variant='h3' component="div">WELCOME TO HIAM
+                    <Typography sx={{ fontWeight: '500', fontSize:{xs:'2.5rem',lg:'4rem'} }} variant='h3' component="div">WELCOME TO HIAM
                         <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER YOUR DETAILS TO MAKE YOUR PROFILE</Typography>
                     </Typography>
 
@@ -168,7 +168,7 @@ export default function MakeUserProfile() {
                         {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 0 } }}>
                             <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>NEXT</Button>
                         </Box> : <Box sx={{ width: '100%' }}>
-                            <CircularProgress sx={{ float: 'right', textAlign: 'center' }} />
+                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt:'2.5vh' }} />
                         </Box>
                         }
                     </form>

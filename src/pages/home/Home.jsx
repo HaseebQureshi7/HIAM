@@ -145,22 +145,22 @@ export default function Home() {
 
                                                 <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
-                                                    <Typography sx={{ fontWeight: 700, fontSize: '2rem' }} variant='h4'>{data.qualification}</Typography>
-                                                    <Typography variant='subtitle1'>QUALIFICATION</Typography>
+                                                    <Typography sx={{ fontWeight: 700, fontSize: {xs:'1.5rem',lg:'2rem'} }} variant='h4'>{data.qualification}</Typography>
+                                                    <Typography sx={{ fontSize: {xs:'0.75rem',lg:'1rem'} }} variant='subtitle1'>QUALIFICATION</Typography>
 
                                                 </Box>
 
                                                 <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
-                                                    <Typography sx={{ fontWeight: 700, fontSize: '2rem' }} variant='h4'>{data.experience}</Typography>
-                                                    <Typography variant='subtitle1'>YEARS OF XP</Typography>
+                                                    <Typography sx={{ fontWeight: 700, fontSize: {xs:'1.5rem',lg:'2rem'} }} variant='h4'>{data.experience}</Typography>
+                                                    <Typography sx={{ fontSize: {xs:'0.75rem',lg:'1rem'} }} variant='subtitle1'>EXPERIENCE</Typography>
 
                                                 </Box>
 
                                                 <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
-                                                    <Typography sx={{ fontWeight: 700, fontSize: '2rem' }} variant='h4'>{data.location}</Typography>
-                                                    <Typography variant='subtitle1'>LOCATION</Typography>
+                                                    <Typography sx={{ fontWeight: 700, fontSize: {xs:'1.5rem',lg:'2rem'} }} variant='h4'>{data.location}</Typography>
+                                                    <Typography sx={{ fontSize: {xs:'0.75rem',lg:'1rem'} }} variant='subtitle1'>LOCATION</Typography>
 
                                                 </Box>
 
@@ -179,6 +179,8 @@ export default function Home() {
                                                 </Box>
 
                                             </Box>
+
+                                            <Divider sx={{ display:{xs:'inherit',lg:'none'},width: '80%', margin: '25px 0px' }} />
 
                                         </Box>
 
@@ -256,13 +258,15 @@ export default function Home() {
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
                                     <Link to='/allprojects'>
-                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary' }} variant='subtitle2'>
-                                            VIEW MORE PROJECTS {'>>'}
+                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign:{xs:'center',lg:'end'}, textDecoration:'underline' }} variant='subtitle2'>VIEW MORE PROJECTS {'>>'}
                                         </Typography>
                                     </Link>
 
                                 </Box>
                             </Box>
+
+                            <Divider sx={{ width: '90%', margin: '0px 0px' }} />
+
 
                             {/* EXPERIENCE SECTION */}
                             <Box sx={{ width: '100%', p: { xs: '0 0', lg: '0 2.5vw' }, maxHeight: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
@@ -289,7 +293,7 @@ export default function Home() {
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
                                     <Link to='/allexperiences'>
-                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary' }} variant='subtitle2'>
+                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign:{xs:'center',lg:'end'}, textDecoration:'underline'  }} variant='subtitle2'>
                                             VIEW MORE EXPERIENCES {'>>'}
                                         </Typography>
                                     </Link>
@@ -298,6 +302,7 @@ export default function Home() {
 
                             </Box>
 
+                            <Divider sx={{ width: '90%', margin: '5px 0px' }} />
 
                             {/* CERTIFICATIONS SECTION */}
                             <Box sx={{ width: '100%', p: { xs: '0 0', lg: '0 2.5vw' }, maxHeight: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
@@ -325,7 +330,7 @@ export default function Home() {
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
                                     <Link to='/allcertificates'>
-                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary' }} variant='subtitle2'>
+                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign:{xs:'center',lg:'end'}, textDecoration:'underline'  }} variant='subtitle2'>
                                             VIEW MORE CERTIFICATES {'>>'}
                                         </Typography>
                                     </Link>
@@ -333,6 +338,8 @@ export default function Home() {
                                 </Box>
 
                             </Box>
+
+                            <Divider sx={{ width: '90%', margin: '5px 0px' }} />
 
                             {/* SKILLS SECTION */}
                             <Box sx={{ width: '100%', p: { xs: '0 0', lg: '0 2.5vw' }, maxHeight: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
@@ -351,7 +358,7 @@ export default function Home() {
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
                                     <Link to='/allskills'>
-                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary' }} variant='subtitle2'>
+                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign:{xs:'center',lg:'end'}, textDecoration:'underline'  }} variant='subtitle2'>
                                             VIEW MORE SKILLS {'>>'}
                                         </Typography>
                                     </Link>

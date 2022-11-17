@@ -79,7 +79,7 @@ export default function MakeProject() {
                     console.log(res); console.log('Not submitted!')
                     setOpenSnack(true)
                     setSeverity("error")
-                    setSnackText("COULDN'T LOG YOU IN!")
+                    setSnackText("COULDN'T ADD PROJECT!")
                 }
             })
 
@@ -119,8 +119,7 @@ export default function MakeProject() {
                         <Alert severity={severity} variant='filled'>{snackText}</Alert>
                     </Snackbar>
 
-                    <Typography sx={{ fontWeight: '500', fontSize:{xs:'3rem',lg:'4rem'} }} variant='h2' component="div">WELCOME TO HIAM
-                        <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER YOUR DETAILS TO MAKE YOUR PROFILE</Typography>
+                    <Typography sx={{ fontWeight: '500', fontSize: { xs: '2.5rem', lg: '4rem' } }} variant='h2' component="div">WELCOME TO HIAM<Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER YOUR DETAILS TO MAKE YOUR PROFILE</Typography>
                     </Typography>
 
                     <Divider sx={{ width: '100%' }} />
@@ -155,7 +154,7 @@ export default function MakeProject() {
                                     <Avatar variant="square" src={dp} sx={{ height: 200, width: 220 }} />
                                     <Button onChange={LiveDp} variant="outlined" component="label">
                                         + ADD A PROJECT SCREEN
-                                        <input type="file"  accept="image/png, image/gif, image/jpeg"  hidden />
+                                        <input type="file" accept="image/png, image/gif, image/jpeg" hidden />
                                     </Button>
                                 </Stack>
                             </Box>
@@ -165,7 +164,7 @@ export default function MakeProject() {
                         {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 5 } }}>
                             <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>NEXT</Button>
                         </Box> : <Box sx={{ width: '100%' }}>
-                            <CircularProgress sx={{ float: 'right', textAlign: 'center' }} />
+                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt: { xs: 2.5, lg: 0 } }} />
                         </Box>
                         }
                     </form>

@@ -25,7 +25,7 @@ export default function SignupComplete() {
                     <Stack sx={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
                         <Stack sx={{ textAlign: 'center' }}>
                             <Typography variant='h5'>WELOCME TO HIAM</Typography>
-                            <Typography fontWeight={700} variant='h3'>{userData ? userData.fname + ' ' + userData.lname : null}</Typography>
+                            <Typography sx={{fontSize:{xs:'2.25rem',lg:'2rem'}}} fontWeight={700} variant='h3'>{userData ? userData.fname.toUpperCase() + ' ' + userData.lname.toUpperCase() : null}</Typography>
                         </Stack>
 
                         <PopOut>

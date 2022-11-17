@@ -103,7 +103,7 @@ export default function EditCertificate() {
                         <Alert severity={severity} variant='filled'>{snackText}</Alert>
                     </Snackbar>
 
-                    <Typography sx={{ fontWeight: '500', fontSize: { xs: '3rem', lg: '3rem' } }} variant='h2' component="div">EDIT CERTIFICATE
+                    <Typography sx={{ fontWeight: '500', fontSize: { xs: '2.5rem', lg: '3rem' } }} variant='h2' component="div">EDIT CERTIFICATE
                         <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER NEW DETAILS UPDATE THIS CERTIFICATE RECORD</Typography>
                     </Typography>
 
@@ -134,11 +134,11 @@ export default function EditCertificate() {
                             <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' color="primary" endIcon={<Add sx={{ color: 'white' }} />}>SAVE</Button>
 
 
-                            {sure == false ? <Button onClick={() => setSure(true)} color="error" disabled={isDisabled} sx={{ float: 'right', mr: { xs: 0, lg: 5 }, mt: { xs: 3, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>DELETE PROJECT</Button> : <Button onClick={() => DeleteCertificate()} color="error" disabled={isDisabled} sx={{ float: 'right', mr: { xs: 0, lg: 5 }, mt: { xs: 3, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>ARE YOU SURE ?</Button>}
-
-                            <Button onClick={() => navigate('/allcertificates')} disabled={isDisabled} sx={{ float: 'right', mr: 5 }} size="large" variant='outlined' color="error" endIcon={<Close sx={{ color: 'error.main' }} />}>CANCEL</Button>
+                            {sure == false ? <Button onClick={() => setSure(true)} color="error" disabled={isDisabled} sx={{ float: {xs:'none',lg:'right'}, mr: { xs: 0, lg: 5 }, mt: { xs: 0, lg: 0 } }}  size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>DELETE PROJECT</Button> : <Button onClick={() => DeleteCertificate()} color="error" disabled={isDisabled} sx={{ float: {xs:'none',lg:'right'}, mr: { xs: 0, lg: 5 }, mt: { xs: 0, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>ARE YOU SURE ?</Button>}
+{/* 
+                            <Button onClick={() => navigate('/allcertificates')} disabled={isDisabled} sx={{ float: 'right', mr: 5 }} size="large" variant='outlined' color="error" endIcon={<Close sx={{ color: 'error.main' }} />}>CANCEL</Button> */}
                         </Box> : <Box sx={{ width: '100%' }}>
-                            <CircularProgress sx={{ float: 'right', textAlign: 'center' }} />
+                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt: { xs: 2.5, lg: 0 }  }} />
                         </Box>
                         }
                     </form> : null}

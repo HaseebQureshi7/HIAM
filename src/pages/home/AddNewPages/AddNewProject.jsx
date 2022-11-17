@@ -119,7 +119,7 @@ export default function AddNewProject() {
                         <Alert severity={severity} variant='filled'>{snackText}</Alert>
                     </Snackbar>
 
-                    <Typography sx={{ fontWeight: '500', fontSize: { xs: '3rem', lg: '3rem' } }} variant='h2' component="div">ADD NEW PROJECT
+                    <Typography sx={{ fontWeight: '500', fontSize: { xs: '2.5rem', lg: '3rem' } }} variant='h2' component="div">ADD NEW PROJECT
                         <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER PROJECT DETAILS TO ADD IT TO YOUR PROFILE</Typography>
                     </Typography>
 
@@ -165,7 +165,7 @@ export default function AddNewProject() {
                         {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 5 } }}>
                             <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>ADD PROJECT</Button>
                         </Box> : <Box sx={{ width: '100%' }}>
-                            <CircularProgress sx={{ float: 'right', textAlign: 'center' }} />
+                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt:{xs:2.5, lg:0} }} />
                         </Box>
                         }
                     </form>

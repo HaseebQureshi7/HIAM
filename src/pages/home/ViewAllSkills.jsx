@@ -107,14 +107,14 @@ export default function ViewAllSkills() {
 
               <Box sx={{ width: '100%', p: 2.5, minHeight: '50vh', borderRadius: 5, bgcolor: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
 
-                <Stack sx={{ width: '100%' }} direction="row">
+                <Stack sx={{ width: '100%', p: "0.5vh 0vh" }} direction="row">
                   <Typography sx={{ fontWeight: '700', fontSize: '2rem' }} variant='h4'>ADD SKILLS</Typography>
                   <Avatar onClick={() => setOpenModal(false)} sx={{ bgcolor: 'error.light', ml: 'auto' }}><Close /></Avatar>
                 </Stack>
 
-                <Typography sx={{ fontWeight: '700', color: 'text.secondary', fontSize: '0.75rem' }} variant='subtitle2'>ADDED SKILLS WILL BE EDITABLE LATER</Typography>
+                <Typography sx={{ fontWeight: '500', color: 'text.secondary', fontSize: '0.75rem' }} variant='subtitle2'>ADDED SKILLS WILL BE EDITABLE LATER</Typography>
 
-                <Divider sx={{ width: '100%', mb: { xs: 0, lg: 5 } }} />
+                <Divider sx={{ width: '100%', mb: { xs: 5, lg: 5 } }} />
 
                 <form style={{ width: '90%', margin: 'auto' }} onSubmit={(e) => AddSkill(e)} >
                   <Stack sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-end' }} >

@@ -13,7 +13,7 @@ export default function Signup() {
     const [loading, setLoading] = useState(false)
     const [isUnique, setIsUnique] = useState(false)
 
-    const {update, setUpdate} = useContext(RefreshContext)
+    const { update, setUpdate } = useContext(RefreshContext)
 
     const [immediateError, setImmediateError] = useState()
 
@@ -50,7 +50,7 @@ export default function Signup() {
                 localStorage.setItem("Refresh", res.data.refresh)
                 localStorage.setItem("Signup-mode", true)
                 TokenDecoder()
-                setUpdate(update+1) // RefreshToken State Update
+                setUpdate(update + 1) // RefreshToken State Update
             }).catch(res => {
                 setLoading(false)
                 setIsDisabled(false)
@@ -114,7 +114,7 @@ export default function Signup() {
 
                 <Box sx={{ width: { sm: '85%', lg: '30%' } }} >
                     <form onSubmit={(e) => HandleSubmit(e)}>
-                        <Stack gap={{xs:6, lg:4}} direction={'column'}>
+                        <Stack gap={{ xs: 6, lg: 4 }} direction={'column'}>
                             <TextField onChange={CheckUsername} inputRef={usernameRef} label="Username" variant="outlined" InputLabelProps={{ shrink: true }} placeholder='Select a Unique Username' required InputProps={{
                                 endAdornment: (
                                     <InputAdornment position="start">
