@@ -251,7 +251,6 @@ export default function ViewUserProfile() {
 
                                             <Box key={data.id} sx={{ maxWidth: '25%' }}>
                                                 <CardMedia sx={{ height: { xs: '100px', lg: '150px' }, width: { xs: '100px', lg: '150px' }, objectFit: 'cover', borderRadius: 2 }} image={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} />
-                                                {/* <img style={{ height: '150px', width: '150px', objectFit: 'cover' }} src={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} alt="" /> */}
                                             </Box>
 
                                         )
@@ -261,7 +260,7 @@ export default function ViewUserProfile() {
 
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
-                                    <Link to='/allprojects'>
+                                    <Link to={`/users/${id}/allprojects`}>
                                         <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign:{xs:'center',lg:'end'}, textDecoration:'underline' }} variant='subtitle2'>VIEW MORE PROJECTS {'>>'}
                                         </Typography>
                                     </Link>
@@ -296,7 +295,7 @@ export default function ViewUserProfile() {
 
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
-                                    <Link to='/allexperiences'>
+                                    <Link to={`/users/${id}/allexperiences`}>
                                         <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign:{xs:'center',lg:'end'}, textDecoration:'underline'  }} variant='subtitle2'>
                                             VIEW MORE EXPERIENCES {'>>'}
                                         </Typography>
@@ -333,7 +332,7 @@ export default function ViewUserProfile() {
 
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
-                                    <Link to='/allcertificates'>
+                                    <Link to={`/users/${id}/allcertificates`}>
                                         <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign:{xs:'center',lg:'end'}, textDecoration:'underline'  }} variant='subtitle2'>
                                             VIEW MORE CERTIFICATES {'>>'}
                                         </Typography>
@@ -361,7 +360,7 @@ export default function ViewUserProfile() {
 
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
-                                    <Link to='/allskills'>
+                                    <Link  to={`/users/${id}/allskills`}>
                                         <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign:{xs:'center',lg:'end'}, textDecoration:'underline'  }} variant='subtitle2'>
                                             VIEW MORE SKILLS {'>>'}
                                         </Typography>

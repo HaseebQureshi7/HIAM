@@ -1,5 +1,5 @@
 import { Launch, People, Search, ViewAgenda } from "@mui/icons-material";
-import { Avatar, Box, Chip, InputAdornment, Stack, TextField, Typography } from "@mui/material";
+import { Avatar, Box, Chip, Divider, InputAdornment, Stack, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -59,7 +59,7 @@ export default function Community() {
                     {/* NEW PEOPLE SECTION */}
                     <Box sx={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'flex-start', gap: 2.5 }} >
 
-                        <Typography sx={{ fontSize: '2rem', fontWeight: 700 }} variant="h4">NEWEST MEMBERS OF HIAM</Typography>
+                        <Typography sx={{ fontSize: { xs: '1.5rem', lg: '2rem' }, fontWeight: 700 }} variant="h4">NEWEST MEMBERS OF HIAM</Typography>
 
                         <Stack sx={{ width: '100%', height: 'auto', gap: 2.5 }} direction="column">
 
@@ -77,20 +77,40 @@ export default function Community() {
                                         </Stack>
 
                                         {/* PEOPLE MOBILE */}
-                                        <Stack sx={{ display: { xs: 'flex', lg: 'none' }, width: '100%', height: 'auto', p: 1, justifyContent: 'space-between', alignItems: 'center' }} gap={0} direction="column">
+                                        <Stack sx={{ display: { xs: 'flex', lg: 'none' }, width: '100%', height: 'auto', flexWrap: 'wrap', p: 1, justifyContent: 'space-between', alignItems: 'center' }} gap={0} direction="row">
+                                            {/* 
+                                            <Stack sx={{ width: '100%', m: '5px 0px', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', gap: 1, alignItems: 'flex-start', borderLeft: '2px solid black', pl: 1.75 }}>
 
-                                            <Stack sx={{ width: '100%', m: '10px 0px', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', gap: 1, alignItems: 'flex-start', borderLeft: '2px solid black', pl: 1.75 }}>
-
-                                                <Avatar src={`https://haseebxqureshi.pythonanywhere.com${data.profilePicture}`} variant="square" sx={{ width: '100px', height: '100px' }} />
-                                                <Typography sx={{ fontWeight: 700 }} variant="h6">{data.fname + ' ' + data.lname}</Typography>
+                                                <Avatar src={`https://haseebxqureshi.pythonanywhere.com${data.profilePicture}`} variant="square" sx={{ width: '75px', height: '75px' }} />
+                                                <Typography sx={{ fontWeight: 700, fontSize:'1.5rem' }} variant="h6">{data.fname + ' ' + data.lname}</Typography>
                                                 <Typography sx={{ fontWeight: 700 }} variant="h6">{data.position}</Typography>
 
                                                 <Stack width="100%" justifyContent={'space-between'} direction="row">
-                                                    <Typography sx={{ fontWeight: 700 }} variant="h6">{data.experience} YEARS</Typography>
+                                                    <Typography sx={{ fontWeight: 700, fontSize:'1rem' }} variant="h6">{data.experience} YEARS</Typography>
                                                     <Avatar sx={{ fontWeight: 900, bgcolor: 'transparent', borderTopLeftRadius: 0, border: '3px solid', color: 'primary.main' }}><Link to={`/users/${data.belongsTo}`}><Launch sx={{ color: 'primary.main' }} /></Link></Avatar>
                                                 </Stack>
 
-                                            </Stack>
+                                            </Stack> */}
+
+                                            <Link style={{
+                                                display: 'flex', width: '100%', alignItems: 'center', textDecoration: 'none', color: 'inherit', justifyContent: 'flex-end'
+                                            }} to={`/users/${data.belongsTo}`}>
+                                                <Stack sx={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: 0, alignItems: 'center', }}>
+
+                                                    <Avatar src={`https://haseebxqureshi.pythonanywhere.com${data.profilePicture}`} sx={{ width: '75px', height: '75px' }} />
+
+                                                    <Stack sx={{ mr: 2, textAlign: 'end' }}>
+
+                                                        <Typography sx={{ fontWeight: 700, fontSize: '1rem' }} variant="h6">{data.fname + ' ' + data.lname}</Typography>
+                                                        <Typography sx={{ fontWeight: 500 }} variant="subtitle2">{data.position}</Typography>
+                                                        <Typography sx={{ fontWeight: 500 }} variant="subtitle2">{data.experience} Years</Typography>
+
+                                                    </Stack>
+
+                                                </Stack>
+                                            </Link>
+
+                                            {/* <Divider sx={{width:'75%', m:'auto'}} /> */}
 
                                         </Stack>
 
