@@ -150,21 +150,21 @@ export default function ViewUserProfile() {
                                                 <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
                                                     <Typography sx={{ fontWeight: 700, fontSize: {xs:'1.5rem',lg:'2rem'} }} variant='h4'>{data.qualification}</Typography>
-                                                    <Typography sx={{ fontSize: {xs:'0.75rem',lg:'1rem'} }} variant='subtitle1'>QUALIFICATION</Typography>
+                                                    <Typography sx={{ color:'text.secondary', fontWeight:700, fontSize: {xs:'0.75rem',lg:'1rem'} }} variant='subtitle1'>QUALIFICATION</Typography>
 
                                                 </Box>
 
                                                 <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
                                                     <Typography sx={{ fontWeight: 700, fontSize: {xs:'1.5rem',lg:'2rem'} }} variant='h4'>{data.experience}</Typography>
-                                                    <Typography sx={{ fontSize: {xs:'0.75rem',lg:'1rem'} }} variant='subtitle1'>EXPERIENCE</Typography>
+                                                    <Typography sx={{ color:'text.secondary', fontWeight:700, fontSize: {xs:'0.75rem',lg:'1rem'} }} variant='subtitle1'>EXPERIENCE</Typography>
 
                                                 </Box>
 
                                                 <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
                                                     <Typography sx={{ fontWeight: 700, fontSize: {xs:'1.5rem',lg:'2rem'} }} variant='h4'>{data.location}</Typography>
-                                                    <Typography sx={{ fontSize: {xs:'0.75rem',lg:'1rem'} }} variant='subtitle1'>LOCATION</Typography>
+                                                    <Typography sx={{ color:'text.secondary', fontWeight:700, fontSize: {xs:'0.75rem',lg:'1rem'} }} variant='subtitle1'>LOCATION</Typography>
 
                                                 </Box>
 
@@ -178,7 +178,7 @@ export default function ViewUserProfile() {
                                                 <Box sx={{ width: { xs: '90%', lg: '85%' }, m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
 
                                                     <Typography sx={{ fontWeight: 700, m: { xs: '25px 0 ', lg: '0px' } }} variant='h5'>BIOGRAPHY</Typography>
-                                                    <Typography sx={{ fontWeight: 700, textAlign: { xs: 'center', lg: 'start' } }} variant='subtitle2'>{data.biography}</Typography>
+                                                    <Typography sx={{ color:'text.secondary',fontWeight: 700, textAlign: { xs: 'center', lg: 'start' } }} variant='subtitle2'>{data.biography}</Typography>
 
                                                 </Box>
 
@@ -282,11 +282,11 @@ export default function ViewUserProfile() {
                                         return (
                                             <Card key={data.id} sx={{ flex: 1, boxShadow: 0, maxWidth: '100%' }}>
                                                 <CardActionArea>
-                                                    <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.5rem', lg: '1.75rem' } }} variant="h4">{data.companyName}</Typography>
-                                                    <Typography sx={{ float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1">{data.fullTime}</Typography>
+                                                    <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.25rem', lg: '1.75rem' } }} variant="h4">{data.companyName}</Typography>
+                                                    <Typography sx={{color:'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1">{data.fullTime}</Typography>
                                                     <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle1"> {data.position} </Typography>
-                                                    <Typography sx={{ float: 'right', fontWeight: 700, p: 1 }} variant="subtitle2"> To {data.endDate}</Typography>
-                                                    <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle2"> From {data.startDate}</Typography>
+                                                    <Typography sx={{color:'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle2"> To {data.endDate}</Typography>
+                                                    <Typography sx={{color:'text.secondary', textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle2"> From {data.startDate}</Typography>
                                                 </CardActionArea>
                                             </Card>
                                         )
@@ -318,10 +318,10 @@ export default function ViewUserProfile() {
                                         return (
                                             <Card key={data.id} sx={{ flex: 1, boxShadow: 0, maxWidth: '100%' }}>
                                                 <CardActionArea>
-                                                    <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.5rem', lg: '1.75rem' } }} variant="h4">{data.name}</Typography>
-                                                    <Typography sx={{ float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1"> On: {data.issueDate}</Typography>
+                                                    <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.25rem', lg: '1.75rem' } }} variant="h4">{data.name}</Typography>
+                                                    <Typography sx={{color:'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1"> On: {data.issueDate}</Typography>
                                                     <Typography sx={{ fontWeight: 700, p: 1 }} variant="subtitle1"> Issued by : {data.issuedBy} </Typography>
-                                                    <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle2">Link : {data.link}</Typography>
+                                                    <Typography sx={{color:'text.secondary', textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle2">Link : {data.link}</Typography>
                                                 </CardActionArea>
                                             </Card>
 

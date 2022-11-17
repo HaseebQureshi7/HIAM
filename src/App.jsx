@@ -88,7 +88,7 @@ function App() {
       mode: 'light'
     },
     typography: {
-      fontFamily: 'Montserrat'
+      fontFamily: 'Questrial'
     }
   })
 
