@@ -6,7 +6,7 @@ export default function TokenRefresher() {
 
     async function UpdateAccessToken() {
         if (localStorage.getItem('Refresh')) {
-            await axios.post(baseURL, { refresh: localStorage.getItem('Refresh') }).then(res => { localStorage.setItem('Access', res.data.access); console.log('Access Token was updated!') }).catch(res => console.log(res))
+            await axios.post(baseURL, { refresh: localStorage.getItem('Refresh') }).then(res => { localStorage.setItem('Access', res.data.access); console.log('Access Token was updated!') }).catch(res => { console.log(res); location.reload(); })
             // console.log("REFRESH TOKEN WAS FOUND!")
         }
         else {

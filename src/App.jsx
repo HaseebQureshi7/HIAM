@@ -1,5 +1,5 @@
 import { Box, createTheme, ThemeProvider } from '@mui/material'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import Landing from './pages/landing/Landing'
 import Login from './pages/login/Login'
 import Signup from './pages/signup/Signup'
@@ -34,10 +34,30 @@ import AddNewCertificate from './pages/home/AddNewPages/AddNewCertificate'
 import EditProject from './pages/home/EditPages/EditProject'
 import EditExperience from './pages/home/EditPages/EditExperience'
 import EditCertificate from './pages/home/EditPages/EditCertificate'
+import axios from 'axios'
 
 function App() {
 
+  const navigate = useNavigate()
+
   const [update, setUpdate] = useState(false)
+
+  const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/token/refresh/'
+
+  async function AutoLogin() {
+    await axios.post(baseURL, { refresh: localStorage.getItem('Refresh') })
+      .then(res => {
+        localStorage.setItem('Access', res.data.access);
+        console.log('AutoLogin was Successful');
+        return navigate('/home')
+      })
+      .catch(res => {
+        console.log(res);
+        return navigate('/')
+      })
+
+  }
+
 
   // ACCESS TOKEN WILL REFRESH EVERY 5 MINUTES
   function Refresher() {
@@ -52,6 +72,12 @@ function App() {
       Refresher()
     }
   }, [update])
+
+
+  useEffect(() => {
+    AutoLogin()
+  }, [])
+
 
   const theme = createTheme({
     palette: {

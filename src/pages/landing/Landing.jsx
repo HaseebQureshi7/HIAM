@@ -7,41 +7,12 @@ import { Fade, FadeUp } from '../../components/AnimationEngine'
 
 export default function Landing() {
 
-    const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/token/refresh/'
-
     const [animate, setAnimate] = useState(true)
-    const navigate = useNavigate()
-
-    const [isAuth, setIsAuth] = useState(false)
 
     useState(() => {
         setTimeout(() => {
             setAnimate(!animate)
         }, 3000)
-    }, [])
-
-
-    function AutoLogin() {
-        axios.post(baseURL, { refresh: localStorage.getItem('Refresh') })
-            .then(res => {
-                localStorage.setItem('Access', res.data.access);
-                console.log('AutoLogin was Successful');
-                setIsAuth(true);
-                return navigate('/home')
-            })
-            .catch(res => {
-                console.log('AutoLogin Failed!');
-                setIsAuth(null);
-                return navigate('/')
-            })
-
-    }
-
-
-    useEffect(() => {
-        if (localStorage.getItem('Refresh')) {
-            AutoLogin()
-        }
     }, [])
 
     return (
