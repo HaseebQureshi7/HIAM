@@ -1,4 +1,4 @@
-import { Add, Close, Done, Google, Instagram, LinkedIn, LinkOff, NavigateNext, Upgrade } from "@mui/icons-material";
+import { Add, Close, Done, Google, Instagram, LinkedIn, Link as LinkIcon, NavigateNext, Upgrade } from "@mui/icons-material";
 import { Alert, Avatar, Box, Button, Grid, CircularProgress, Snackbar, Stack, TextField, Typography, Divider, Switch, Modal, Card } from "@mui/material";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
@@ -154,7 +154,7 @@ export default function EditProfile() {
 
         axios.get(userLinksURL + GetUID()).then(res => { setUserLinks(res.data.data); }).catch(res => console.log(res))
 
-    }, [])
+    }, [openModal])
 
     function LiveDp(event) {
         setProfilePic(event.target.files[0])
@@ -284,8 +284,8 @@ export default function EditProfile() {
                             <Typography sx={{ fontWeight: '500' }} variant='subtitle2' component="div">CHANGES WILL BE INSTANTLY INFLICTED UPON YOUR PROFILE</Typography>
                         </Box>
 
-                        <Button onClick={() => setOpenModal(true)} startIcon={<LinkOff />} sx={{ display: { xs: 'none', lg: 'inherit' }, fontWeight: 700 }} variant='outlined'>EDIT LINKS</Button>
-                        <Avatar sx={{ bgcolor: 'primary.main', display: { xs: 'inherit', lg: 'none' } }} onClick={() => setOpenModal(true)}><LinkOff /></Avatar>
+                        <Button onClick={() => setOpenModal(true)} startIcon={<LinkIcon />} sx={{ display: { xs: 'none', lg: 'inherit' }, fontWeight: 700 }} variant='outlined'>EDIT LINKS</Button>
+                        <Avatar sx={{ bgcolor: 'primary.main', display: { xs: 'inherit', lg: 'none' } }} onClick={() => setOpenModal(true)}><LinkIcon /></Avatar>
                     </Stack>
 
                     <Divider sx={{ width: '100%' }} />
