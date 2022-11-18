@@ -36,6 +36,7 @@ import EditExperience from './pages/home/EditPages/EditExperience'
 import EditCertificate from './pages/home/EditPages/EditCertificate'
 import axios from 'axios'
 import DummyNavbar from './components/DummyNavbar'
+import { ThemeModeContext } from './context/ThemeModeContext'
 
 function App() {
 
@@ -44,6 +45,8 @@ function App() {
   const location = useLocation()
 
   const [update, setUpdate] = useState(false)
+
+  const [themeMode, setThemeMode] = useState('light')
 
   const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/token/refresh/'
 
@@ -77,6 +80,7 @@ function App() {
   }, [update])
 
 
+
   useEffect(() => {
     if (localStorage.getItem('Refresh')) {
       if (location.pathname == '/') {
@@ -86,6 +90,14 @@ function App() {
     else {
       console.log('Anonymous Mode [:]-<')
     }
+
+    if (localStorage.getItem('themeMode')) {
+      setThemeMode(localStorage.getItem('themeMode'))
+    }
+    else {
+      localStorage.setItem('themeMode', themeMode)
+    }
+
   }, [])
 
 
@@ -95,7 +107,7 @@ function App() {
         main: '#6200EE',
         light: '#9E66EF'
       },
-      mode: 'light'
+      mode: themeMode
     },
     typography: {
       fontFamily: 'Questrial'
@@ -103,72 +115,74 @@ function App() {
   })
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box bgcolor='background.default' color='text.primary'>
-        <RefreshContext.Provider value={{ update, setUpdate }}>
-          {/* {localStorage.getItem('Refresh') ? <Navbar/>: null} */}
-          <Routes>
-            <Route path='/' element={<Landing />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
+    <ThemeModeContext.Provider value={{ themeMode, setThemeMode }}>
+      <ThemeProvider theme={theme}>
+        <Box bgcolor='background.default' color='text.primary'>
+          <RefreshContext.Provider value={{ update, setUpdate }}>
+            {/* {localStorage.getItem('Refresh') ? <Navbar/>: null} */}
+            <Routes>
+              <Route path='/' element={<Landing />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<Signup />} />
 
-            {/* EXTERNAL USER LINKS */}
-            <Route path='anonymous/users/:id' element={<> <DummyNavbar/> <ViewUserProfile /> </>} />
-            <Route path='anonymous/users/:id/allprojects' element={<> <DummyNavbar/> <ViewAllUserProjects /> </>} />
-            <Route path='anonymous/users/:id/allexperiences' element={<> <DummyNavbar/> <ViewAllUserExperiences /> </>} />
-            <Route path='anonymous/users/:id/allcertificates' element={<> <DummyNavbar/> <ViewAllUserCertificates /> </>} />
-            <Route path='anonymous/users/:id/allskills' element={<> <DummyNavbar/> <ViewAllUserSkills /> </>} />
+              {/* EXTERNAL USER LINKS */}
+              <Route path='anonymous/users/:id' element={<> <DummyNavbar /> <ViewUserProfile /> </>} />
+              <Route path='anonymous/users/:id/allprojects' element={<> <DummyNavbar /> <ViewAllUserProjects /> </>} />
+              <Route path='anonymous/users/:id/allexperiences' element={<> <DummyNavbar /> <ViewAllUserExperiences /> </>} />
+              <Route path='anonymous/users/:id/allcertificates' element={<> <DummyNavbar /> <ViewAllUserCertificates /> </>} />
+              <Route path='anonymous/users/:id/allskills' element={<> <DummyNavbar /> <ViewAllUserSkills /> </>} />
 
-            {localStorage.getItem('Refresh') ?
-              (<>
-                {localStorage.getItem('Signup-mode') ?
-                  <>
-                    <Route path='/makeuserprofile' element={<MakeUserProfile />} />
-                    <Route path='/addexperience' element={<AddExperience />} />
-                    <Route path='/makexp' element={<MakeXp />} />
-                    <Route path='/addprojects' element={<AddProjects />} />
-                    <Route path='/makeproject' element={<MakeProject />} />
-                    <Route path='/addcertificates' element={<AddCertificates />} />
-                    <Route path='/makecertificate' element={<MakeCertificate />} />
-                    <Route path='/addlinks' element={<AddLinks />} />
-                    <Route path='/singupcomplete' element={<SignupComplete />} />
-                  </>
-                  :
+              {localStorage.getItem('Refresh') ?
+                (<>
+                  {localStorage.getItem('Signup-mode') ?
+                    <>
+                      <Route path='/makeuserprofile' element={<MakeUserProfile />} />
+                      <Route path='/addexperience' element={<AddExperience />} />
+                      <Route path='/makexp' element={<MakeXp />} />
+                      <Route path='/addprojects' element={<AddProjects />} />
+                      <Route path='/makeproject' element={<MakeProject />} />
+                      <Route path='/addcertificates' element={<AddCertificates />} />
+                      <Route path='/makecertificate' element={<MakeCertificate />} />
+                      <Route path='/addlinks' element={<AddLinks />} />
+                      <Route path='/singupcomplete' element={<SignupComplete />} />
+                    </>
+                    :
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                  }
+                  <Route path='/home' element={<> <Navbar /> <Home /> </>} />
+                  <Route path='/editprofile' element={<> <Navbar /> <EditProfile /> </>} />
+                  <Route path='/community' element={<> <Navbar /> <Community /> </>} />
+                  <Route path='/allprojects' element={<> <Navbar /> <ViewAllProjects /> </>} />
+                  <Route path='/allexperiences' element={<> <Navbar /> <ViewAllExperiences /> </>} />
+                  <Route path='/allcertificates' element={<> <Navbar /> <ViewAllCertificates /> </>} />
+                  <Route path='/allskills' element={<> <Navbar /> <ViewAllSkills /> </>} />
+
+                  <Route path='/addnewproject' element={<> <Navbar /> <AddNewProject /> </>} />
+                  <Route path='/addnewexperience' element={<> <Navbar /> <AddNewExperience /> </>} />
+                  <Route path='/addnewcertificate' element={<> <Navbar /> <AddNewCertificate /> </>} />
+
+                  <Route path='/editproject/:pid' element={<> <Navbar /> <EditProject /> </>} />
+                  <Route path='/editexperience/:eid' element={<> <Navbar /> <EditExperience /> </>} />
+                  <Route path='/editcertificate/:cid' element={<> <Navbar /> <EditCertificate /> </>} />
+
+                  {/* EXTERNAL USER LINKS */}
+                  <Route path='/users/:id' element={<> <Navbar /> <ViewUserProfile /> </>} />
+                  <Route path='/users/:id/allprojects' element={<> <Navbar /> <ViewAllUserProjects /> </>} />
+                  <Route path='/users/:id/allexperiences' element={<> <Navbar /> <ViewAllUserExperiences /> </>} />
+                  <Route path='/users/:id/allcertificates' element={<> <Navbar /> <ViewAllUserCertificates /> </>} />
+                  <Route path='/users/:id/allskills' element={<> <Navbar /> <ViewAllUserSkills /> </>} />
+                </>)
+                :
+                (<>
                   <Route path="*" element={<Navigate to="/" replace />} />
-                }
-                <Route path='/home' element={<> <Navbar /> <Home /> </>} />
-                <Route path='/editprofile' element={<> <Navbar /> <EditProfile /> </>} />
-                <Route path='/community' element={<> <Navbar /> <Community /> </>} />
-                <Route path='/allprojects' element={<> <Navbar /> <ViewAllProjects /> </>} />
-                <Route path='/allexperiences' element={<> <Navbar /> <ViewAllExperiences /> </>} />
-                <Route path='/allcertificates' element={<> <Navbar /> <ViewAllCertificates /> </>} />
-                <Route path='/allskills' element={<> <Navbar /> <ViewAllSkills /> </>} />
+                </>)
+              }
 
-                <Route path='/addnewproject' element={<> <Navbar /> <AddNewProject /> </>} />
-                <Route path='/addnewexperience' element={<> <Navbar /> <AddNewExperience /> </>} />
-                <Route path='/addnewcertificate' element={<> <Navbar /> <AddNewCertificate /> </>} />
-
-                <Route path='/editproject/:pid' element={<> <Navbar /> <EditProject /> </>} />
-                <Route path='/editexperience/:eid' element={<> <Navbar /> <EditExperience /> </>} />
-                <Route path='/editcertificate/:cid' element={<> <Navbar /> <EditCertificate /> </>} />
-
-                {/* EXTERNAL USER LINKS */}
-                <Route path='/users/:id' element={<> <Navbar /> <ViewUserProfile /> </>} />
-                <Route path='/users/:id/allprojects' element={<> <Navbar /> <ViewAllUserProjects /> </>} />
-                <Route path='/users/:id/allexperiences' element={<> <Navbar /> <ViewAllUserExperiences /> </>} />
-                <Route path='/users/:id/allcertificates' element={<> <Navbar /> <ViewAllUserCertificates /> </>} />
-                <Route path='/users/:id/allskills' element={<> <Navbar /> <ViewAllUserSkills /> </>} />
-              </>)
-              :
-              (<>
-                <Route path="*" element={<Navigate to="/" replace />} />
-              </>)
-            }
-
-          </Routes>
-        </RefreshContext.Provider>
-      </Box>
-    </ThemeProvider>
+            </Routes>
+          </RefreshContext.Provider>
+        </Box>
+      </ThemeProvider>
+    </ThemeModeContext.Provider>
   )
 }
 

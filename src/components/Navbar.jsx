@@ -1,8 +1,9 @@
 import { DarkMode, LightMode, Login, Logout, People, PersonAdd, Settings, Share } from '@mui/icons-material'
 import { AppBar, Avatar, Box, Stack, Button, Divider, ListItem, Menu, MenuItem, SwipeableDrawer, Tooltip, Typography, Snackbar, Alert } from '@mui/material'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { ThemeModeContext } from '../context/ThemeModeContext'
 import { GetUID } from './GetUID'
 
 export default function Navbar() {
@@ -18,6 +19,8 @@ export default function Navbar() {
     const [severity, setSeverity] = useState()
 
     const [openDrawer, setOpenDrawer] = useState(false)
+
+    const { themeMode, setThemeMode } = useContext(ThemeModeContext)
 
     function LogoutUser() {
         localStorage.clear()
@@ -73,29 +76,29 @@ export default function Navbar() {
 
                             <Box sx={{ width: '100%', m: 'auto', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
 
-                                <Stack sx={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                                <Stack onClick={() => CopyToClipboard(userProfile[0].belongsTo)} sx={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                                     <Tooltip title="Share Profile">
-                                        <Share onClick={() => CopyToClipboard(userProfile[0].belongsTo)} sx={{ width: '50px', color: 'black', height: '50px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
+                                        <Share sx={{ width: '50px', color: 'text.primary', height: '50px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
                                     </Tooltip>
                                     <Typography sx={{ flex: 2, fontWeight: 700 }} variant="subtitle2">SHARE</Typography>
                                 </Stack>
 
-                                <Stack sx={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                                <Stack onClick={() => setOpenDrawer(false)} sx={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                                     <Link sx={{ color: 'inherit' }} to={"/editprofile"} >
 
                                         <Tooltip title="Edit Profile">
-                                            <Settings sx={{ width: '50px', color: 'black', height: '50px', '&:hover': { rotate: '180deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
+                                            <Settings sx={{ width: '50px', color: 'text.primary', height: '50px', '&:hover': { rotate: '180deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
                                         </Tooltip>
 
                                     </Link>
                                     <Typography sx={{ flex: 2, fontWeight: 700 }} variant="subtitle2">SETTINGS</Typography>
                                 </Stack>
 
-                                <Stack sx={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                                    <Link sx={{ color: 'inherit' }} to={"/editprofile"} >
+                                <Stack onClick={() => setOpenDrawer(false)} sx={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                                    <Link sx={{ color: 'inherit' }} to={"/community"} >
 
                                         <Tooltip title="Community">
-                                            <People sx={{ width: '50px', height: '50px', color: 'black', '&:hover': { transform: 'scale(1.4)', position: 'relative', transition: 'all 1s ease ' }, '&:not(:hover)': { transform: 'scale(1)', position: 'inline', transition: 'all 1s ease ' } }} />
+                                            <People sx={{ width: '50px', height: '50px', color: 'text.primary', '&:hover': { transform: 'scale(1.4)', position: 'relative', transition: 'all 1s ease ' }, '&:not(:hover)': { transform: 'scale(1)', position: 'inline', transition: 'all 1s ease ' } }} />
                                         </Tooltip>
 
                                     </Link>
@@ -109,9 +112,8 @@ export default function Navbar() {
                                     <Typography sx={{ fontWeight: 700 }} variant="subtitle2">{userProfile ? '@' + " " + userProfile[0].fname + " " + userProfile[0].lname : null}</Typography>
                                 </Link>
 
-                                <Box sx={{ flex: 0.75 }}>
-                                    <Avatar sx={{ bgcolor: 'white' }} ><DarkMode sx={{ color: 'black' }} /></Avatar>
-                                    {/* <Avatar sx={{ bgcolor: 'black' }} ><LightMode sx={{color:'white'}} /></Avatar> */}
+                                <Box onClick={() => { setThemeMode(themeMode == 'light' ? 'dark' : 'light'); localStorage.setItem('themeMode', themeMode == 'light' ? 'dark' : 'light') }} sx={{ flex: 0.75 }}>
+                                    {themeMode == 'light' ? <Avatar sx={{ bgcolor: 'transparent' }} ><DarkMode sx={{ color: 'text.primary' }} /></Avatar> : <Avatar sx={{ bgcolor: 'transparent' }} ><LightMode sx={{ color: 'white' }} /></Avatar>}
                                 </Box>
 
                                 <Button onClick={() => LogoutUser()} sx={{ flex: 1, fontWeight: 700, width: '50%' }} color='error' endIcon={<Logout sx={{ color: 'error.main' }} />} variant="outlined" size='medium'>LOGOUT</Button>
@@ -133,17 +135,17 @@ export default function Navbar() {
                     <Box sx={{ flex: 2, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
                         {/* <Link to={"/editprofile"} > */}
                         <Tooltip title="Share Profile">
-                            <Share onClick={() => CopyToClipboard(userProfile[0].belongsTo)} sx={{ width: '30px', color: 'black', height: '30px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.25)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
+                            <Share onClick={() => CopyToClipboard(userProfile[0].belongsTo)} sx={{ width: '30px', color: 'text.main', height: '30px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.25)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
                         </Tooltip>
                         {/* </Link> */}
                         <Link to={"/editprofile"} >
                             <Tooltip title="Edit Profile">
-                                <Settings sx={{ width: '30px', color: 'black', height: '30px', '&:hover': { rotate: '180deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
+                                <Settings sx={{ width: '30px', color: 'text.primary', height: '30px', '&:hover': { rotate: '180deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
                             </Tooltip>
                         </Link>
                         <Link to={"/community"}>
                             <Tooltip title="Community">
-                                <People sx={{ width: '30px', height: '30px', color: 'black', '&:hover': { transform: 'scale(1.4)', position: 'relative', transition: 'all 1s ease ' }, '&:not(:hover)': { transform: 'scale(1)', position: 'inline', transition: 'all 1s ease ' } }} />
+                                <People sx={{ width: '30px', height: '30px', color: 'text.primary', '&:hover': { transform: 'scale(1.4)', position: 'relative', transition: 'all 1s ease ' }, '&:not(:hover)': { transform: 'scale(1)', position: 'inline', transition: 'all 1s ease ' } }} />
                             </Tooltip>
                         </Link>
                         {/* <Link to={"/home"}> */}
@@ -202,7 +204,7 @@ export default function Navbar() {
                             <Divider sx={{ width: '100%' }} />
 
                             <MenuItem>
-                                <Button onClick={() => LogoutUser()} sx={{ fontWeight: 900 }} color='primary' endIcon={<Avatar sx={{ bgcolor: 'white' }} ><DarkMode sx={{ color: 'primary.main' }} /></Avatar>} variant="outlined" size='medium'>SWITCH MODE</Button>
+                                <Button onClick={() => { setThemeMode(themeMode == 'light' ? 'dark' : 'light'); localStorage.setItem('themeMode', themeMode == 'light' ? 'dark' : 'light') }} sx={{ fontWeight: 900 }} color={themeMode == 'light' ? 'primary' : 'secondary'} endIcon={<Avatar sx={{ bgcolor: 'transparent' }} >{themeMode == 'light' ? <DarkMode sx={{ color: 'primary.main' }} /> : <LightMode sx={{ color: 'secondary.main' }} />}</Avatar>} variant="outlined" size='medium'>SWITCH MODE</Button>
                             </MenuItem>
 
                             <Divider sx={{ width: '100%' }} />
