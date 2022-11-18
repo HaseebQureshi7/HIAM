@@ -75,7 +75,7 @@ export default function Navbar() {
 
                                 <Stack direction="column">
                                     <Tooltip title="Share Profile">
-                                        <Share onClick={() => CopyToClipboard(userProfile[0].id)} sx={{ width: '50px', color: 'black', height: '50px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
+                                        <Share onClick={() => CopyToClipboard(userProfile[0].belongsTo)} sx={{ width: '50px', color: 'black', height: '50px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
                                     </Tooltip>
                                     <Typography sx={{ flex: 2, fontWeight: 700 }} variant="subtitle2">SHARE</Typography>
                                 </Stack>
@@ -124,7 +124,7 @@ export default function Navbar() {
                     <Box sx={{ flex: 2, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
                         {/* <Link to={"/editprofile"} > */}
                         <Tooltip title="Share Profile">
-                            <Share onClick={() => CopyToClipboard(userProfile[0].id)} sx={{ width: '30px', color: 'black', height: '30px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.25)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
+                            <Share onClick={() => CopyToClipboard(userProfile[0].belongsTo)} sx={{ width: '30px', color: 'black', height: '30px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.25)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
                         </Tooltip>
                         {/* </Link> */}
                         <Link to={"/editprofile"} >
