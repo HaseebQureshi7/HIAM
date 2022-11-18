@@ -9,6 +9,8 @@ export default function Landing() {
 
     const [animate, setAnimate] = useState(true)
 
+    const navigate = useNavigate()
+
     useState(() => {
         setTimeout(() => {
             setAnimate(!animate)

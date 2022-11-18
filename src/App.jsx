@@ -1,5 +1,5 @@
 import { Box, createTheme, ThemeProvider } from '@mui/material'
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom'
 import Landing from './pages/landing/Landing'
 import Login from './pages/login/Login'
 import Signup from './pages/signup/Signup'
@@ -35,10 +35,13 @@ import EditProject from './pages/home/EditPages/EditProject'
 import EditExperience from './pages/home/EditPages/EditExperience'
 import EditCertificate from './pages/home/EditPages/EditCertificate'
 import axios from 'axios'
+import DummyNavbar from './components/DummyNavbar'
 
 function App() {
 
   const navigate = useNavigate()
+
+  const location = useLocation()
 
   const [update, setUpdate] = useState(false)
 
@@ -53,7 +56,7 @@ function App() {
       })
       .catch(res => {
         console.log(res);
-        return navigate('/')
+        return navigate('/login')
       })
 
   }
@@ -75,7 +78,14 @@ function App() {
 
 
   useEffect(() => {
-    AutoLogin()
+    if (localStorage.getItem('Refresh')) {
+      if (location.pathname == '/') {
+        AutoLogin()
+      }
+    }
+    else {
+      console.log('Anonymous Mode :<')
+    }
   }, [])
 
 
@@ -102,6 +112,13 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
 
+            {/* EXTERNAL USER LINKS */}
+            <Route path='anonymous/users/:id' element={<> <DummyNavbar/> <ViewUserProfile /> </>} />
+            <Route path='anonymous/users/:id/allprojects' element={<> <DummyNavbar/> <ViewAllUserProjects /> </>} />
+            <Route path='anonymous/users/:id/allexperiences' element={<> <DummyNavbar/> <ViewAllUserExperiences /> </>} />
+            <Route path='anonymous/users/:id/allcertificates' element={<> <DummyNavbar/> <ViewAllUserCertificates /> </>} />
+            <Route path='anonymous/users/:id/allskills' element={<> <DummyNavbar/> <ViewAllUserSkills /> </>} />
+
             {localStorage.getItem('Refresh') ?
               (<>
                 {localStorage.getItem('Signup-mode') ?
@@ -127,12 +144,6 @@ function App() {
                 <Route path='/allcertificates' element={<> <Navbar /> <ViewAllCertificates /> </>} />
                 <Route path='/allskills' element={<> <Navbar /> <ViewAllSkills /> </>} />
 
-                <Route path='/users/:id' element={<> <Navbar /> <ViewUserProfile /> </>} />
-                <Route path='/users/:id/allprojects' element={<> <Navbar /> <ViewAllUserProjects /> </>} />
-                <Route path='/users/:id/allexperiences' element={<> <Navbar /> <ViewAllUserExperiences /> </>} />
-                <Route path='/users/:id/allcertificates' element={<> <Navbar /> <ViewAllUserCertificates /> </>} />
-                <Route path='/users/:id/allskills' element={<> <Navbar /> <ViewAllUserSkills /> </>} />
-
                 <Route path='/addnewproject' element={<> <Navbar /> <AddNewProject /> </>} />
                 <Route path='/addnewexperience' element={<> <Navbar /> <AddNewExperience /> </>} />
                 <Route path='/addnewcertificate' element={<> <Navbar /> <AddNewCertificate /> </>} />
@@ -140,6 +151,13 @@ function App() {
                 <Route path='/editproject/:pid' element={<> <Navbar /> <EditProject /> </>} />
                 <Route path='/editexperience/:eid' element={<> <Navbar /> <EditExperience /> </>} />
                 <Route path='/editcertificate/:cid' element={<> <Navbar /> <EditCertificate /> </>} />
+
+                {/* EXTERNAL USER LINKS */}
+                <Route path='/users/:id' element={<> <Navbar /> <ViewUserProfile /> </>} />
+                <Route path='/users/:id/allprojects' element={<> <Navbar /> <ViewAllUserProjects /> </>} />
+                <Route path='/users/:id/allexperiences' element={<> <Navbar /> <ViewAllUserExperiences /> </>} />
+                <Route path='/users/:id/allcertificates' element={<> <Navbar /> <ViewAllUserCertificates /> </>} />
+                <Route path='/users/:id/allskills' element={<> <Navbar /> <ViewAllUserSkills /> </>} />
               </>)
               :
               (<>
