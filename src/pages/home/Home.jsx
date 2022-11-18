@@ -195,8 +195,8 @@ export default function Home() {
                                 <Stack sx={{ width: { xs: '100%', lg: '90%' }, m: 'auto', height: '30%', flexDirection: { xs: 'column-reverse', lg: 'row' }, gap: 2.5 }} >
 
                                     <Stack sx={{ width: { xs: '80%', lg: '70%' }, m: 'auto', alignItems: 'flex-start', justifyContent: 'space-between', height: '100%' }} direction="column">
-                                        <Skeleton animation='wave' sx={{ width: {xs:'100%',lg:'90%'}, height: '75px' }} />
-                                        <Skeleton animation='wave' sx={{ width: '50%', m: {xs:'auto',lg:'0px'}, height: {xs:'30px',lg:'40px'} }} />
+                                        <Skeleton animation='wave' sx={{ width: { xs: '100%', lg: '90%' }, height: '75px' }} />
+                                        <Skeleton animation='wave' sx={{ width: '50%', m: { xs: 'auto', lg: '0px' }, height: { xs: '30px', lg: '40px' } }} />
 
                                         <Stack sx={{ width: '100%', height: '50%', mt: 5, justifyContent: 'space-evenly' }} direction="row">
                                             <Skeleton variant='circular' animation='wave' sx={{ width: '40px', height: '40px' }} />
@@ -210,17 +210,17 @@ export default function Home() {
 
                                     <Skeleton variant='square' animation='wave' sx={{ width: { xs: '175px', lg: '175px' }, m: 'auto', height: { xs: '175px', lg: '175px' } }} />
                                 </Stack>
-                                
+
                                 <Divider sx={{ width: '100%', margin: '25px 0px' }} />
 
                                 {/* SECTION 2 */}
-                                <Stack sx={{ width: '100%', m: 'auto', mt:0, height: 'auto', justifyContent: 'space-evenly' }} direction='row'>
-                                    
-                                    <Skeleton sx={{ width: '75px', m:'auto', height: '100px',  }} animation='pulse' />
-                                    
-                                    <Skeleton sx={{ width: '75px', m:'auto', height: '100px',  }} animation='pulse' />
-                                    
-                                    <Skeleton sx={{ width: '75px', m:'auto', height: '100px',  }} animation='pulse' />
+                                <Stack sx={{ width: '100%', m: 'auto', mt: 0, height: 'auto', justifyContent: 'space-evenly' }} direction='row'>
+
+                                    <Skeleton sx={{ width: '75px', m: 'auto', height: '100px', }} animation='pulse' />
+
+                                    <Skeleton sx={{ width: '75px', m: 'auto', height: '100px', }} animation='pulse' />
+
+                                    <Skeleton sx={{ width: '75px', m: 'auto', height: '100px', }} animation='pulse' />
 
                                 </Stack>
 
@@ -230,13 +230,13 @@ export default function Home() {
                                 {/* SECTION 3 */}
                                 <Stack sx={{ width: '80%', height: 'auto', m: 'auto' }} direction='column'>
 
-                                    <Skeleton sx={{ width: '50%', m:{xs:'auto',lg:'0px'}, height: '50px', borderRadius: '10px' }} animation='pulse' />
+                                    <Skeleton sx={{ width: '50%', m: { xs: 'auto', lg: '0px' }, height: '50px', borderRadius: '10px' }} animation='pulse' />
 
-                                    <Skeleton sx={{ width: '100%', m:{xs:'auto',lg:'0px'}, mt:2.5, height: '15px', borderRadius: '10px' }} animation='pulse' />
+                                    <Skeleton sx={{ width: '100%', m: { xs: 'auto', lg: '0px' }, mt: 2.5, height: '15px', borderRadius: '10px' }} animation='pulse' />
 
-                                    <Skeleton sx={{ width: '75%', m:{xs:'auto',lg:'0px'}, height: '15px', borderRadius: '10px' }} animation='pulse' />
+                                    <Skeleton sx={{ width: '75%', m: { xs: 'auto', lg: '0px' }, height: '15px', borderRadius: '10px' }} animation='pulse' />
 
-                                    <Skeleton sx={{ width: '50%', m:{xs:'auto',lg:'0px'}, height: '15px', borderRadius: '10px' }} animation='pulse' />
+                                    <Skeleton sx={{ width: '50%', m: { xs: 'auto', lg: '0px' }, height: '15px', borderRadius: '10px' }} animation='pulse' />
 
                                 </Stack>
                             </Box>

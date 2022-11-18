@@ -1,5 +1,5 @@
-import { Login, Logout, People, PersonAdd, Settings } from '@mui/icons-material'
-import { AppBar, Avatar, Box, Stack, Button, Divider, ListItem, Menu, MenuItem, SwipeableDrawer, Tooltip, Typography } from '@mui/material'
+import { Login, Logout, People, PersonAdd, Settings, Share } from '@mui/icons-material'
+import { AppBar, Avatar, Box, Stack, Button, Divider, ListItem, Menu, MenuItem, SwipeableDrawer, Tooltip, Typography, Snackbar, Alert } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -13,6 +13,10 @@ export default function Navbar() {
     const [open, setOpen] = useState(false)
     const [anchorEl, setAnchorEl] = useState()
 
+    const [openSnack, setOpenSnack] = useState(false)
+    const [snackText, setSnackText] = useState(false)
+    const [severity, setSeverity] = useState()
+
     const [openDrawer, setOpenDrawer] = useState(false)
 
     function LogoutUser() {
@@ -21,12 +25,27 @@ export default function Navbar() {
         window.location.reload(false);
     }
 
+    function CopyToClipboard(id) {
+        navigator.clipboard.writeText(`https://hiam.vercel.app/anonymous/users/${id}`)
+        setOpenSnack(true)
+        setSeverity('success')
+        setSnackText('Share Link Copied!')
+    }
+
     useEffect(() => {
         axios.get(userProfileURL + GetUID()).then(res => { setUserProfile(res.data.data) }).catch(res => console.log(res))
     }, [])
 
     return (
         <>
+
+            <Snackbar
+                open={openSnack}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                autoHideDuration={6000}
+                onClose={() => setOpenSnack(!openSnack)}>
+                <Alert severity={severity} variant='filled'>{snackText}</Alert>
+            </Snackbar>
 
             <AppBar sx={{ boxShadow: 'none', position: { xs: 'static', lg: "sticky" } }} color='transparent'>
 
@@ -53,6 +72,13 @@ export default function Navbar() {
                         <Stack sx={{ width: '100%', height: '25vh', mb: 2 }} >
 
                             <Box sx={{ width: '75%', m: 'auto', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
+                                <Stack direction="column">
+                                    <Tooltip title="Share Profile">
+                                        <Share onClick={() => CopyToClipboard(userProfile[0].id)} sx={{ width: '50px', color: 'black', height: '50px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
+                                    </Tooltip>
+                                    <Typography sx={{ flex: 2, fontWeight: 700 }} variant="subtitle2">SHARE</Typography>
+                                </Stack>
 
                                 <Stack onClick={() => setOpenDrawer(false)} direction="column">
                                     <Link style={{ 'flex': 1, 'textAlign': 'center' }} to={"/editprofile"} >
@@ -91,11 +117,16 @@ export default function Navbar() {
 
                 {/* DESKTOP  */}
                 <Box sx={{ width: '100%', p: '10px 25px', display: { xs: 'none', lg: 'flex' }, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                    <Link style={{ flex: 2, textDecoration: 'none', color: 'inherit' }} to={"/home"} >
+                    <Link style={{ flex: 3, textDecoration: 'none', color: 'inherit' }} to={"/home"} >
                         <Typography sx={{ fontWeight: 900 }} variant="h4" noWrap component="strong"> HIAM </Typography>
                     </Link>
 
-                    <Box sx={{ flex: 1, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <Box sx={{ flex: 2, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                        {/* <Link to={"/editprofile"} > */}
+                        <Tooltip title="Share Profile">
+                            <Share onClick={() => CopyToClipboard(userProfile[0].id)} sx={{ width: '30px', color: 'black', height: '30px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.25)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
+                        </Tooltip>
+                        {/* </Link> */}
                         <Link to={"/editprofile"} >
                             <Tooltip title="Edit Profile">
                                 <Settings sx={{ width: '30px', color: 'black', height: '30px', '&:hover': { rotate: '180deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />

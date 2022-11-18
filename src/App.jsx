@@ -84,7 +84,7 @@ function App() {
       }
     }
     else {
-      console.log('Anonymous Mode :<')
+      console.log('Anonymous Mode [:]-<')
     }
   }, [])
 
