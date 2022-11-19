@@ -175,7 +175,7 @@ export default function EditProfile() {
 
             <Fade>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', marginTop: '5vh', marginBottom: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', pt: '5vh', pb: 2, minHeight: "100vh", alignItems: "flex-start" }} gap={4}>
 
                     <Snackbar
                         open={openSnack}
@@ -281,7 +281,7 @@ export default function EditProfile() {
                     <Stack sx={{ width: '100%', mt: 0, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Box >
                             <Typography sx={{ fontWeight: '700' }} variant='h4' component="div">EDIT PROFILE</Typography>
-                            <Typography sx={{ fontWeight: '500' }} variant='subtitle2' component="div">CHANGES WILL BE INSTANTLY INFLICTED UPON YOUR PROFILE</Typography>
+                            <Typography sx={{ display: { xs: 'inherit', lg: 'inherit' }, fontSize: '0.5rem', fontWeight: '500' }} variant='subtitle2' component="div">CHANGES WILL BE INSTANTLY INFLICTED UPON YOUR PROFILE</Typography>
                         </Box>
 
                         <Button onClick={() => setOpenModal(true)} startIcon={<LinkIcon />} sx={{ display: { xs: 'none', lg: 'inherit' }, fontWeight: 700 }} variant='outlined'>EDIT LINKS</Button>

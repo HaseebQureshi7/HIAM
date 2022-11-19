@@ -24,7 +24,7 @@ export default function ViewAllCertificates() {
   return (
     <>
       <Fade>
-        <Box sx={{ width: { xs: '90%', lg: '75%' }, m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: 8 }}>
+        <Box sx={{ width: { xs: '90%', lg: '75%' }, minHeight:'100vh', m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8 }}>
 
           <Stack sx={{ width: '100%', mt: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography sx={{ fontSize: { xs: '2rem', lg: '3rem' }, fontWeight: 700 }} variant='h3'>CERTIFICATES ({userCertificatesLength})</Typography>
@@ -56,10 +56,10 @@ export default function ViewAllCertificates() {
                   </Stack>
                   <Stack gap={2.5} direction='row'>
                     <Link to={data.link}>
-                      <Avatar sx={{ bgcolor: 'black', '&:hover': { rotate: '-45deg', transition: 'all 0.75s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 0.5s ease ' } }} > <LinkIcon /></Avatar>
+                      <Avatar sx={{ bgcolor: 'text.main', '&:hover': { rotate: '-45deg', transition: 'all 0.75s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 0.5s ease ' } }} > <LinkIcon /></Avatar>
                     </Link>
                     <Link to={`/editcertificate/${data.id}`}>
-                      <Avatar sx={{ bgcolor: 'black' }}><Edit /></Avatar>
+                      <Avatar sx={{ bgcolor: 'text.main' }}><Edit /></Avatar>
                     </Link>
                   </Stack>
                 </Stack>

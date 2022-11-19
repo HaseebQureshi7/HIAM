@@ -1,5 +1,5 @@
 import { Add, Edit, Link as LinkIcon } from "@mui/icons-material"
-import { Avatar, Box, Button, Divider, Stack, Typography } from "@mui/material"
+import { Avatar, Box, Button, Link as MUILink, Divider, Stack, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
@@ -24,7 +24,7 @@ export default function ViewAllProjects() {
     return (
         <>
             <Fade>
-                <Box sx={{ width: { xs: '90%', lg: '75%' }, m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: 5 }}>
+                <Box sx={{ width: { xs: '90%', lg: '75%' }, minHeight: '100vh', m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 5 }}>
 
                     <Stack sx={{ width: '100%', mt: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontSize: { xs: '2rem', lg: '3rem' }, fontWeight: 700 }} variant='h3'>PROJECTS ({userProjectsLength})</Typography>
@@ -37,7 +37,7 @@ export default function ViewAllProjects() {
                     {userProjects ? userProjects.map((data => {
                         return (
 
-                            <Box key={data.id} sx={{ width: '100%', height: 'auto', mb: 5, display: 'flex', textAlign:{xs:'center',lg:'start'} ,flexDirection: { xs: 'column-reverse', lg: 'row' }, justifyContent: { xs: 'center', lg: 'space-between' }, alignItems: 'center' }}>
+                            <Box key={data.id} sx={{ width: '100%', height: 'auto', mb: 5, display: 'flex', textAlign: { xs: 'center', lg: 'start' }, flexDirection: { xs: 'column-reverse', lg: 'row' }, justifyContent: { xs: 'center', lg: 'space-between' }, alignItems: 'center' }}>
                                 {console.log(data.id, data.name)}
 
                                 <Stack sx={{ flex: 2, gap: 1, alignItems: { xs: 'center', lg: 'flex-start' } }}>
@@ -55,11 +55,11 @@ export default function ViewAllProjects() {
                                         <Typography sx={{ fontWeight: 700 }} variant='h6'>{data.releaseDate}</Typography>
                                     </Stack>
                                     <Stack gap={2.5} direction='row'>
-                                        <Link to={'//' + data.projectLink}>
-                                            <Avatar sx={{ bgcolor: 'black', '&:hover': { rotate: '-45deg', transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 1s ease ' } }} > <LinkIcon /></Avatar>
-                                        </Link>
+                                        <MUILink href={data.projectLink} target="_blank">
+                                            <Avatar sx={{ bgcolor: 'text.main', '&:hover': { rotate: '-45deg', transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 1s ease ' } }} > <LinkIcon /></Avatar>
+                                        </MUILink>
                                         <Link to={`/editproject/${data.id}`} >
-                                            <Avatar sx={{ bgcolor: 'black' }}><Edit /></Avatar>
+                                            <Avatar sx={{ bgcolor: 'text.main' }}><Edit /></Avatar>
                                         </Link>
                                     </Stack>
                                     <Stack sx={{ textAlign: { xs: 'center', lg: 'start' } }}>

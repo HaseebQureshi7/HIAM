@@ -32,7 +32,7 @@ export default function Community() {
         <>
             {/* <Navbar /> */}
             <Fade>
-                <Box sx={{ width: { xs: '90%', lg: '75%' }, height: 'auto', m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', pt: { xs: 5, lg: 2.5 }, alignItems: 'center', gap: 10 }}>
+                <Box sx={{ width: { xs: '90%', lg: '75%' }, minHeight: '100vh', m: 'auto', display: 'flex', flexDirection: 'column', pt: { xs: 5, lg: 2.5 }, alignItems: 'center', gap: 10 }}>
 
                     {/* SEARCH PEOPLE SECTION */}
                     <Box sx={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'flex-start', gap: 2.5 }} >

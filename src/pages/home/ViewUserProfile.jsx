@@ -260,7 +260,7 @@ export default function ViewUserProfile() {
                                         return (
 
                                             <Box key={data.id} sx={{ maxWidth: '25%' }}>
-                                                <CardMedia sx={{ height: { xs: '100px', lg: '150px' }, width: { xs: '100px', lg: '150px' }, objectFit: 'cover', borderRadius: 2 }} image={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} />
+                                                <CardMedia sx={{ height: { xs: '100px', lg: '150px' }, width: { xs: '100px', lg: '150px' }, objectFit: 'cover', borderRadius: 1 }} image={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} />
                                             </Box>
 
                                         )

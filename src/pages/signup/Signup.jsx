@@ -97,7 +97,7 @@ export default function Signup() {
 
     return (
         <Fade key={location.pathname}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '100%' }, m: 'auto', marginTop: '5vh', height: "95vh", justifyContent: "center", alignItems: "center" }} gap={5}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '100%' }, m: 'auto', paddingTop: '5vh', minHeight: "100vh", justifyContent: "center", alignItems: "center", gap: { xs: 5, lg: 2 } }}>
 
                 <Snackbar
                     open={openSnack}
@@ -108,7 +108,7 @@ export default function Signup() {
                 </Snackbar>
 
                 <Stack sx={{ textAlign: 'center' }}>
-                    <Typography sx={{ fontWeight: 500 }} component='strong' variant='h2'>HIAM</Typography>
+                    <Typography sx={{ fontWeight: 700, fontSize: '5rem' }} component='strong' variant='h2'>HIAM</Typography>
                     <Typography sx={{ fontWeight: 500, color: 'text.secondary' }} variant='h6'>LIVE AND INTERACTIVE</Typography>
                 </Stack>
 
@@ -131,13 +131,13 @@ export default function Signup() {
                                     <TextField inputRef={passwordRef2} InputLabelProps={{ shrink: true }} label="Confirm Password" placeholder='Confirm Password' type="password" variant="outlined" required />
                                 </Grid>
                             </Grid>
-                            <Button disabled={isDisabled} type="submit" sx={{ padding: '5px 90px' }} variant="contained" >SIGNUP</Button>
+                            <Button disabled={isDisabled} type="submit" sx={{ padding: '5px 90px', fontWeight: 700 }} variant="contained" >SIGNUP</Button>
                         </Stack>
                     </form>
 
-                    {loading == false ? <Stack sx={{ gap: 5, textAlign: 'center', mt: 5 }}>
-                        <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', fontFamily: "Roboto", fontWeight: 700, }} variant="p">OR</Typography>
-                        <Button onClick={() => navigate('/login')} sx={{ padding: '5px 90px' }} variant="outlined" >LOG INTO YOUR ACCOUNT</Button>
+                    {loading == false ? <Stack sx={{ gap: 5, textAlign: 'center', mt: 2.5, pb: 2.5 }}>
+                        <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', fontWeight: 700, }} variant="subtitle1">OR</Typography>
+                        <Button onClick={() => navigate('/login')} sx={{ padding: '5px 90px', fontWeight: 700 }} variant="outlined" >LOG INTO YOUR ACCOUNT</Button>
                     </Stack> : <Box sx={{ minWidth: { xs: '90vw', md: '10vw', lg: '10vw' }, display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 5 }}>
                         {loading === true ? <CircularProgress /> : null}
                     </Box>}

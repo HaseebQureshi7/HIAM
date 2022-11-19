@@ -83,7 +83,7 @@ export default function ViewAllSkills() {
   return (
     <>
       <Fade>
-        <Box sx={{ width: { xs: '90%', lg: '75%' }, m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: 5 }}>
+        <Box sx={{ width: { xs: '90%', lg: '75%' }, minHeight: '100vh', m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', pb: 5, alignItems: 'flex-start', gap: 5 }}>
 
           <Snackbar
             open={openSnack}
@@ -142,9 +142,9 @@ export default function ViewAllSkills() {
           {userSkills ? userSkills.map((data => {
             return (
 
-              <Stack key={data.id} sx={{ display: 'flex', width: '100%', height: 'auto', p: 0.5, justifyContent: 'space-between', alignItems: 'center', border: '2px solid black', borderRadius: '50px' }} direction="row">
+              <Stack key={data.id} sx={{ display: 'flex', width: '100%', height: 'auto', p: 0.5, justifyContent: 'space-between', alignItems: 'center', border: '2px solid', borderColor: 'text.primary', borderRadius: '50px' }} direction="row">
 
-                <Avatar>{data.level}</Avatar>
+                <Avatar sx={{ fontWeight: 700, bgcolor: (data.level == 3 ? 'primary.main' : 'secondary.dark') }}>{data.level}</Avatar>
 
                 <Typography sx={{ flex: 8, mx: 2.5, fontWeight: 700 }} variant="h6">{data.name.toUpperCase()}</Typography>
 

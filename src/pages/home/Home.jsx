@@ -62,7 +62,7 @@ export default function Home() {
             {/* <Navbar /> */}
 
             <Fade>
-                <Box sx={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                <Box sx={{ width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
 
                     <Box sx={{ width: '100%', mt: { xs: 5, lg: 0 }, height: 'auto', display: 'flex', flexDirection: { xs: 'column', lg: 'row' }, justifyContent: 'flex-start', alignItems: 'flex-start' }}>
@@ -255,7 +255,7 @@ export default function Home() {
                                         return (
 
                                             <Box key={data.id} sx={{ maxWidth: '25%' }}>
-                                                <CardMedia sx={{ height: { xs: '100px', lg: '150px' }, width: { xs: '100px', lg: '150px' }, objectFit: 'cover', borderRadius: 2 }} image={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} />
+                                                <CardMedia sx={{ height: { xs: '100px', lg: '150px' }, width: { xs: '100px', lg: '150px' }, objectFit: 'cover', borderRadius: 1 }} image={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} />
                                                 {/* <img style={{ height: '150px', width: '150px', objectFit: 'cover' }} src={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} alt="" /> */}
                                             </Box>
 

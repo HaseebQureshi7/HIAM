@@ -9,7 +9,7 @@ export default function ViewAllUserSkills() {
 
   const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/'
 
-  const {id} = useParams()
+  const { id } = useParams()
 
   const userSkillsURL = baseURL + 'viewuserskill/'
 
@@ -23,7 +23,7 @@ export default function ViewAllUserSkills() {
   return (
     <>
       <Fade>
-        <Box sx={{ width: { xs: '90%', lg: '75%' }, m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: 5 }}>
+        <Box sx={{ width: { xs: '90%', lg: '75%' }, minHeight: '100vh', m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 5 }}>
 
           <Stack sx={{ width: '100%', mt: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography sx={{ fontSize: { xs: '2rem', lg: '3rem' }, fontWeight: 700 }} variant='h3'>SKILLS ({userSkillsLength})</Typography>
@@ -34,7 +34,7 @@ export default function ViewAllUserSkills() {
           {userSkills ? userSkills.map((data => {
             return (
 
-              <Stack key={data.id} sx={{ display: 'flex', width: '100%', height: 'auto', p: 0.5, justifyContent: 'space-between', alignItems: 'center', border: '2px solid black', borderRadius: '50px' }} direction="row">
+              <Stack key={data.id} sx={{ display: 'flex', width: '100%', height: 'auto', p: 0.5, justifyContent: 'space-between', alignItems: 'center', border: '2px solid', borderColor: 'text.primary', borderRadius: '50px' }} direction="row">
 
                 <Avatar>{data.level}</Avatar>
 

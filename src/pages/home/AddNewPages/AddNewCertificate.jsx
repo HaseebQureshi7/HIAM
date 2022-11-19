@@ -78,7 +78,7 @@ export default function AddNewCertificate() {
         <>
             <Fade>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', marginTop: '5vh', marginBottom: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', minHeight:'100vh', pt: '5vh', pb: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={5}>
 
 
                     <Snackbar
@@ -117,7 +117,7 @@ export default function AddNewCertificate() {
                         </Box>
 
                         {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 5 } }}>
-                            <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' color="primary" endIcon={<Add sx={{ color: 'white' }} />}>ADD</Button>
+                            <Button disabled={isDisabled} type='submit' sx={{ fontWeight:700, float: 'right' }} size="large" variant='contained' color="primary" endIcon={<Add sx={{ color: 'white' }} />}>ADD</Button>
                             <Button onClick={() => navigate('/allcertificates')} disabled={isDisabled} sx={{ float: 'right', mr: 5 }} size="large" variant='outlined' color="error" endIcon={<Close sx={{ color: 'error.main' }} />}>CANCEL</Button>
                         </Box> : <Box sx={{ width: '100%' }}>
                             <CircularProgress sx={{ float: 'right', textAlign: 'center', mt: { xs: 2.5, lg: 0 }  }} />
