@@ -1,8 +1,8 @@
-import { DarkMode, LightMode, Logout, People, Settings, Share } from '@mui/icons-material'
-import { AppBar, Avatar, Box, Stack, Button, Divider, Menu, MenuItem, SwipeableDrawer, Tooltip, Typography, Snackbar, Alert } from '@mui/material'
+import { DarkMode, LightMode, Login, Logout, People, PersonAdd, Settings, Share } from '@mui/icons-material'
+import { AppBar, Avatar, Box, Stack, Button, Divider, ListItem, Menu, MenuItem, SwipeableDrawer, Tooltip, Typography, Snackbar, Alert } from '@mui/material'
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ThemeModeContext } from '../context/ThemeModeContext'
 import { GetUID } from './GetUID'
 
@@ -133,22 +133,22 @@ export default function Navbar() {
                     </Link>
 
                     <Box sx={{ flex: 2, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                        {/* <Link to={"/editprofile"} > */}
+
                         <Tooltip title="Share Profile">
                             <Share onClick={() => CopyToClipboard(userProfile[0].belongsTo)} sx={{ width: '30px', color: 'text.main', height: '30px', '&:hover': { rotate: '-90deg', position: 'relative', transform: "scale(1.25)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
                         </Tooltip>
-                        {/* </Link> */}
-                        <Link to={"/editprofile"} >
-                            <Tooltip title="Edit Profile">
-                                <Settings sx={{ width: '30px', color: 'text.primary', height: '30px', '&:hover': { rotate: '180deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
-                            </Tooltip>
-                        </Link>
+
                         <Link to={"/community"}>
                             <Tooltip title="Community">
-                                <People sx={{ width: '30px', height: '30px', color: 'text.primary', '&:hover': { transform: 'scale(1.4)', position: 'relative', transition: 'all 1s ease ' }, '&:not(:hover)': { transform: 'scale(1)', position: 'inline', transition: 'all 1s ease ' } }} />
+                                <People sx={{ width: '35px', height: '35px', color: 'text.primary', '&:hover': { transform: 'scale(1.4)', position: 'relative', transition: 'all 1s ease ' }, '&:not(:hover)': { transform: 'scale(1)', position: 'inline', transition: 'all 1s ease ' } }} />
                             </Tooltip>
                         </Link>
-                        {/* <Link to={"/home"}> */}
+                        
+                        <Link to={"/editprofile"} >
+                            <Tooltip title="Edit Profile">
+                                <Settings sx={{ width: '35px', color: 'text.primary', height: '35px', '&:hover': { rotate: '180deg', position: 'relative', transform: "scale(1.5)", transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', position: 'inline', transform: "scale(1)", transition: 'all 1s ease ' } }} />
+                            </Tooltip>
+                        </Link>
 
                         {userProfile ? userProfile.map((data => {
                             return (

@@ -20,7 +20,7 @@ export default function Landing() {
     return (
         <>
             <Fade>
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', pt: '2.5vh', height: "100vh", justifyContent: "center", alignItems: "center" }} gap={10}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', pt: '2.5vh', height: "92.5vh", justifyContent: "center", alignItems: "center" }} gap={10}>
 
                     <AnimatePresence mode='wait'>
                         {animate == true ?
@@ -47,7 +47,7 @@ export default function Landing() {
                                     <Typography sx={{ fontSize: '0.75rem', fontWeight: 700, color: 'text.secondary' }}>OR</Typography>
 
                                     <Stack onClick={() => navigate('/search')} sx={{ cursor: 'pointer', alignItems: 'center' }} gap={1}>
-                                        <Avatar><Search /></Avatar>
+                                        <Avatar sx={{ bgcolor: 'transparent', color: 'primary.main', border: '3px solid', borderColor: 'primary.main', borderTop: '0px', borderLeft: '0px', borderRight: '0px' }}><Search /></Avatar>
                                         <Typography sx={{ fontSize: '1rem', fontWeight: 700, color: 'text.secondary' }}>SEARCH USERS</Typography>
                                     </Stack>
 
@@ -57,6 +57,7 @@ export default function Landing() {
                     </AnimatePresence>
 
                 </Box>
+                <Typography sx={{ textAlign: 'center', fontSize: '0.8rem', p: '5px 10px', fontWeight: 700, color: 'text.secondary' }}>THIS SOFTWARE IS DEVELOPED, MAINTAINED AND OWNED BY HASEEB QURESHI &copy;</Typography>
             </Fade>
         </>
     )
