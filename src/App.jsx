@@ -122,7 +122,8 @@ function App() {
           <RefreshContext.Provider value={{ update, setUpdate }}>
             {/* {localStorage.getItem('Refresh') ? <Navbar/>: null} */}
             <Routes>
-              <Route path='/' element={<Landing />} />
+              {/* FOR IMAGE PRELOAD */}
+              <Route path='/' element={<> <img style={{ width: '0.1px', height: '0.1px' }} src="/images/hiam-mockup.png" alt="" /> <Landing /></>} />
               <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
               <Route path='/search' element={<> <DummyNavbar /> <SearchPeople /> </>} />
