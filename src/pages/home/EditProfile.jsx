@@ -1,4 +1,4 @@
-import { Add, Close, Done, Google, Instagram, LinkedIn, Link as LinkIcon, NavigateNext, Upgrade } from "@mui/icons-material";
+import { Close, Done, Google, Instagram, LinkedIn, Link as LinkIcon } from "@mui/icons-material";
 import { Alert, Avatar, Box, Button, Grid, CircularProgress, Snackbar, Stack, TextField, Typography, Divider, Switch, Modal, Card } from "@mui/material";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
@@ -73,14 +73,14 @@ export default function EditProfile() {
 
         // EDIT DP
         await axios.post(updateProfilePictureURL + GetUID(), form, axiosConfig).then(res => {
-            console.log(res)
+            // console.log(res)
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
             navigate('/home')
         }).catch(res => {
             {
-                console.log(profilePic);
+                // console.log(profilePic);
                 console.log(res);
                 setOpenSnack(true)
                 setSeverity("error")
@@ -108,11 +108,11 @@ export default function EditProfile() {
 
         // EDIT PROFILE
         await axios.put(editProfileURL + GetUID(), JSON.stringify(Object.fromEntries(form)), axiosConfig).then(res => {
-            console.log(res)
+            // console.log(res)
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
-            console.log(JSON.stringify(form))
+            // console.log(JSON.stringify(form))
         }).catch(res => {
             {
                 console.log(res);
@@ -129,7 +129,7 @@ export default function EditProfile() {
 
         if (dpChanged == true) {
             UpdateDp()
-            console.log('dp was changed!')
+            // console.log('dp was changed!')
         }
 
         else {
@@ -160,7 +160,7 @@ export default function EditProfile() {
         setProfilePic(event.target.files[0])
         setDpChanged(true)
         // setDp(event.target.files[0])
-        console.log(profilePic)
+        // console.log(profilePic)
         if (event.target.files && event.target.files[0]) {
             let reader = new FileReader();
             reader.onload = (e) => {

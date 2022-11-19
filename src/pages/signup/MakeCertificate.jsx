@@ -1,5 +1,5 @@
-import { Add, Close, NavigateNext } from "@mui/icons-material";
-import { Alert, Avatar, Box, Button, Grid, CircularProgress, Snackbar, Stack, TextField, Typography, Divider } from "@mui/material";
+import { Add, Close } from "@mui/icons-material";
+import { Alert, Box, Button, Grid, CircularProgress, Snackbar, TextField, Typography, Divider } from "@mui/material";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -57,7 +57,7 @@ export default function MakeCertificate() {
         setIsDisabled(true)
         setIsLoading(true)
         await axios.post(baseURL, form, axiosConfig).then(res => {
-            console.log('submitted!')
+            // console.log('submitted!')
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
@@ -66,7 +66,7 @@ export default function MakeCertificate() {
             {
                 setIsDisabled(false)
                 setIsLoading(false)
-                console.log(res); console.log('Not submitted!')
+                console.log(res)
                 setOpenSnack(true)
                 setSeverity("error")
                 setSnackText("COULDN'T LOG YOU IN!")

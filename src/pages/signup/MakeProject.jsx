@@ -62,12 +62,12 @@ export default function MakeProject() {
             form.append('responsibilities', responsibilitiesRef.current.value)
             form.append('projectLink', projectLinkRef.current.value)
             form.append('projectImage', profilePic)
-            console.log(profilePic)
+            // console.log(profilePic)
 
             setIsDisabled(true)
             setIsLoading(true)
-            await axios.post(baseURL, form, axiosConfig).then(res => {
-                console.log('submitted!')
+            await axios.post(baseURL, form, axiosConfig).then(() => {
+                // console.log('submitted!')
                 setOpenSnack(true)
                 setSeverity("success")
                 setSnackText("Success!")
@@ -76,7 +76,7 @@ export default function MakeProject() {
                 {
                     setIsDisabled(false)
                     setIsLoading(false)
-                    console.log(res); console.log('Not submitted!')
+                    console.log(res)
                     setOpenSnack(true)
                     setSeverity("error")
                     setSnackText("COULDN'T ADD PROJECT!")
@@ -85,7 +85,7 @@ export default function MakeProject() {
 
         }
         else {
-            console.log('Not submitted!')
+            // console.log('Not submitted!')
             setOpenSnack(true)
             setSeverity("error")
             setSnackText("Choose a Project Picture!")
@@ -94,7 +94,7 @@ export default function MakeProject() {
 
     function LiveDp(event) {
         setProfilePic(event.target.files[0])
-        console.log(profilePic)
+        // console.log(profilePic)
         if (event.target.files && event.target.files[0]) {
             let reader = new FileReader();
             reader.onload = (e) => {

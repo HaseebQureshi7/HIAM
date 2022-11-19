@@ -58,13 +58,13 @@ export const PopOut = ({ children }) => {
 
     const Animations = {
         initial: {
-            scale:0
+            scale: 0
         },
         animate: {
-            scale:1
+            scale: 1
         },
         exit: {
-            scale:0
+            scale: 0
         },
         transition: {
             duration: '.35',

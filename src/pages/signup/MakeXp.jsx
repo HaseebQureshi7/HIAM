@@ -1,5 +1,5 @@
-import { Add, Close, NavigateNext } from "@mui/icons-material";
-import { Alert, Avatar, Box, Button, Grid, CircularProgress, Snackbar, Stack, TextField, Typography, Divider, Autocomplete } from "@mui/material";
+import { Add, Close } from "@mui/icons-material";
+import { Alert, Box, Button, Grid, CircularProgress, Snackbar, TextField, Typography, Divider, Autocomplete } from "@mui/material";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -65,7 +65,7 @@ export default function MakeXp() {
         setIsDisabled(true)
         setIsLoading(true)
         await axios.post(baseURL, form, axiosConfig).then(res => {
-            console.log('submitted!')
+            // console.log('submitted!')
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
@@ -74,7 +74,7 @@ export default function MakeXp() {
             {
                 setIsDisabled(false)
                 setIsLoading(false)
-                console.log(res); console.log('Not submitted!')
+                console.log(res)
                 setOpenSnack(true)
                 setSeverity("error")
                 setSnackText("XP NOT ADDED!")
@@ -96,7 +96,7 @@ export default function MakeXp() {
                     <Alert severity={severity} variant='filled'>{snackText}</Alert>
                 </Snackbar>
 
-                <Typography sx={{ fontWeight: '500', fontSize:{xs:'2.5rem',lg:'4rem'} }} variant='h2' component="div">WELCOME TO HIAM
+                <Typography sx={{ fontWeight: '500', fontSize: { xs: '2.5rem', lg: '4rem' } }} variant='h2' component="div">WELCOME TO HIAM
                     <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER YOUR DETAILS TO MAKE YOUR PROFILE</Typography>
                 </Typography>
 
@@ -140,7 +140,7 @@ export default function MakeXp() {
                             <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' color="primary" endIcon={<Add sx={{ color: 'white' }} />}>ADD</Button>
                             <Button onClick={() => navigate('/addexperience')} disabled={isDisabled} sx={{ float: 'right', mr: 5 }} size="large" variant='outlined' color="error" endIcon={<Close sx={{ color: 'error.main' }} />}>CANCEL</Button>
                         </Box> : <Box sx={{ width: '100%' }}>
-                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt:'2.5vh' }} />
+                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt: '2.5vh' }} />
                         </Box>
                         }
                     </form>

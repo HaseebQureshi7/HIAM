@@ -1,7 +1,3 @@
-/* * {
-  transition: all 0.2s ease-in-out;
-} */
-
 body::-webkit-scrollbar {
   display: none; /* Safari and Chrome browsers */
 }
@@ -10,6 +6,11 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* mozilla */
 }
+
+/* FOR EASING TRANSITIONS */
+/* * {
+  transition: all 0.2s ease-in-out;
+} */
 
 strong {
   background: linear-gradient(

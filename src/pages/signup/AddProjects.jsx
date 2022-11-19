@@ -1,5 +1,5 @@
-import { Add, Close, Edit, ExpandMore, Favorite, MoreVert, NavigateNext, Share } from '@mui/icons-material'
-import { Alert, Avatar, Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, CircularProgress, Divider, Fab, FormControlLabel, Grid, IconButton, Modal, Paper, Radio, RadioGroup, Snackbar, Stack, TextField, Typography } from '@mui/material'
+import { Add, Close, NavigateNext } from '@mui/icons-material'
+import { Alert, Avatar, Box, Button, Card, CardContent, CardHeader, CardMedia, CircularProgress, Divider, Fab, FormControlLabel, Grid, Modal, Radio, RadioGroup, Snackbar, Stack, TextField, Typography } from '@mui/material'
 import axios from 'axios'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -49,7 +49,7 @@ export default function AddProjects() {
         form.append('name', skillRef.current.value)
         form.append('level', level)
 
-        await axios.post(makeSkillURL, form, axiosConfig).then(res => { console.log(res); setOpenModal(false) }).catch(res => console.log(res))
+        await axios.post(makeSkillURL, form, axiosConfig).then(res => { setOpenModal(false) }).catch(res => console.log(res))
     }
 
     useEffect(() => {

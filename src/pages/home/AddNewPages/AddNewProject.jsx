@@ -62,12 +62,11 @@ export default function AddNewProject() {
             form.append('responsibilities', responsibilitiesRef.current.value)
             form.append('projectLink', projectLinkRef.current.value)
             form.append('projectImage', profilePic)
-            console.log(profilePic)
 
             setIsDisabled(true)
             setIsLoading(true)
             await axios.post(baseURL, form, axiosConfig).then(res => {
-                console.log('submitted!')
+                // console.log('submitted!')
                 setOpenSnack(true)
                 setSeverity("success")
                 setSnackText("Success!")
@@ -76,7 +75,7 @@ export default function AddNewProject() {
                 {
                     setIsDisabled(false)
                     setIsLoading(false)
-                    console.log(res); console.log('Not submitted!')
+                    console.log(res)
                     setOpenSnack(true)
                     setSeverity("error")
                     setSnackText("COULDN'T ADD PROJECT!")
@@ -85,7 +84,7 @@ export default function AddNewProject() {
 
         }
         else {
-            console.log('Not submitted!')
+            // console.log('Not submitted!')
             setOpenSnack(true)
             setSeverity("error")
             setSnackText("Choose a Project Picture!")
@@ -94,7 +93,7 @@ export default function AddNewProject() {
 
     function LiveDp(event) {
         setProfilePic(event.target.files[0])
-        console.log(profilePic)
+        // console.log(profilePic)
         if (event.target.files && event.target.files[0]) {
             let reader = new FileReader();
             reader.onload = (e) => {
@@ -108,7 +107,7 @@ export default function AddNewProject() {
         <>
             <Fade>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', minHeight:'100vh', pt: '5vh', pb: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', minHeight: '100vh', pt: '5vh', pb: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
 
 
                     <Snackbar
@@ -163,9 +162,9 @@ export default function AddNewProject() {
                         </Box>
 
                         {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 5 } }}>
-                            <Button disabled={isDisabled} type='submit' sx={{ fontWeight:700, float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>ADD PROJECT</Button>
+                            <Button disabled={isDisabled} type='submit' sx={{ fontWeight: 700, float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>ADD PROJECT</Button>
                         </Box> : <Box sx={{ width: '100%' }}>
-                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt:{xs:2.5, lg:0} }} />
+                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt: { xs: 2.5, lg: 0 } }} />
                         </Box>
                         }
                     </form>

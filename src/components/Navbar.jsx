@@ -1,8 +1,8 @@
-import { DarkMode, LightMode, Login, Logout, People, PersonAdd, Settings, Share } from '@mui/icons-material'
-import { AppBar, Avatar, Box, Stack, Button, Divider, ListItem, Menu, MenuItem, SwipeableDrawer, Tooltip, Typography, Snackbar, Alert } from '@mui/material'
+import { DarkMode, LightMode, Logout, People, Settings, Share } from '@mui/icons-material'
+import { AppBar, Avatar, Box, Stack, Button, Divider, Menu, MenuItem, SwipeableDrawer, Tooltip, Typography, Snackbar, Alert } from '@mui/material'
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { ThemeModeContext } from '../context/ThemeModeContext'
 import { GetUID } from './GetUID'
 

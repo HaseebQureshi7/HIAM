@@ -1,5 +1,5 @@
-import { Add, Close, DeleteForever, NavigateNext } from "@mui/icons-material";
-import { Alert, Avatar, Box, Button, Grid, CircularProgress, Snackbar, Stack, TextField, Typography, Divider, Autocomplete } from "@mui/material";
+import { Add, DeleteForever } from "@mui/icons-material";
+import { Alert, Box, Button, Grid, CircularProgress, Snackbar, TextField, Typography, Divider, Autocomplete } from "@mui/material";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -51,7 +51,7 @@ export default function EditExperience() {
             setSnackText("FATAL ERROR! UID/ACCESS TOKEN WAS NOT FOUND!")
         }
 
-        axios.get(viewExperienceURL + eid).then(res => { setExperienceData(res.data.data); console.log(res.data.data) }).catch(res => console.log(res))
+        axios.get(viewExperienceURL + eid).then(res => { setExperienceData(res.data.data); }).catch(res => console.log(res))
     }, [])
 
     let axiosConfig = {
@@ -80,7 +80,7 @@ export default function EditExperience() {
         setIsDisabled(true)
         setIsLoading(true)
         await axios.put(baseURL + eid, JSON.stringify(Object.fromEntries(form)), axiosConfig).then(res => {
-            console.log('submitted!')
+            // console.log('submitted!')
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
@@ -89,7 +89,7 @@ export default function EditExperience() {
             {
                 setIsDisabled(false)
                 setIsLoading(false)
-                console.log(res); console.log('Not submitted!')
+                console.log(res)
                 setOpenSnack(true)
                 setSeverity("error")
                 setSnackText("XP NOT ADDED!")
@@ -100,7 +100,7 @@ export default function EditExperience() {
     return (
         <>
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', minHeight:'100vh', pt: '5vh', pb: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', minHeight: '100vh', pt: '5vh', pb: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
 
 
                 <Snackbar
@@ -156,7 +156,7 @@ export default function EditExperience() {
                             <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' color="primary" endIcon={<Add sx={{ color: 'white' }} />}>SAVE</Button>
 
 
-                            {sure == false ? <Button onClick={() => setSure(true)} color="error" disabled={isDisabled} sx={{ float: {xs:'none',lg:'right'}, mr: { xs: 0, lg: 5 }, mt: { xs: 0, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>DELETE PROJECT</Button> : <Button onClick={() => DeleteExperience()} color="error" disabled={isDisabled} sx={{ float: {xs:'none',lg:'right'}, mr: { xs: 0, lg: 5 }, mt: { xs: 0, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>ARE YOU SURE ?</Button>}
+                            {sure == false ? <Button onClick={() => setSure(true)} color="error" disabled={isDisabled} sx={{ float: { xs: 'none', lg: 'right' }, mr: { xs: 0, lg: 5 }, mt: { xs: 0, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>DELETE PROJECT</Button> : <Button onClick={() => DeleteExperience()} color="error" disabled={isDisabled} sx={{ float: { xs: 'none', lg: 'right' }, mr: { xs: 0, lg: 5 }, mt: { xs: 0, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>ARE YOU SURE ?</Button>}
 
 
                             {/* <Button onClick={() => navigate('/allexperiences')} disabled={isDisabled} sx={{ float: 'right', mr: 5 }} size="large" variant='outlined' color="error" endIcon={<Close sx={{ color: 'error.main' }} />}>CANCEL</Button> */}

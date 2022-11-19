@@ -1,5 +1,4 @@
-import { Add, Edit, Link as LinkIcon } from "@mui/icons-material"
-import { Avatar, Box, Button, Divider, Link, Stack, Typography } from "@mui/material"
+import { Box, Divider, Stack, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"

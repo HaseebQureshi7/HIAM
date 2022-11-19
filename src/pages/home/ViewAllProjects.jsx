@@ -38,7 +38,6 @@ export default function ViewAllProjects() {
                         return (
 
                             <Box key={data.id} sx={{ width: '100%', height: 'auto', mb: 5, display: 'flex', textAlign: { xs: 'center', lg: 'start' }, flexDirection: { xs: 'column-reverse', lg: 'row' }, justifyContent: { xs: 'center', lg: 'space-between' }, alignItems: 'center' }}>
-                                {console.log(data.id, data.name)}
 
                                 <Stack sx={{ flex: 2, gap: 1, alignItems: { xs: 'center', lg: 'flex-start' } }}>
                                     <Typography sx={{ fontWeight: 700 }} variant='h4'>{data.name}</Typography>

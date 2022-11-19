@@ -1,5 +1,5 @@
-import { Download, Edit, Google, Instagram, Language, LinkedIn, Mail, More, Notifications, People, Search, Settings } from '@mui/icons-material'
-import { AppBar, Avatar, Badge, Link as MUILink, Box, Card, CardActionArea, CardContent, CardMedia, Chip, Divider, IconButton, Menu, Skeleton, Stack, Toolbar, Typography } from '@mui/material'
+import { Google, Instagram, Language, LinkedIn } from '@mui/icons-material'
+import { Avatar, Link as MUILink, Box, Card, CardActionArea, CardMedia, Chip, Divider, Skeleton, Stack, Typography } from '@mui/material'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Fade } from '../../components/AnimationEngine'

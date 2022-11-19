@@ -1,6 +1,5 @@
-import { Alert, Box, Button, CircularProgress, LinearProgress, Snackbar, Stack, TextField, Typography } from '@mui/material'
+import { Alert, Box, Button, CircularProgress, Snackbar, Stack, TextField, Typography } from '@mui/material'
 import axios from 'axios'
-import { AnimatePresence } from 'framer-motion'
 import React, { useContext, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Fade } from '../../components/AnimationEngine'
@@ -71,13 +70,13 @@ export default function Login() {
                         <Stack gap={5} direction={'column'}>
                             <TextField inputRef={usernameRef} label="Username" InputLabelProps={{ shrink: true }} placeholder='Enter Your Username' variant="outlined" required />
                             <TextField inputRef={passwordRef} label="Password" InputLabelProps={{ shrink: true }} placeholder='Enter Your Password' type="password" variant="outlined" required />
-                            <Button disabled={isDisabled} type="submit" sx={{ padding: '5px 90px' ,fontWeight:700 }} variant="contained" >LOGIN</Button>
+                            <Button disabled={isDisabled} type="submit" sx={{ padding: '5px 90px', fontWeight: 700 }} variant="contained" >LOGIN</Button>
                         </Stack>
                     </form>
 
                     {loading == false ? <Stack sx={{ gap: 5, textAlign: 'center', mt: 5 }}>
                         <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', fontWeight: 700, }} variant="subtitle1">OR</Typography>
-                        <Button onClick={() => navigate('/signup')} sx={{ padding: '5px 90px',fontWeight:700 }} variant="outlined" >MAKE A NEW ACCOUNT</Button>
+                        <Button onClick={() => navigate('/signup')} sx={{ padding: '5px 90px', fontWeight: 700 }} variant="outlined" >MAKE A NEW ACCOUNT</Button>
                     </Stack> : <Box sx={{ minWidth: { xs: '90vw', md: '10vw', lg: '10vw' }, display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 5 }}>
                         {loading === true ? <CircularProgress /> : null}
                     </Box>}

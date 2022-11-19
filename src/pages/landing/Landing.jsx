@@ -1,8 +1,7 @@
 import { Search } from '@mui/icons-material'
 import { Avatar, Box, Button, Stack, Typography } from '@mui/material'
-import axios from 'axios'
 import { AnimatePresence } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Fade, FadeUp } from '../../components/AnimationEngine'
 

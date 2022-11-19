@@ -1,5 +1,5 @@
-import { Download, Edit, Google, Instagram, Language, LinkedIn, Mail, More, Notifications, People, Search, Settings } from '@mui/icons-material'
-import { AppBar, Avatar, Badge, Box, Link as MUILink, Card, CardActionArea, CardContent, CardMedia, Chip, Divider, IconButton, Menu, Skeleton, Stack, Toolbar, Typography } from '@mui/material'
+import { Google, Instagram, Language, LinkedIn } from '@mui/icons-material'
+import { Avatar, Box, Link as MUILink, Card, CardActionArea, CardMedia, Chip, Divider, Skeleton, Stack, Typography } from '@mui/material'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -58,8 +58,6 @@ export default function Home() {
 
     return (
         <>
-
-            {/* <Navbar /> */}
 
             <Fade>
                 <Box sx={{ width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
@@ -256,7 +254,6 @@ export default function Home() {
 
                                             <Box key={data.id} sx={{ maxWidth: '25%' }}>
                                                 <CardMedia sx={{ height: { xs: '100px', lg: '150px' }, width: { xs: '100px', lg: '150px' }, objectFit: 'cover', borderRadius: 1 }} image={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} />
-                                                {/* <img style={{ height: '150px', width: '150px', objectFit: 'cover' }} src={`https://haseebxqureshi.pythonanywhere.com${data.projectImage}`} alt="" /> */}
                                             </Box>
 
                                         )

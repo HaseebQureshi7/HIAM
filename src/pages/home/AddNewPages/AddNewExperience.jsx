@@ -1,5 +1,5 @@
-import { Add, Close, NavigateNext } from "@mui/icons-material";
-import { Alert, Avatar, Box, Button, Grid, CircularProgress, Snackbar, Stack, TextField, Typography, Divider, Autocomplete } from "@mui/material";
+import { Add, Close } from "@mui/icons-material";
+import { Alert, Box, Button, Grid, CircularProgress, Snackbar, TextField, Typography, Divider, Autocomplete } from "@mui/material";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -65,7 +65,7 @@ export default function AddNewExperience() {
         setIsDisabled(true)
         setIsLoading(true)
         await axios.post(baseURL, form, axiosConfig).then(res => {
-            console.log('submitted!')
+            // console.log('submitted!')
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
@@ -74,7 +74,7 @@ export default function AddNewExperience() {
             {
                 setIsDisabled(false)
                 setIsLoading(false)
-                console.log(res); console.log('Not submitted!')
+                console.log(res)
                 setOpenSnack(true)
                 setSeverity("error")
                 setSnackText("XP NOT ADDED!")
@@ -137,7 +137,7 @@ export default function AddNewExperience() {
                         </Box>
 
                         {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 5 } }}>
-                            <Button disabled={isDisabled} type='submit' sx={{ fontWeight:700, float: 'right' }} size="large" variant='contained' color="primary" endIcon={<Add sx={{ color: 'white' }} />}>ADD</Button>
+                            <Button disabled={isDisabled} type='submit' sx={{ fontWeight: 700, float: 'right' }} size="large" variant='contained' color="primary" endIcon={<Add sx={{ color: 'white' }} />}>ADD</Button>
                             <Button onClick={() => navigate('/allexperiences')} disabled={isDisabled} sx={{ float: 'right', mr: 5 }} size="large" variant='outlined' color="error" endIcon={<Close sx={{ color: 'error.main' }} />}>CANCEL</Button>
                         </Box> : <Box sx={{ width: '100%' }}>
                             <CircularProgress sx={{ float: 'right', textAlign: 'center' }} />

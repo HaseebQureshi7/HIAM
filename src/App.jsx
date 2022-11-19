@@ -55,11 +55,11 @@ function App() {
     await axios.post(baseURL, { refresh: localStorage.getItem('Refresh') })
       .then(res => {
         localStorage.setItem('Access', res.data.access);
-        console.log('AutoLogin was Successful');
+        // console.log('AutoLogin was Successful');
         return navigate('/home')
       })
       .catch(res => {
-        console.log(res);
+        // console.log(res);
         return navigate('/login')
       })
 
@@ -89,7 +89,7 @@ function App() {
       }
     }
     else {
-      console.log('Anonymous Mode [:]-<')
+      console.log('Anonymous Mode [:]-|-<')
     }
 
     if (localStorage.getItem('themeMode')) {
@@ -125,7 +125,7 @@ function App() {
               <Route path='/' element={<Landing />} />
               <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
-              <Route path='/search' element={<> <DummyNavbar/> <SearchPeople /> </>} />
+              <Route path='/search' element={<> <DummyNavbar /> <SearchPeople /> </>} />
 
               {/* EXTERNAL USER LINKS */}
               <Route path='anonymous/users/:id' element={<> <DummyNavbar /> <ViewUserProfile /> </>} />

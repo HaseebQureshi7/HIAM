@@ -1,5 +1,5 @@
-import { Add, Close, DeleteForever, NavigateNext } from "@mui/icons-material";
-import { Alert, Avatar, Box, Button, Grid, CircularProgress, Snackbar, Stack, TextField, Typography, Divider } from "@mui/material";
+import { Add, DeleteForever } from "@mui/icons-material";
+import { Alert, Box, Button, Grid, CircularProgress, Snackbar, TextField, Typography, Divider } from "@mui/material";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -46,7 +46,7 @@ export default function EditCertificate() {
         }
 
 
-        axios.get(viewCertificateURL + cid).then(res => { setCertificateData(res.data.data); console.log(res.data.data) }).catch(res => console.log(res))
+        axios.get(viewCertificateURL + cid).then(res => { setCertificateData(res.data.data); }).catch(res => console.log(res))
     }, [])
 
     let axiosConfig = {
@@ -71,7 +71,7 @@ export default function EditCertificate() {
         setIsDisabled(true)
         setIsLoading(true)
         await axios.put(baseURL + cid, JSON.stringify(Object.fromEntries(form)), axiosConfig).then(res => {
-            console.log(JSON.stringify(Object.fromEntries(form)))
+            // console.log(JSON.stringify(Object.fromEntries(form)))
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
@@ -80,7 +80,7 @@ export default function EditCertificate() {
             {
                 setIsDisabled(false)
                 setIsLoading(false)
-                console.log(res); console.log('Not submitted!')
+                console.log(res)
                 setOpenSnack(true)
                 setSeverity("error")
                 setSnackText("COULDN'T LOG YOU IN!")
@@ -92,7 +92,7 @@ export default function EditCertificate() {
         <>
             <Fade>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', minHeight:'100vh', pt: '5vh', pb: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={5}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', minHeight: '100vh', pt: '5vh', pb: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={5}>
 
 
                     <Snackbar
@@ -134,11 +134,11 @@ export default function EditCertificate() {
                             <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' color="primary" endIcon={<Add sx={{ color: 'white' }} />}>SAVE</Button>
 
 
-                            {sure == false ? <Button onClick={() => setSure(true)} color="error" disabled={isDisabled} sx={{ float: {xs:'none',lg:'right'}, mr: { xs: 0, lg: 5 }, mt: { xs: 0, lg: 0 } }}  size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>DELETE PROJECT</Button> : <Button onClick={() => DeleteCertificate()} color="error" disabled={isDisabled} sx={{ float: {xs:'none',lg:'right'}, mr: { xs: 0, lg: 5 }, mt: { xs: 0, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>ARE YOU SURE ?</Button>}
-{/* 
+                            {sure == false ? <Button onClick={() => setSure(true)} color="error" disabled={isDisabled} sx={{ float: { xs: 'none', lg: 'right' }, mr: { xs: 0, lg: 5 }, mt: { xs: 0, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>DELETE PROJECT</Button> : <Button onClick={() => DeleteCertificate()} color="error" disabled={isDisabled} sx={{ float: { xs: 'none', lg: 'right' }, mr: { xs: 0, lg: 5 }, mt: { xs: 0, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>ARE YOU SURE ?</Button>}
+                            {/* 
                             <Button onClick={() => navigate('/allcertificates')} disabled={isDisabled} sx={{ float: 'right', mr: 5 }} size="large" variant='outlined' color="error" endIcon={<Close sx={{ color: 'error.main' }} />}>CANCEL</Button> */}
                         </Box> : <Box sx={{ width: '100%' }}>
-                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt: { xs: 2.5, lg: 0 }  }} />
+                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt: { xs: 2.5, lg: 0 } }} />
                         </Box>
                         }
                     </form> : null}

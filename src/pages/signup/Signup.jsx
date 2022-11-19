@@ -1,7 +1,7 @@
 import { Done, Error } from '@mui/icons-material'
 import { Alert, Box, Button, CircularProgress, Grid, InputAdornment, Snackbar, Stack, TextField, Typography } from '@mui/material'
 import axios from 'axios'
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Fade } from '../../components/AnimationEngine'
 import TokenDecoder from '../../components/TokenDecoder'

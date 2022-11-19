@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Fade } from "../../../components/AnimationEngine";
-import { GetUID } from "../../../components/GetUID";
 
 export default function EditProject() {
 
@@ -77,14 +76,14 @@ export default function EditProject() {
 
         // EDIT DP
         await axios.post(editProjectImageURL + pid, form, axiosConfig).then(res => {
-            console.log(res)
+            // console.log(res)
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
             navigate('/allprojects')
         }).catch(res => {
             {
-                console.log(profilePic);
+                // console.log(profilePic);
                 console.log(res);
                 setOpenSnack(true)
                 setSeverity("error")
@@ -102,7 +101,7 @@ export default function EditProject() {
         setIsDisabled(true)
         setIsLoading(true)
         await axios.put(baseURL + pid, JSON.stringify({ name: nameRef.current.value, role: roleRef.current.value, basedOn: basedOnRef.current.value, releaseDate: releaseDateRef.current.value, responsibilities: responsibilitiesRef.current.value, projectLink: projectLinkRef.current.value }), axiosConfig).then(res => {
-            console.log('submitted!')
+            // console.log('submitted!')
             setOpenSnack(true)
             setSeverity("success")
             setSnackText("Success!")
@@ -121,7 +120,7 @@ export default function EditProject() {
 
         if (dpChanged == true) {
             UpdateDp()
-            console.log('dp was changed!')
+            // console.log('dp was changed!')
         }
 
         else {
@@ -133,7 +132,7 @@ export default function EditProject() {
     function LiveDp(event) {
         setProfilePic(event.target.files[0])
         setDpChanged(true)
-        console.log(profilePic)
+        // console.log(profilePic)
         if (event.target.files && event.target.files[0]) {
             let reader = new FileReader();
             reader.onload = (e) => {
@@ -147,7 +146,7 @@ export default function EditProject() {
         <>
             <Fade>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', minHeight:'100vh', pt: '5vh', pb: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', minHeight: '100vh', pt: '5vh', pb: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
 
 
                     <Snackbar
@@ -206,7 +205,7 @@ export default function EditProject() {
                             {sure == false ? <Button onClick={() => setSure(true)} color="error" disabled={isDisabled} sx={{ float: 'right', mr: { xs: 0, lg: 5 }, mt: { xs: 3, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>DELETE PROJECT</Button> : <Button onClick={() => DeleteProject()} color="error" disabled={isDisabled} sx={{ float: 'right', mr: { xs: 0, lg: 5 }, mt: { xs: 3, lg: 0 } }} size="large" variant='contained' endIcon={<DeleteForever sx={{ color: 'white' }} />}>ARE YOU SURE ?</Button>}
 
                         </Box> : <Box sx={{ width: '100%' }}>
-                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt:{xs:2.5,lg:0} }} />
+                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt: { xs: 2.5, lg: 0 } }} />
                         </Box>
                         }
                     </form> : null}

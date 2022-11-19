@@ -1,5 +1,5 @@
-import { Add, Edit, ExpandMore, Favorite, Google, Instagram, LinkedIn, MoreVert, NavigateNext, Share } from '@mui/icons-material'
-import { Alert, Avatar, Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, CircularProgress, Divider, Fab, Grid, IconButton, Modal, Paper, Snackbar, Stack, TextField, Typography } from '@mui/material'
+import { Google, Instagram, LinkedIn, NavigateNext } from '@mui/icons-material'
+import { Alert, Avatar, Box, Button, Card, CircularProgress, Divider, Grid, Snackbar, TextField, Typography } from '@mui/material'
 import axios from 'axios'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -37,8 +37,6 @@ export default function AddLinks() {
         e.preventDefault()
 
         if (linkedInRef.current.value && googleRef.current.value && instagramRef.current.value && personalWebRef.current.value) {
-
-            console.log(accessToken, userId)
 
             let form = new FormData()
             form.append('belongsTo', userId)
@@ -119,7 +117,7 @@ export default function AddLinks() {
                         <Grid container sx={{ width: '100%', }}>
 
                             <Grid xs={12} md={10} item >
-                                <Typography sx={{ fontWeight: '500', fontSize:{xs:'1.5rem',lg:'2.5rem'} }} variant='h4' component="div">ADD LINKS
+                                <Typography sx={{ fontWeight: '500', fontSize: { xs: '1.5rem', lg: '2.5rem' } }} variant='h4' component="div">ADD LINKS
                                     <Typography sx={{ fontWeight: '500', color: 'grey', fontSize: '0.75rem' }} variant='subtitle2'>YOUR LINKS WILL BE AUTOMATICALLY SORTED</Typography>
 
                                 </Typography>
@@ -167,8 +165,8 @@ export default function AddLinks() {
 
                     {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 0 } }}>
                         <Button onClick={(e) => PushLinks(e)} disabled={isDisabled} sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>FINISH</Button>
-                        
-                        <Box sx={{ width: { xs: '10%', md: '1%' }, height: 'auto', mr: 'auto', ml:1, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
+
+                        <Box sx={{ width: { xs: '10%', md: '1%' }, height: 'auto', mr: 'auto', ml: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
                             <img style={{ width: '100%', height: 'auto' }} src="/images/party-emoji-png.png" alt="" />
                         </Box>
 

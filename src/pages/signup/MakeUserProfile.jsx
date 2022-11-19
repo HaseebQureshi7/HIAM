@@ -64,19 +64,19 @@ export default function MakeUserProfile() {
             form.append('biography', biographyRef.current.value)
             form.append('location', locationRef.current.value)
             form.append('profilePicture', profilePic)
-            console.log(profilePic)
+            // console.log(profilePic)
 
             setIsDisabled(true)
             setIsLoading(true)
-            await axios.post(baseURL, form, axiosConfig).then(res => {
-                console.log('submitted!')
+            await axios.post(baseURL, form, axiosConfig).then(() => {
+                // console.log('submitted!')
                 setOpenSnack(true)
                 setSeverity("success")
                 setSnackText("Success!")
                 navigate('/addexperience')
             }).catch(res => {
                 {
-                    console.log(res); console.log('Not submitted!')
+                    console.log(res)
                     setOpenSnack(true)
                     setSeverity("error")
                     setSnackText("COULDN'T LOG YOU IN!")
@@ -85,7 +85,7 @@ export default function MakeUserProfile() {
 
         }
         else {
-            console.log('Not submitted!')
+            // console.log('Not submitted!')
             setOpenSnack(true)
             setSeverity("error")
             setSnackText("Choose a Profile Picture!")
@@ -94,7 +94,7 @@ export default function MakeUserProfile() {
 
     function LiveDp(event) {
         setProfilePic(event.target.files[0])
-        console.log(profilePic)
+        // console.log(profilePic)
         if (event.target.files && event.target.files[0]) {
             let reader = new FileReader();
             reader.onload = (e) => {
@@ -119,7 +119,7 @@ export default function MakeUserProfile() {
                         <Alert severity={severity} variant='filled'>{snackText}</Alert>
                     </Snackbar>
 
-                    <Typography sx={{ fontWeight: '500', fontSize:{xs:'2.5rem',lg:'4rem'} }} variant='h3' component="div">WELCOME TO HIAM
+                    <Typography sx={{ fontWeight: '500', fontSize: { xs: '2.5rem', lg: '4rem' } }} variant='h3' component="div">WELCOME TO HIAM
                         <Typography sx={{ fontWeight: '200', color: 'grey', fontSize: 'small' }} variant='subtitle2'>ENTER YOUR DETAILS TO MAKE YOUR PROFILE</Typography>
                     </Typography>
 
@@ -168,7 +168,7 @@ export default function MakeUserProfile() {
                         {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 0 } }}>
                             <Button disabled={isDisabled} type='submit' sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>NEXT</Button>
                         </Box> : <Box sx={{ width: '100%' }}>
-                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt:'2.5vh' }} />
+                            <CircularProgress sx={{ float: 'right', textAlign: 'center', mt: '2.5vh' }} />
                         </Box>
                         }
                     </form>

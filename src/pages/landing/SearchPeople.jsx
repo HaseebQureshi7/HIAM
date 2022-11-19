@@ -1,5 +1,5 @@
 import { Launch, Search } from '@mui/icons-material'
-import { Avatar, Box, Chip, InputAdornment, Stack, TextField, Typography } from '@mui/material'
+import { Avatar, Box, InputAdornment, Stack, TextField, Typography } from '@mui/material'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -17,9 +17,9 @@ export default function SearchPeople() {
         if (user.length >= 3) {
             await axios.get(searchUsersURL + user).then(res => { setSearchedUser(res.data.user) }).catch(res => console.log(res))
         }
-        else {
-            console.log('enter more than 3 chars to initiate search!')
-        }
+        // else {
+        //     console.log('enter more than 3 chars to initiate search!')
+        // }
     }
 
     return (
