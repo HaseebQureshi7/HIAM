@@ -37,6 +37,7 @@ import EditCertificate from './pages/home/EditPages/EditCertificate'
 import axios from 'axios'
 import DummyNavbar from './components/DummyNavbar'
 import { ThemeModeContext } from './context/ThemeModeContext'
+import SearchPeople from './pages/landing/SearchPeople'
 
 function App() {
 
@@ -124,6 +125,7 @@ function App() {
               <Route path='/' element={<Landing />} />
               <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
+              <Route path='/search' element={<> <DummyNavbar/> <SearchPeople /> </>} />
 
               {/* EXTERNAL USER LINKS */}
               <Route path='anonymous/users/:id' element={<> <DummyNavbar /> <ViewUserProfile /> </>} />

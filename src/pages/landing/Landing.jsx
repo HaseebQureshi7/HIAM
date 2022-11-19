@@ -47,7 +47,7 @@ export default function Landing() {
 
                                     <Typography sx={{ fontSize: '0.75rem', fontWeight: 700, color: 'text.secondary' }}>OR</Typography>
 
-                                    <Stack sx={{ alignItems: 'center' }} gap={1}>
+                                    <Stack onClick={() => navigate('/search')} sx={{ cursor: 'pointer', alignItems: 'center' }} gap={1}>
                                         <Avatar><Search /></Avatar>
                                         <Typography sx={{ fontSize: '1rem', fontWeight: 700, color: 'text.secondary' }}>SEARCH USERS</Typography>
                                     </Stack>

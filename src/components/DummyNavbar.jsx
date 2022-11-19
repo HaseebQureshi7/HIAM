@@ -22,13 +22,13 @@ export default function DummyNavbar() {
 
                 {/* DESKTOP  */}
                 <Box sx={{ width: '100%', p: '10px 25px', display: { xs: 'none', lg: 'flex' }, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                    <Link style={{ flex: 2, textDecoration: 'none', color: 'inherit' }} to={"/home"} >
+                    <Link style={{ flex: 2, textDecoration: 'none', color: 'inherit' }} to={"/"} >
                         <Typography sx={{ fontWeight: 900 }} variant="h4" noWrap component="strong"> HIAM </Typography>
                     </Link>
 
                     <Box sx={{ flex: 1, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
 
-                        <Box>
+                        <Box sx={{ cursor: 'pointer' }} onClick={() => navigate('/search')}>
                             <Search />
                         </Box>
 
