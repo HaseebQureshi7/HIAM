@@ -35,7 +35,7 @@ export default function ViewAllUserSkills() {
 
               <Stack key={data.id} sx={{ display: 'flex', width: '100%', height: 'auto', p: 0.5, justifyContent: 'space-between', alignItems: 'center', border: '2px solid', borderColor: 'text.primary', borderRadius: '50px' }} direction="row">
 
-                <Avatar>{data.level}</Avatar>
+                <Avatar sx={{ fontWeight: 700, bgcolor: (data.level == 3 ? 'primary.main' : 'secondary.dark') }}>{data.level}</Avatar>
 
                 <Typography sx={{ flex: 8, mx: 2.5, fontWeight: 700 }} variant="h6">{data.name.toUpperCase()}</Typography>
 

@@ -1,5 +1,5 @@
 import { Add, Edit, Link as LinkIcon } from "@mui/icons-material"
-import { Avatar, Box, Button, Divider, Stack, Typography } from "@mui/material"
+import { Avatar, Box, Button, Divider, Stack, Link as MUILink, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
@@ -55,9 +55,9 @@ export default function ViewAllCertificates() {
                     </Stack>
                   </Stack>
                   <Stack gap={2.5} direction='row'>
-                    <Link to={data.link}>
+                    <MUILink href={data.link}>
                       <Avatar sx={{ bgcolor: 'text.main', '&:hover': { rotate: '-45deg', transition: 'all 0.75s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 0.5s ease ' } }} > <LinkIcon /></Avatar>
-                    </Link>
+                    </MUILink>
                     <Link to={`/editcertificate/${data.id}`}>
                       <Avatar sx={{ bgcolor: 'text.main' }}><Edit /></Avatar>
                     </Link>
