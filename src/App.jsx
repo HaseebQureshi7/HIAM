@@ -84,6 +84,7 @@ function App() {
 
 
   useEffect(() => {
+    // AutoLogin
     if (localStorage.getItem('Refresh')) {
       if (location.pathname == '/') {
         AutoLogin()
@@ -93,6 +94,7 @@ function App() {
       console.log('Anonymous Mode [:]-|-<')
     }
 
+    // Theme Mode Persistence
     if (localStorage.getItem('themeMode')) {
       setThemeMode(localStorage.getItem('themeMode'))
     }
@@ -102,6 +104,8 @@ function App() {
 
   }, [])
 
+  // Auto Scroll-Up
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const theme = createTheme({
     palette: {
@@ -115,7 +119,7 @@ function App() {
       fontFamily: 'Questrial'
     }
   })
-  
+
 
   return (
     <ThemeModeContext.Provider value={{ themeMode, setThemeMode }}>
