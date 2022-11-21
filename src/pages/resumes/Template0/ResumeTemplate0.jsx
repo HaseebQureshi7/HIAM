@@ -1,7 +1,7 @@
-import { Call, CallRounded, Close, Mail, Phone } from "@mui/icons-material"
-import { Avatar, Box, Button, Divider, Grid, Link, Modal, Stack, TextField, Typography } from "@mui/material"
+import { CallRounded, Mail } from "@mui/icons-material"
+import { Box, Button, Divider, Grid, Link, Modal, Stack, TextField, Typography } from "@mui/material"
 import axios from "axios"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { GetUID } from "../../../components/GetUID"
 
 export default function ResumeTemplate0() {
