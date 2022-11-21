@@ -67,7 +67,7 @@ export default function ViewAllCertificates() {
               </Box>
 
             )
-          })) : null}
+          })) : <Typography variant="h4">NO CERTIFICATES ADDED : {'('}</Typography>}
 
 
 

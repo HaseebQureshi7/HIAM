@@ -71,7 +71,7 @@ export default function ViewAllExperiences() {
                             </Box>
 
                         )
-                    })) : null}
+                    })) : <Typography variant="h4">NO EXPERIENCES ADDED : {'('}</Typography>}
 
 
 

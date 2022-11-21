@@ -1,4 +1,4 @@
-import { Google, Instagram, Language, LinkedIn } from '@mui/icons-material'
+import { ContactPhone, Download, Google, Instagram, Language, LinkedIn, Verified } from '@mui/icons-material'
 import { Avatar, Box, Link as MUILink, Card, CardActionArea, CardMedia, Chip, Divider, Skeleton, Stack, Typography } from '@mui/material'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
@@ -36,6 +36,7 @@ export default function Home() {
 
     const [userLinks, setUserLinks] = useState(null)
     const [userLinksLength, setUserLinksLength] = useState(0)
+
 
     useEffect(() => {
 
@@ -80,13 +81,22 @@ export default function Home() {
 
                                                 <Box sx={{ flex: 3, pl: { xs: 0, lg: 5 }, width: '100%', m: 'auto', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
 
-                                                    <Typography sx={{ fontSize: '2.5rem', textAlign: { xs: 'center', lg: 'start' }, fontWeight: '700' }} variant='h3'>{data.fname + " " + data.lname}</Typography>
+                                                    <Stack direction='row' sx={{ width: '100%', display: 'flex', justifyContent: { xs: 'center', lg: 'flex-start' }, alignItems: 'center' }}>
+
+                                                        <Typography sx={{ fontSize: '2.5rem', textAlign: { xs: 'center', lg: 'start' }, fontWeight: '700' }} variant='h3'>{data.fname + " " + data.lname}</Typography>
+
+                                                        {data.fname == 'Haseeb' && data.lname == 'Qureshi' ? <Verified sx={{ width: '35px', height: '35px', color: '#2B65EC', ml: 1 }} /> : null}
+
+                                                    </Stack>
 
                                                     <Box sx={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
 
                                                         <Box sx={{ flex: 1, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
 
                                                             <Typography sx={{ fontWeight: '700' }} variant='h6'>{data.position}</Typography>
+
+                                                            {/* <Typography sx={{ fontWeight: '700' }} variant='subtitle2'>{'+91-9797055883'}</Typography> */}
+
                                                             <Typography variant='subtitle2'>@{userName}.hiam</Typography>
 
                                                             {/* USER LINKS */}
@@ -110,14 +120,18 @@ export default function Home() {
                                                                             <MUILink href={data.link}>
                                                                                 {data.name == 'Instagram' ? <Instagram sx={{ color: 'purple', width: '35px', height: '35px' }} /> : null}
                                                                             </MUILink>
-
-                                                                            {/* <Link href=":download">
-                                                                                {data.name == 'download' ? <Download sx={{ color: 'black', width: '35px', height: '35px' }} /> : null}
-                                                                            </Link> */}
                                                                         </div>
 
                                                                     )
                                                                 })) : null}
+
+                                                                <Link to="/downloadresume">
+                                                                    <Download sx={{ color: 'primary.dark', width: '35px', height: '35px' }} />
+                                                                </Link>
+
+                                                                {/* <Link to="/downloadresume">
+                                                                    <ContactPhone sx={{ color: 'primary.dark', width: '35px', height: '35px' }} />
+                                                                </Link> */}
 
                                                             </Box>
 
@@ -257,7 +271,7 @@ export default function Home() {
                                             </Box>
 
                                         )
-                                    })) : null}
+                                    })) : <Typography variant="h5">NO PROJECTS ADDED : {'('}</Typography>}
 
                                 </Box>
 
@@ -293,7 +307,7 @@ export default function Home() {
                                                 </CardActionArea>
                                             </Card>
                                         )
-                                    })) : null}
+                                    })) : <Typography variant="h5">NO EXPERIENCES ADDED : {'('}</Typography>}
                                 </Box>
 
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
@@ -329,7 +343,7 @@ export default function Home() {
                                             </Card>
 
                                         )
-                                    })) : null}
+                                    })) : <Typography variant="h5">NO CERTIFICATES ADDED : {'('}</Typography>}
 
                                 </Box>
 
@@ -358,7 +372,7 @@ export default function Home() {
                                         return (
                                             <Chip key={data.id} sx={{ fontWeight: 700, fontSize: '1rem' }} avatar={<Avatar>{data.level}</Avatar>} label={data.name} />
                                         )
-                                    })) : null}
+                                    })) : <Typography variant="h5">NO SKILLS ADDED : {'('}</Typography>}
                                 </Box>
 
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>

@@ -76,7 +76,7 @@ export default function ViewAllProjects() {
                             </Box>
 
                         )
-                    })) : null}
+                    })) : <Typography variant="h4">NO PROJECTS ADDED : {'('}</Typography>}
 
 
 

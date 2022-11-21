@@ -38,6 +38,7 @@ import axios from 'axios'
 import DummyNavbar from './components/DummyNavbar'
 import { ThemeModeContext } from './context/ThemeModeContext'
 import SearchPeople from './pages/landing/SearchPeople'
+import ResumeTemplate0 from './pages/resumes/Template0/ResumeTemplate0'
 
 function App() {
 
@@ -114,6 +115,7 @@ function App() {
       fontFamily: 'Questrial'
     }
   })
+  
 
   return (
     <ThemeModeContext.Provider value={{ themeMode, setThemeMode }}>
@@ -153,6 +155,7 @@ function App() {
                     <Route path="*" element={<Navigate to="/" replace />} />
                   }
                   <Route path='/home' element={<> <Navbar /> <Home /> </>} />
+                  <Route path='/downloadresume' element={<> <ResumeTemplate0 /> </>} />
                   <Route path='/editprofile' element={<> <Navbar /> <EditProfile /> </>} />
                   <Route path='/community' element={<> <Navbar /> <Community /> </>} />
                   <Route path='/allprojects' element={<> <Navbar /> <ViewAllProjects /> </>} />

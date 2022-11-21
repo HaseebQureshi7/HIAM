@@ -153,43 +153,8 @@ export default function ViewAllSkills() {
                 </Avatar>
 
               </Stack>
-
-
-              // <Box key={data.id} sx={{ width: '100%', height: 'auto', mb: 5, display: 'flex', flexDirection: {xs:'column-reverse',lg:'row'}, justifyContent: {xs:'center',lg:'space-between'}, alignItems: 'center' }}>
-
-
-              //     <Stack sx={{ flex: 1, gap: 1, alignItems:{xs:'center',lg:'flex-start'} }}>
-              //         <Typography sx={{ fontWeight: 700 }} variant='h4'>{data.name}</Typography>
-              //         <Stack direction='row'>
-              //             <Typography variant='h6'>Role:&nbsp;</Typography>
-              //             <Typography sx={{ fontWeight: 700 }} variant='h6'>{data.role}</Typography>
-              //         </Stack>
-              //         <Stack direction='row'>
-              //             <Typography variant='h6'>Based on:&nbsp;</Typography>
-              //             <Typography sx={{ fontWeight: 700 }} variant='h6'>{data.basedOn}</Typography>
-              //         </Stack>
-              //         <Stack direction='row'>
-              //             <Typography variant='h6'>Released on:&nbsp;</Typography>
-              //             <Typography sx={{ fontWeight: 700 }} variant='h6'>{data.releaseDate}</Typography>
-              //         </Stack>
-              //         <Stack gap={2.5} direction='row'>
-              //             <Link href={data.projectLink}>
-              //                 <Avatar sx={{ bgcolor: 'black', '&:hover': { rotate: '-45deg', transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 1s ease ' } }} > <LinkIcon /></Avatar>
-              //             </Link>
-              //             <Link href={data.projectLink}>
-              //                 <Avatar sx={{ bgcolor: 'black' }}><Edit /></Avatar>
-              //             </Link>
-              //         </Stack>
-              //         <Stack sx={{textAlign:{xs:'center',lg:'start'}}}>
-              //             <Typography sx={{ fontWeight: 700 }} variant='h5'>Contributions</Typography>
-              //             <Typography sx={{ fontWeight: 700 }} variant='subtitle2'>{data.responsibilities}</Typography>
-              //         </Stack>
-              //     </Stack>
-
-              // </Box>
-
             )
-          })) : null}
+          })) : <Typography variant="h4">NO SKILLS ADDED : {'('}</Typography>}
 
 
 
