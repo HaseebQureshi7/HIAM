@@ -50,8 +50,10 @@ strong {
   }
   html,
   body {
-    width: 210mm;
+    margin: auto;
+    /* width: 210mm; */
     height: 297mm;
+    /* zoom: 80%; */
     page-break-after: avoid;
   }
   /* ... the rest of the rules ... */
