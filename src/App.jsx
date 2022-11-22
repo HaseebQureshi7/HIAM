@@ -105,13 +105,17 @@ function App() {
   }, [])
 
   // Auto Scroll-Up
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const theme = createTheme({
     palette: {
       primary: {
         main: '#6200EE',
         light: '#9E66EF'
+      },
+      secondary: {
+        main: 'rgb(0, 247, 255)',
+        light: ' rgb(84, 249, 255)'
       },
       mode: themeMode
     },

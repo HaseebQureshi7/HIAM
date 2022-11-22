@@ -12,20 +12,35 @@ body {
   transition: all 0.2s ease-in-out;
 } */
 
+kbd {
+  text-decoration: none;
+  background: linear-gradient(
+    to right,
+    #6200ee,
+    rgb(0, 247, 255),
+    #6200ee
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 100vw;
+  background-position: 90vw;
+  /* animation: colorgrad-anim 30s infinite linear alternate; */
+}
+
 strong {
   background: linear-gradient(
     to right,
-    #19b7d3,
-    #d018e0,
+    #6200ee,
+    rgb(0, 247, 255),
     rgb(218, 19, 13),
     lime,
-    #19b7d3
+    #6200ee
   );
   -webkit-background-clip: text;
   color: transparent;
   background-size: 100vw;
   background-position: 100vw;
-  animation: colorgrad-anim 20s infinite linear alternate;
+  animation: colorgrad-anim 30s infinite linear alternate;
 }
 @keyframes colorgrad-anim {
   0% {
@@ -45,7 +60,7 @@ strong {
 @media print {
   @page {
     /* size: A4; */
-    size:A4 portrait;
+    size: A4 portrait;
     margin: 0;
   }
   html,
@@ -62,4 +77,21 @@ strong {
     color-adjust: exact !important; /* Firefox 48 – 96 */
     print-color-adjust: exact !important; /* Firefox 97+, Safari 15.4+ */
   }
+}
+
+.fancy-border {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  border: 2px solid;
+  /* border-image: linear-gradient(to right, darkblue, darkorchid) 1; */
+  border-style: double;
+  border-top-color: #0e87eb;
+  border-left-color: rgb(0, 247, 255);
+  border-right-color: rgb(221, 89, 28);
+  border-bottom-color: lime;
+}
+
+.fancy-line {
+  background-image: linear-gradient(to right, #0e87eb , rgb(0, 247, 255));
 }

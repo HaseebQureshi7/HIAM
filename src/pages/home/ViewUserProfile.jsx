@@ -109,11 +109,11 @@ export default function ViewUserProfile() {
                                                                     return (
                                                                         <div key={data.id}>
                                                                             <MUILink href={`mailto:${data.link}`}>
-                                                                                {data.name == 'G-mail' ? <Google sx={{ color: 'crimson', width: '35px', height: '35px' }} /> : null}
+                                                                                {data.name == 'G-mail' ? <Google sx={{ color: '#DB4437', width: '35px', height: '35px' }} /> : null}
                                                                             </MUILink>
 
                                                                             <MUILink href={data.link}>
-                                                                                {data.name == 'linkedIn' ? <LinkedIn sx={{ color: 'blue', width: '35px', height: '35px' }} /> : null}
+                                                                                {data.name == 'linkedIn' ? <LinkedIn sx={{ color: '#0077b5', width: '35px', height: '35px' }} /> : null}
                                                                             </MUILink>
 
                                                                             <MUILink href={data.link}>
@@ -184,8 +184,14 @@ export default function ViewUserProfile() {
 
                                                 <Box sx={{ width: { xs: '90%', lg: '85%' }, m: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
 
-                                                    <Typography sx={{ fontWeight: 700, m: { xs: '25px 0 ', lg: '0px' } }} variant='h5'>BIOGRAPHY</Typography>
-                                                    <Typography sx={{ color: 'text.secondary', fontWeight: 700, textAlign: { xs: 'center', lg: 'start' } }} variant='subtitle2'>{data.biography}</Typography>
+                                                    <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                        <Typography sx={{ flex: 1, fontWeight: 700, m: { xs: '25px 0 ', lg: '0px' } }} variant='h5' component='kbd'>BIOGRAPHY</Typography>
+                                                        <Box className='fancy-line' sx={{ flex: { xs: 1, lg: 2 }, height: '2px' }}>
+                                                        </Box>
+
+                                                    </Box>
+
+                                                    <Typography sx={{ color: 'text.secondary', fontWeight: 700, textAlign: { xs: 'start', lg: 'start' } }} variant='subtitle2'>{data.biography}</Typography>
 
                                                 </Box>
 
@@ -259,7 +265,15 @@ export default function ViewUserProfile() {
                             {/* PROJECTS SECTION */}
                             <Box sx={{ width: '100%', p: { xs: '0 0', lg: '0 2.5vw' }, maxHeight: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
 
-                                <Typography sx={{ fontWeight: 700 }} variant='h5'>PROJECTS ({userProjectsLength})</Typography>
+
+                                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                                    <Typography sx={{ flex: 1, fontWeight: 700, ml: 2.5 }} variant='h5' component='kbd'>PROJECTS ({userProjectsLength})</Typography>
+
+                                    <Box className='fancy-line' sx={{ flex: { xs: 1, lg: 2 }, height: '2px' }}>
+                                    </Box>
+
+                                </Box>
 
                                 <Box gap={5} sx={{ flex: 1, width: '90%', m: 'auto', mt: 3, height: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'flex-start' }}>
                                     {userProjects ? userProjects.map((data => {
@@ -276,21 +290,29 @@ export default function ViewUserProfile() {
 
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
-                                    <Link to={location.pathname == `/anonymous/users/${id}` ? `/anonymous/users/${id}/allprojects` : `/users/${id}/allprojects`}>
-                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign: { xs: 'center', lg: 'end' }, textDecoration: 'underline' }} variant='subtitle2'>VIEW MORE PROJECTS {'>>'}
+                                    <Link style={{ textDecoration: 'none' }} to={location.pathname == `/anonymous/users/${id}` ? `/anonymous/users/${id}/allprojects` : `/users/${id}/allprojects`}>
+                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'primary.dark', textAlign: { xs: 'end', lg: 'end' }, textDecoration: 'none' }} variant='subtitle2'>VIEW MORE PROJECTS {'>>'}
                                         </Typography>
                                     </Link>
 
                                 </Box>
                             </Box>
 
-                            <Divider sx={{ width: '90%', margin: '0px 0px' }} />
+                            {/* <Divider sx={{ width: '90%', margin: '0px 0px' }} /> */}
 
 
                             {/* EXPERIENCE SECTION */}
                             <Box sx={{ width: '100%', p: { xs: '0 0', lg: '0 2.5vw' }, maxHeight: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
 
-                                <Typography sx={{ fontWeight: 700 }} variant='h5'>WORK EXPERIENCE ({userExperienceLength})</Typography>
+
+                                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                                    <Typography component='kbd' sx={{ flex: 3, fontWeight: 700, ml: 2.5 }} variant='h5'>WORK EXPERIENCE ({userExperienceLength})</Typography>
+
+                                    <Box className='fancy-line' sx={{ flex: { xs: 1, lg: 3 }, height: '2px' }}>
+                                    </Box>
+
+                                </Box>
 
                                 <Box gap={5} sx={{ flex: 1, width: '90%', m: 'auto', mt: 3, height: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'flex-start' }}>
 
@@ -311,8 +333,8 @@ export default function ViewUserProfile() {
 
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
-                                    <Link to={location.pathname == `/anonymous/users/${id}` ? `/anonymous/users/${id}/allexperiences` : `/users/${id}/allexperiences`}>
-                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign: { xs: 'center', lg: 'end' }, textDecoration: 'underline' }} variant='subtitle2'>
+                                    <Link style={{ textDecoration: 'none' }} to={location.pathname == `/anonymous/users/${id}` ? `/anonymous/users/${id}/allexperiences` : `/users/${id}/allexperiences`}>
+                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'primary.dark', textAlign: { xs: 'end', lg: 'end' }, textDecoration: 'none' }} variant='subtitle2'>
                                             VIEW MORE EXPERIENCES {'>>'}
                                         </Typography>
                                     </Link>
@@ -321,13 +343,20 @@ export default function ViewUserProfile() {
 
                             </Box>
 
-                            <Divider sx={{ width: '90%', margin: '5px 0px' }} />
+                            {/* <Divider sx={{ width: '90%', margin: '5px 0px' }} /> */}
 
                             {/* CERTIFICATIONS SECTION */}
                             <Box sx={{ width: '100%', p: { xs: '0 0', lg: '0 2.5vw' }, maxHeight: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
 
-                                <Typography sx={{ fontWeight: 700 }} variant='h5'>CERTIFICATIONS ({userCertificatesLength})</Typography>
 
+                                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                                    <Typography component='kbd' sx={{ flex: 2, fontWeight: 700, ml: 2.5 }} variant='h5'>CERTIFICATIONS ({userCertificatesLength})</Typography>
+
+                                    <Box className='fancy-line' sx={{ flex: { xs: 1, lg: 2.5 }, height: '2px' }}>
+                                    </Box>
+
+                                </Box>
                                 <Box gap={5} sx={{ flex: 1, width: '90%', m: 'auto', mt: 3, height: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'flex-start' }}>
 
                                     {userCertificates ? userCertificates.slice(0, 1).map((data => {
@@ -348,8 +377,8 @@ export default function ViewUserProfile() {
 
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
-                                    <Link to={location.pathname == `/anonymous/users/${id}` ? `/anonymous/users/${id}/allcertificates` : `/users/${id}/allcertificates`}>
-                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign: { xs: 'center', lg: 'end' }, textDecoration: 'underline' }} variant='subtitle2'>
+                                    <Link style={{ textDecoration: 'none' }} to={location.pathname == `/anonymous/users/${id}` ? `/anonymous/users/${id}/allcertificates` : `/users/${id}/allcertificates`}>
+                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'primary.dark', textAlign: { xs: 'end', lg: 'end' }, textDecoration: 'none' }} variant='subtitle2'>
                                             VIEW MORE CERTIFICATES {'>>'}
                                         </Typography>
                                     </Link>
@@ -358,12 +387,20 @@ export default function ViewUserProfile() {
 
                             </Box>
 
-                            <Divider sx={{ width: '90%', margin: '5px 0px' }} />
+                            {/* <Divider sx={{ width: '90%', margin: '5px 0px' }} /> */}
 
                             {/* SKILLS SECTION */}
                             <Box sx={{ width: '100%', p: { xs: '0 0', lg: '0 2.5vw' }, maxHeight: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { xs: 'center', lg: 'flex-start' } }}>
 
-                                <Typography sx={{ fontWeight: 700 }} variant='h5'>SKILLS ({userSkillsLength})</Typography>
+
+                                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                                    <Typography component='kbd' sx={{ flex: 1, fontWeight: 700, ml: 2.5 }} variant='h5'>SKILLS ({userSkillsLength})</Typography>
+
+                                    <Box className='fancy-line' sx={{ flex: { xs: 2, lg: 3 }, height: '2px' }}>
+                                    </Box>
+
+                                </Box>
 
                                 <Box gap={5} sx={{ flex: 1, flexWrap: { xs: 'wrap' }, width: '90%', m: 'auto', mt: 3, height: '100%', display: 'flex', flexDirection: 'row', justifyContent: { xs: 'space-between', lg: 'space-between' }, alignItems: 'flex-start' }}>
 
@@ -376,8 +413,8 @@ export default function ViewUserProfile() {
 
                                 <Box sx={{ p: 3, textAlign: 'end', width: '100%' }}>
 
-                                    <Link to={location.pathname == `/anonymous/users/${id}` ? `/anonymous/users/${id}/allskills` : `/users/${id}/allskills`} >
-                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'text.primary', textAlign: { xs: 'center', lg: 'end' }, textDecoration: 'underline' }} variant='subtitle2'>
+                                    <Link style={{ textDecoration: 'none' }} to={location.pathname == `/anonymous/users/${id}` ? `/anonymous/users/${id}/allskills` : `/users/${id}/allskills`} >
+                                        <Typography sx={{ font: 'subtitle2', fontWeight: 700, color: 'primary.dark', textAlign: { xs: 'end', lg: 'end' }, textDecoration: 'none' }} variant='subtitle2'>
                                             VIEW MORE SKILLS {'>>'}
                                         </Typography>
                                     </Link>
