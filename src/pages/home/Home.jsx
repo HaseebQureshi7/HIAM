@@ -321,7 +321,7 @@ export default function Home() {
                                                 <CardActionArea>
                                                     <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.25rem', lg: '1.75rem' } }} variant="h4">{data.companyName}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1">{data.fullTime}</Typography>
-                                                    <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle1"> {data.position} </Typography>
+                                                    <Typography sx={{ color:'secondary.dark', textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle1"> {data.position.toUpperCase()} </Typography>
                                                     <Typography sx={{ color: 'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle2"> To {data.endDate}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle2"> From {data.startDate}</Typography>
                                                 </CardActionArea>
@@ -364,7 +364,7 @@ export default function Home() {
                                                 <CardActionArea>
                                                     <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.25rem', lg: '1.75rem' } }} variant="h4">{data.name}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1"> On: {data.issueDate}</Typography>
-                                                    <Typography sx={{ fontWeight: 700, p: 1 }} variant="subtitle1"> Issued by : {data.issuedBy} </Typography>
+                                                    <Typography sx={{ color:'secondary.dark', fontWeight: 700, p: 1 }} variant="subtitle1"> ISSUED BY : {data.issuedBy} </Typography>
                                                     <Typography sx={{ color: 'text.secondary', textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle2">Link : {data.link}</Typography>
                                                 </CardActionArea>
                                             </Card>

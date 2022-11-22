@@ -41,10 +41,9 @@ export default function ViewAllExperiences() {
 
 
                                 <Stack sx={{ flex: 1, gap: 1, textAlign: 'center', alignItems: { xs: 'center', lg: 'center' } }}>
-                                    <Typography sx={{ fontWeight: 700 }} variant='h4'>{data.companyName}</Typography>
+                                    <Typography sx={{ fontSize: { xs: '1.75rem', lg: '2.5rem' }, fontWeight: 700 }} variant='h4'>{data.companyName}</Typography>
                                     <Stack sx={{ flexDirection: { xs: 'column', lg: 'row' } }}>
-                                        {/* <Typography variant='h6'>Role:&nbsp;</Typography> */}
-                                        <Typography sx={{ fontWeight: 700 }} variant='h6'>{(data.position).toUpperCase()}&nbsp;-&nbsp;</Typography>
+                                        <Typography component='kbd' sx={{ fontWeight: 700 }} variant='h6'>{(data.position).toUpperCase()}&nbsp;</Typography>
                                         <Typography sx={{ fontWeight: 700 }} variant='h6'>({data.fullTime})</Typography>
                                     </Stack>
                                     <Stack direction='row'>
@@ -59,7 +58,7 @@ export default function ViewAllExperiences() {
                                     </Stack>
                                     <Stack gap={2.5} direction='row'>
                                         <Link to={`/editexperience/${data.id}`}>
-                                            <Avatar sx={{ bgcolor: 'text.main' }}><Edit /></Avatar>
+                                            <Avatar sx={{ bgcolor: 'primary.dark' }}><Edit /></Avatar>
                                         </Link>
                                     </Stack>
                                     <Stack sx={{ textAlign: { xs: 'center', lg: 'center' } }}>

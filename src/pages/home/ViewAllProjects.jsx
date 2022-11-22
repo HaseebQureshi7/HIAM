@@ -41,9 +41,9 @@ export default function ViewAllProjects() {
 
                                 <Stack sx={{ flex: 2, gap: 1, alignItems: { xs: 'center', lg: 'flex-start' } }}>
                                     <Typography sx={{ fontWeight: 700 }} variant='h4'>{data.name}</Typography>
-                                    <Stack direction='row'>
-                                        <Typography variant='h6'>Role:&nbsp;</Typography>
-                                        <Typography sx={{ fontWeight: 700 }} variant='h6'>{data.role}</Typography>
+                                    <Stack sx={{ textAlign: 'center' }} direction='row'>
+                                        <Typography variant='h6'>ROLE:&nbsp;</Typography>
+                                        <Typography component='kbd' sx={{ textAlign: 'end', fontWeight: 700 }} variant='h6'>{data.role.toUpperCase()}</Typography>
                                     </Stack>
                                     <Stack direction='row'>
                                         <Typography variant='h6'>Based on:&nbsp;</Typography>
@@ -55,10 +55,10 @@ export default function ViewAllProjects() {
                                     </Stack>
                                     <Stack gap={2.5} direction='row'>
                                         <MUILink href={data.projectLink} target="_blank">
-                                            <Avatar sx={{ bgcolor: 'text.main', '&:hover': { rotate: '-45deg', transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 1s ease ' } }} > <LinkIcon /></Avatar>
+                                            <Avatar sx={{ bgcolor: 'secondary.dark', '&:hover': { rotate: '-45deg', transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 1s ease ' } }} > <LinkIcon /></Avatar>
                                         </MUILink>
                                         <Link to={`/editproject/${data.id}`} >
-                                            <Avatar sx={{ bgcolor: 'text.main' }}><Edit /></Avatar>
+                                            <Avatar sx={{ bgcolor: 'primary.dark' }}><Edit /></Avatar>
                                         </Link>
                                     </Stack>
                                     <Stack sx={{ textAlign: { xs: 'center', lg: 'start' } }}>

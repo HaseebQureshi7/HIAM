@@ -41,7 +41,7 @@ export default function ViewAllUserProjects() {
                                     <Typography sx={{ fontWeight: 700 }} variant='h4'>{data.name}</Typography>
                                     <Stack direction='row'>
                                         <Typography variant='h6'>Role:&nbsp;</Typography>
-                                        <Typography sx={{ fontWeight: 700 }} variant='h6'>{data.role}</Typography>
+                                        <Typography component='kbd' sx={{ fontWeight: 700 }} variant='h6'>{data.role}</Typography>
                                     </Stack>
                                     <Stack direction='row'>
                                         <Typography variant='h6'>Based on:&nbsp;</Typography>
@@ -53,7 +53,7 @@ export default function ViewAllUserProjects() {
                                     </Stack>
                                     <Stack gap={2.5} direction='row'>
                                         <Link href={data.projectLink}>
-                                            <Avatar sx={{ bgcolor: 'black', '&:hover': { rotate: '-45deg', transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 1s ease ' } }} > <LinkIcon /></Avatar>
+                                            <Avatar sx={{ bgcolor: 'secondary.dark', '&:hover': { rotate: '-45deg', transition: 'all 1s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 1s ease ' } }} > <LinkIcon /></Avatar>
                                         </Link>
                                     </Stack>
                                     <Stack sx={{ textAlign: { xs: 'center', lg: 'start' } }}>

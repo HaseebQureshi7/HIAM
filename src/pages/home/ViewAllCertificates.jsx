@@ -41,13 +41,13 @@ export default function ViewAllCertificates() {
 
 
                 <Stack sx={{ flex: 1, gap: 1, textAlign: 'center', alignItems: { xs: 'center', lg: 'center' } }}>
-                  <Typography sx={{ fontWeight: 700 }} variant='h4'>{data.name}</Typography>
+                  <Typography component='kbd' sx={{ fontWeight: 700 }} variant='h4'>{data.name}</Typography>
 
                   <Stack sx={{ alignItems: 'center', flexDirection: { xs: 'column', lg: 'row' } }} direction='row'>
                     <Stack sx={{ flexDirection: { xs: 'row', lg: 'row' } }}>
                       {/* <Typography variant='h6'>Role:&nbsp;</Typography> */}
-                      <Typography variant='h6'>ISSUED BY&nbsp;-&nbsp;</Typography>
-                      <Typography sx={{ fontWeight: 700 }} variant='h6'>{data.issuedBy.toUpperCase()}</Typography>
+                      <Typography sx={{ textAlign: 'end' }} variant='h6'>ISSUED BY&nbsp;-&nbsp;</Typography>
+                      <Typography sx={{ textAlign: 'center', fontWeight: 700 }} variant='h6'>{data.issuedBy.toUpperCase()}</Typography>
                     </Stack>
                     <Stack sx={{ flexDirection: { xs: 'row', lg: 'row' } }}>
                       <Typography variant='h6'>&nbsp;AT&nbsp;-&nbsp;</Typography>
@@ -56,10 +56,10 @@ export default function ViewAllCertificates() {
                   </Stack>
                   <Stack gap={2.5} direction='row'>
                     <MUILink href={data.link}>
-                      <Avatar sx={{ bgcolor: 'text.main', '&:hover': { rotate: '-45deg', transition: 'all 0.75s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 0.5s ease ' } }} > <LinkIcon /></Avatar>
+                      <Avatar sx={{ bgcolor: 'secondary.dark', '&:hover': { rotate: '-45deg', transition: 'all 0.75s ease ' }, '&:not(:hover)': { rotate: '0deg', transition: 'all 0.5s ease ' } }} > <LinkIcon /></Avatar>
                     </MUILink>
                     <Link to={`/editcertificate/${data.id}`}>
-                      <Avatar sx={{ bgcolor: 'text.main' }}><Edit /></Avatar>
+                      <Avatar sx={{ bgcolor: 'primary.dark' }}><Edit /></Avatar>
                     </Link>
                   </Stack>
                 </Stack>
