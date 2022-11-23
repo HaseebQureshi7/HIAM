@@ -4,14 +4,53 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Fade } from "../../components/AnimationEngine";
+import { StatisticsChart } from "../../components/StatisticsChart";
 
 export default function Community() {
 
     const newUsersURL = 'https://haseebxqureshi.pythonanywhere.com/api/newusers'
     const searchUsersURL = 'https://haseebxqureshi.pythonanywhere.com/api/searchuser/'
+    const statisticsURL = 'https://haseebxqureshi.pythonanywhere.com/api/statistics'
+
+    let barData = [
+        {
+            name: "USERS",
+            number: 59
+        },
+        {
+            name: "PROJECTS",
+            number: 107
+        },
+        {
+            name: "CERTIFICATES",
+            number: 75
+        },
+    ];
 
     const [newUsers, setNewUsers] = useState(null)
     const [searchedUser, setSearchedUser] = useState(null)
+
+    const [statisticsData, setStatisticsData] = useState(null)
+
+
+    async function DataFormatter(data) {
+        const newBarData = [
+            {
+                name: "USERS",
+                number: await data.users
+            },
+            {
+                name: "PROJECTS",
+                number: await data.projects
+            },
+            {
+                name: "CERTIFICATES",
+                number: await data.certificates
+            },
+        ]
+        setStatisticsData(newBarData)
+        return newBarData
+    }
 
     async function SearchUsers(e) {
         e.preventDefault()
@@ -25,8 +64,14 @@ export default function Community() {
     }
 
     useState(() => {
+
         axios.get(newUsersURL).then(res => { setNewUsers(res.data.users) }).catch(res => console.log(res))
+
+        axios.get(statisticsURL).then(res => { DataFormatter(res.data) }).catch(res => console.log(res))
+
     }, [])
+
+    console.log(statisticsData)
 
     return (
         <>
@@ -117,6 +162,19 @@ export default function Community() {
                                     </div>
                                 )
                             })) : null}
+
+                        </Stack>
+
+                    </Box>
+
+
+                    <Box sx={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'flex-start', gap: 2.5 }} >
+
+                        <Typography sx={{ fontSize: { xs: '1.5rem', lg: '2rem' }, fontWeight: 700 }} variant="h4">APP STATISTICS</Typography>
+
+                        <Stack sx={{ width: '100%', height: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'flex-start', gap: 2.5 }}>
+
+                            {statisticsData ? <StatisticsChart props={statisticsData} /> : null}
 
                         </Stack>
 
