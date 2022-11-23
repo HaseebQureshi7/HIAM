@@ -1,10 +1,11 @@
 import { Close, Done, Google, Instagram, LinkedIn, Link as LinkIcon } from "@mui/icons-material";
 import { Alert, Avatar, Box, Button, Grid, CircularProgress, Snackbar, Stack, TextField, Typography, Divider, Switch, Modal, Card } from "@mui/material";
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Fade } from "../../components/AnimationEngine";
 import { GetUID } from "../../components/GetUID";
+import { ThemeModeContext } from "../../context/ThemeModeContext";
 
 export default function EditProfile() {
 
@@ -17,6 +18,8 @@ export default function EditProfile() {
     const editUserLinksURL = 'https://haseebxqureshi.pythonanywhere.com/api/edituserlink/'
 
     const navigate = useNavigate()
+
+    const { themeMode } = useContext(ThemeModeContext)
 
     const [isDisabled, setIsDisabled] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
@@ -193,9 +196,9 @@ export default function EditProfile() {
                     >
                         <Box sx={{ width: { xs: '100%', md: '50%' }, height: '100vh', m: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 
-                            <Box sx={{ width: '100%', p: 2.5, minHeight: '50vh', borderRadius: 5, bgcolor: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
+                            <Box sx={{ width: '100%', p: 2.5, minHeight: '50vh', borderRadius: 5, bgcolor: (themeMode == 'dark' ? 'black' : 'white'), display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
                                 <Stack sx={{ width: '100%' }} direction="row">
-                                    <Typography sx={{ fontWeight: '700', mt: 0, }} variant='h4'>EDIT LINKS</Typography>
+                                    <Typography sx={{ color: 'text.primary', fontWeight: '700', mt: 0, }} variant='h4'>EDIT LINKS</Typography>
                                     <Avatar onClick={() => setOpenModal(false)} sx={{ bgcolor: 'error.light', ml: 'auto' }}><Close /></Avatar>
                                 </Stack>
                                 <Typography sx={{ fontWeight: '700', color: 'text.secondary' }} variant='subtitle2'>ADD YOUR LINKS WITH FULL URL TO MAKE THEM INTRACTABLE</Typography>
@@ -264,7 +267,7 @@ export default function EditProfile() {
                                                 )
                                             })) : null}
 
-                                            <Grid sx={{ textAlign: 'center' }} item xs={12} md={12}>
+                                            <Grid sx={{ color: 'text.primary', textAlign: 'center' }} item xs={12} md={12}>
                                                 <Typography variant='subtitle2'>CLICK THE ICON NEXT TO THE LINK TO UPDATE{'***'}</Typography>
                                             </Grid>
 

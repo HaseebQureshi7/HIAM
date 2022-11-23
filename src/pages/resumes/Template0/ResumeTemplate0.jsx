@@ -1,8 +1,9 @@
 import { CallRounded, Mail, Place } from "@mui/icons-material"
 import { Box, Button, Divider, Grid, Link, Modal, Stack, TextField, Typography } from "@mui/material"
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { GetUID } from "../../../components/GetUID"
+import { ThemeModeContext } from "../../../context/ThemeModeContext"
 
 export default function ResumeTemplate0() {
 
@@ -14,6 +15,8 @@ export default function ResumeTemplate0() {
   const userSkillsURL = baseURL + 'viewuserskill/'
   const userCertificatesURL = baseURL + 'viewusercertificate/'
   const userLinksURL = baseURL + 'viewuserlink/'
+
+  const { themeMode } = useContext(ThemeModeContext)
 
   const [openModal, setOpenModal] = useState(true)
 
@@ -61,7 +64,7 @@ export default function ResumeTemplate0() {
   return (
     <>
       <Box style={{ height: '297mm', width: '210mm', margin: 'auto' }}>
-        <Box sx={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 0, pt: 5 }}>
+        <Box sx={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', bgcolor: 'white', gap: 0, pt: 5 }}>
 
 
           <Modal
@@ -71,14 +74,14 @@ export default function ResumeTemplate0() {
           >
             <Box sx={{ width: { xs: '90%', md: '50%' }, height: '100vh', m: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 
-              <Box sx={{ width: '100%', p: 1.5, minHeight: '40vh', borderRadius: 5, bgcolor: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
+              <Box sx={{ width: '100%', p: 1.5, minHeight: '40vh', borderRadius: 5, bgcolor: (themeMode == 'dark' ? 'black' : 'white'), display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
 
                 <Stack sx={{ width: '100%', p: "0.5vh 0vh" }} direction="row">
-                  <Typography sx={{ fontWeight: '700', fontSize: '2rem' }} variant='h4'>CUSTOMIZATIONS</Typography>
+                  <Typography sx={{ color: 'text.primary', fontWeight: '700', fontSize: '2rem' }} variant='h4'>CUSTOMIZATIONS</Typography>
                   {/* <Avatar onClick={() => setOpenModal(false)} sx={{ bgcolor: 'error.light', ml: 'auto' }}><Close /></Avatar> */}
                 </Stack>
 
-                <Typography sx={{ fontWeight: '500', color: 'text.secondary', fontSize: '0.75rem' }} variant='subtitle2'>CUSTOMIZE YOUR RESUME HERE</Typography>
+                <Typography sx={{ fontWeight: '500', color: 'grey', fontSize: '0.75rem' }} variant='subtitle2'>CUSTOMIZE YOUR RESUME HERE</Typography>
 
                 <Divider sx={{ width: '100%', mb: { xs: 1, lg: 1 } }} />
 
@@ -88,7 +91,7 @@ export default function ResumeTemplate0() {
 
                     <TextField onChange={(e) => setPhoneNumber(e.target.value)} sx={{ width: '100%' }} label="ADD A PHONE NUMBER" placeholder="9797012345" type='number' InputLabelProps={{ shrink: true }} variant="outlined" required />
 
-                    <Button sx={{ mt: 1.5 }} type="submit" variant="contained">DOWNLOAD RESUME</Button>
+                    <Button sx={{ mt: { xs: 5, lg: 1.5 } }} type="submit" variant="contained">DOWNLOAD RESUME</Button>
                   </Stack>
                 </form>
               </Box>
@@ -97,7 +100,7 @@ export default function ResumeTemplate0() {
           </Modal>
 
 
-          {userProfile ? <> <Typography sx={{ fontWeight: 700 }} variant='h4'>{userProfile[0].fname + ' ' + userProfile[0].lname}</Typography>
+          {userProfile ? <> <Typography sx={{ fontWeight: 700, color: 'black' }} variant='h4'>{userProfile[0].fname + ' ' + userProfile[0].lname}</Typography>
             <Typography sx={{ fontWeight: 700, color: 'primary.main' }} variant='h6'>{userProfile[0].position.toUpperCase()}</Typography> </> : null}
 
           {/* LINK BOX */}
@@ -106,7 +109,7 @@ export default function ResumeTemplate0() {
             <Stack sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
               <CallRounded />
               <Link sx={{ color: 'inherit' }} href={`tel:${phoneNumber}`}>
-                <Typography sx={{ fontWeight: 700, ml: 1 }} variant='subtitle2'>{phoneNumber}</Typography>
+                <Typography sx={{ fontWeight: 700, ml: 1, color: 'black' }} variant='subtitle2'>{phoneNumber}</Typography>
               </Link>
             </Stack>
 
@@ -115,7 +118,7 @@ export default function ResumeTemplate0() {
                 (data.name == 'G-mail' ? <Stack sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                   <Mail />
                   <Link sx={{ color: 'inherit' }} href="mailto:qureshihaxeeb2@gmail.com">
-                    <Typography sx={{ fontWeight: 700, ml: 1 }} variant='subtitle2'>{data.link}</Typography>
+                    <Typography sx={{ fontWeight: 700, ml: 1, color: 'black' }} variant='subtitle2'>{data.link}</Typography>
                   </Link>
                 </Stack> : null)
               )
@@ -123,7 +126,7 @@ export default function ResumeTemplate0() {
 
             {userProfile ? <Stack sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
               <Place />
-              <Typography sx={{ fontWeight: 700, ml: 1 }} variant='subtitle2'>{userProfile[0].location.toUpperCase()}</Typography>
+              <Typography sx={{ fontWeight: 700, ml: 1, color: 'black' }} variant='subtitle2'>{userProfile[0].location.toUpperCase()}</Typography>
             </Stack> : null}
 
           </Box>
@@ -135,20 +138,20 @@ export default function ResumeTemplate0() {
 
               {/* STATS CARD */}
               <Grid sx={{ textAlign: 'center', mt: 1 }} item xs={4}>
-                <Typography sx={{ fontWeight: 700 }} variant='h6'>{userProfile[0].qualification.toUpperCase()}</Typography>
-                <Typography sx={{ fontWeight: 700, color: 'text.secondary' }} variant='subtitle2'>HIGHEST QUALIFICATION</Typography>
+                <Typography sx={{ fontWeight: 700, color: 'black' }} variant='h6'>{userProfile[0].qualification.toUpperCase()}</Typography>
+                <Typography sx={{ fontWeight: 700, color: 'grey' }} variant='subtitle2'>HIGHEST QUALIFICATION</Typography>
               </Grid>
 
               {/* STATS CARD */}
               <Grid sx={{ textAlign: 'center', mt: 1 }} item xs={4}>
-                <Typography sx={{ fontWeight: 700 }} variant='h6'>{userProfile[0].experience} YEARS</Typography>
-                <Typography sx={{ fontWeight: 700, color: 'text.secondary' }} variant='subtitle2'>TOTAL EXPERIENCE</Typography>
+                <Typography sx={{ fontWeight: 700, color: 'black' }} variant='h6'>{userProfile[0].experience} YEARS</Typography>
+                <Typography sx={{ fontWeight: 700, color: 'grey' }} variant='subtitle2'>TOTAL EXPERIENCE</Typography>
               </Grid>
 
               {/* STATS CARD */}
               <Grid sx={{ textAlign: 'center', mt: 1 }} item xs={4}>
-                <Typography sx={{ fontWeight: 700 }} variant='h6'>{userProfile[0].location.toUpperCase()}</Typography>
-                <Typography sx={{ fontWeight: 700, color: 'text.secondary' }} variant='subtitle2'>LOCATION</Typography>
+                <Typography sx={{ fontWeight: 700, color: 'black' }} variant='h6'>{userProfile[0].location.toUpperCase()}</Typography>
+                <Typography sx={{ fontWeight: 700, color: 'grey' }} variant='subtitle2'>LOCATION</Typography>
               </Grid>
 
             </Grid> : null}
@@ -159,11 +162,11 @@ export default function ResumeTemplate0() {
           {userProfile ? <Box sx={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', p: 1.5 }}>
 
             <Stack sx={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
-              <Typography sx={{ flex: 1, fontWeight: 700 }} variant='h5'>BIOGRAPHY</Typography>
+              <Typography sx={{ flex: 1, fontWeight: 700, color: 'black' }} variant='h5'>BIOGRAPHY</Typography>
               <Box sx={{ flex: 3, bgcolor: 'primary.main', height: '2px' }} />
             </Stack>
 
-            <Typography sx={{ fontWeight: 700, color: 'text.secondary', p: '5px' }} variant='subtitle2'>{userProfile[0].biography}</Typography>
+            <Typography sx={{ fontWeight: 700, color: 'grey', p: '5px' }} variant='subtitle2'>{userProfile[0].biography}</Typography>
 
           </Box> : null}
 
@@ -187,16 +190,16 @@ export default function ResumeTemplate0() {
 
                   <Box sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
-                    <Typography sx={{ fontWeight: 700, color: 'text.primary' }} variant='subtitle1'>{data.companyName}</Typography>
+                    <Typography sx={{ fontWeight: 700, color: 'black' }} variant='subtitle1'>{data.companyName}</Typography>
 
-                    <Typography sx={{ fontWeight: 700, color: 'text.secondary', p: '2.5px' }} variant='subtitle2'>FROM : {data.startDate}</Typography>
+                    <Typography sx={{ fontWeight: 700, color: 'grey', p: '2.5px' }} variant='subtitle2'>FROM : {data.startDate}</Typography>
 
-                    <Typography sx={{ fontWeight: 700, color: 'text.secondary', p: '2.5px' }} variant='subtitle2'>TO : {data.endDate}</Typography>
+                    <Typography sx={{ fontWeight: 700, color: 'grey', p: '2.5px' }} variant='subtitle2'>TO : {data.endDate}</Typography>
 
                   </Box>
 
-                  <Typography sx={{ fontWeight: 700, color: 'text.primary', p: '2.5px' }} variant='subtitle1'>RESPONSIBILITIES</Typography>
-                  <Typography sx={{ fontWeight: 700, color: 'text.secondary', p: '2.5px' }} variant='subtitle2'>{data.responsibilities}</Typography>
+                  <Typography sx={{ fontWeight: 700, color: 'black', p: '2.5px' }} variant='subtitle1'>RESPONSIBILITIES</Typography>
+                  <Typography sx={{ fontWeight: 700, color: 'grey', p: '2.5px' }} variant='subtitle2'>{data.responsibilities}</Typography>
 
 
                 </Box>
@@ -222,10 +225,10 @@ export default function ResumeTemplate0() {
 
                   <Typography sx={{ fontWeight: 700, color: 'primary.main' }} variant='h6'>{data.name}</Typography>
 
-                  <Typography sx={{ fontWeight: 700, color: 'text.primary' }} variant='subtitle1'>{data.role}</Typography>
+                  <Typography sx={{ fontWeight: 700, color: 'black' }} variant='subtitle1'>{data.role}</Typography>
 
-                  <Typography sx={{ fontWeight: 700, color: 'text.primary', p: '2.5px' }} variant='subtitle1'>CONTRIBUTIONS</Typography>
-                  <Typography sx={{ fontWeight: 700, color: 'text.secondary', p: '2.5px' }} variant='subtitle2'>{data.responsibilities}</Typography>
+                  <Typography sx={{ fontWeight: 700, color: 'black', p: '2.5px' }} variant='subtitle1'>CONTRIBUTIONS</Typography>
+                  <Typography sx={{ fontWeight: 700, color: 'grey', p: '2.5px' }} variant='subtitle2'>{data.responsibilities}</Typography>
 
 
                 </Box>
@@ -254,9 +257,9 @@ export default function ResumeTemplate0() {
 
                   <Box sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
-                    <Typography sx={{ fontWeight: 700, color: 'text.primary' }} variant='subtitle1'>ISSUED BY : {data.issuedBy}</Typography>
+                    <Typography sx={{ fontWeight: 700, color: 'black' }} variant='subtitle1'>ISSUED BY : {data.issuedBy}</Typography>
 
-                    <Typography sx={{ fontWeight: 700, color: 'text.primary' }} variant='subtitle1'>ISSUED AT : {data.issueDate}</Typography>
+                    <Typography sx={{ fontWeight: 700, color: 'black' }} variant='subtitle1'>ISSUED AT : {data.issueDate}</Typography>
 
                   </Box>
 
@@ -282,7 +285,7 @@ export default function ResumeTemplate0() {
               return (
                 <Grid item xs={3} sx={{ textAlign: 'center', p: '5px 15px', pt: 1 }}>
 
-                  <Typography sx={{ fontWeight: 700, color: 'text.primary' }} variant='section1'>{data.name}</Typography>
+                  <Typography sx={{ fontWeight: 700, color: 'black' }} variant='section1'>{data.name}</Typography>
 
                 </Grid>
               )
