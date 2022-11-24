@@ -172,7 +172,7 @@ export default function Community() {
 
                         <Typography sx={{ fontSize: { xs: '1.5rem', lg: '2rem' }, fontWeight: 700 }} variant="h4">APP STATISTICS</Typography>
 
-                        <Stack sx={{ width: '100%', height: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'flex-start', gap: 2.5 }}>
+                        <Stack sx={{ width: '100%', height: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'flex-start', pb: 1 }}>
 
                             {statisticsData ? <StatisticsChart props={statisticsData} /> : null}
 
