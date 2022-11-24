@@ -50,6 +50,9 @@ function App() {
 
   const [themeMode, setThemeMode] = useState('light')
 
+  var now = new Date().getHours()
+  console.log(now)
+
   const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/token/refresh/'
 
   async function AutoLogin() {
@@ -97,10 +100,17 @@ function App() {
     // Theme Mode Persistence
     if (localStorage.getItem('themeMode')) {
       setThemeMode(localStorage.getItem('themeMode'))
+
+      // LIGHT MODE - (0)12 AM -> (19)7 PM)
+      // DARK MODE - (19)7 PM -> (8)8 AM)
+      if (now >= 19 || now <= 8) {
+        setThemeMode('dark')
+      }
     }
     else {
       localStorage.setItem('themeMode', themeMode)
     }
+
 
   }, [])
 
