@@ -40,7 +40,7 @@ export default function ViewUserProfile() {
     const [userCertificatesLength, setUserCertificatesLength] = useState(0)
 
     const [userLinks, setUserLinks] = useState(null)
-    const [userLinksLength, setUserLinksLength] = useState(0)
+    const [, setUserLinksLength] = useState(0)
 
     useEffect(() => {
 
@@ -156,7 +156,7 @@ export default function ViewUserProfile() {
 
                                                 <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
-                                                    <Typography sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', lg: '2rem' } }} variant='h4'>{data.qualification}</Typography>
+                                                    <Typography sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', lg: '2rem' } }} variant='h4'>{data.qualification.toUpperCase()}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', fontWeight: 700, fontSize: { xs: '0.75rem', lg: '1rem' } }} variant='subtitle1'>QUALIFICATION</Typography>
 
                                                 </Box>

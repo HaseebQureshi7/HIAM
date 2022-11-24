@@ -115,7 +115,7 @@ export default function AddExperience() {
                     </Grid>
 
                     {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 0 } }}>
-                        <Button onClick={() => navigate('/addprojects')} disabled={xpLength >= 1 ? false : true} sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>NEXT</Button>
+                        <Button color={xpLength >= 1 ? 'primary' : 'warning'} onClick={() => navigate('/addprojects')} sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>{xpLength >= 1 ? 'NEXT' : 'SKIP'}</Button>
                     </Box> : <Box sx={{ width: '100%' }}>
                         <CircularProgress sx={{ float: 'right', m: 'auto', textAlign: 'center' }} />
                     </Box>
