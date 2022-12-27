@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. Node must be installed in the system
 
 ```
-### Installing
+### Installation
 After cloning this project, run the following commands in order
 
 1. npm install (to install all the dependencies for this project)
