@@ -51,7 +51,7 @@ function App() {
   const [themeMode, setThemeMode] = useState('light')
 
   var now = new Date().getHours()
-  console.log(now)
+  // console.log(now)
 
   const baseURL = 'https://haseebxqureshi.pythonanywhere.com/api/token/refresh/'
 

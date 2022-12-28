@@ -40,7 +40,6 @@ export default function ViewUserProfile() {
     const [userCertificatesLength, setUserCertificatesLength] = useState(0)
 
     const [userLinks, setUserLinks] = useState(null)
-    const [, setUserLinksLength] = useState(0)
 
     useEffect(() => {
 
@@ -48,15 +47,15 @@ export default function ViewUserProfile() {
 
         axios.get(getUsernameURL + id).then(res => { setUserName(res.data) }).catch(res => console.log(res))
 
-        axios.get(userExperienceURL + id).then(res => { setUserExperience(res.data.data); setUserExperienceLength(res.data.data.length) }).catch(res => console.log(res))
+        axios.get(userExperienceURL + id).then(res => { setUserExperience(res.data.data); setUserExperienceLength(userExperience?.length) }).catch(res => console.log(res))
 
-        axios.get(userProjectsURL + id).then(res => { setUserProjects(res.data.data); setUserProjectsLength(res.data.data.length) }).catch(res => console.log(res))
+        axios.get(userProjectsURL + id).then(res => { setUserProjects(res.data.data); setUserProjectsLength(userProjects?.length) }).catch(res => console.log(res))
 
-        axios.get(userSkillsURL + id).then(res => { setUserSkills(res.data); setUserSkillsLength(res.data.length) }).catch(res => console.log(res))
+        axios.get(userSkillsURL + id).then(res => { setUserSkills(res.data); setUserSkillsLength(userSkills?.length) }).catch(res => console.log(res))
 
-        axios.get(userCertificatesURL + id).then(res => { setUserCertificates(res.data.data); setUserCertificatesLength(res.data.data.length) }).catch(res => console.log(res))
+        axios.get(userCertificatesURL + id).then(res => { setUserCertificates(res.data.data); setUserCertificatesLength(userCertificates?.length) }).catch(res => console.log(res))
 
-        axios.get(userLinksURL + id).then(res => { setUserLinks(res.data.data); setUserLinksLength(res.data.data.length) }).catch(res => console.log(res))
+        axios.get(userLinksURL + id).then(res => { setUserLinks(res.data.data) }).catch(res => console.log(res))
 
     }, [])
 
@@ -154,7 +153,7 @@ export default function ViewUserProfile() {
 
                                             <Box sx={{ width: '100%', p: { xs: 1, lg: 2.5 }, height: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
 
-                                                <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                                                <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
 
                                                     <Typography sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', lg: '2rem' } }} variant='h4'>{data.qualification.toUpperCase()}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', fontWeight: 700, fontSize: { xs: '0.75rem', lg: '1rem' } }} variant='subtitle1'>QUALIFICATION</Typography>
@@ -168,9 +167,9 @@ export default function ViewUserProfile() {
 
                                                 </Box>
 
-                                                <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                                                <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
 
-                                                    <Typography sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', lg: '2rem' } }} variant='h4'>{data.location}</Typography>
+                                                    <Typography sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', lg: '2rem' } }} variant='h4'>{data.location.toUpperCase()}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', fontWeight: 700, fontSize: { xs: '0.75rem', lg: '1rem' } }} variant='subtitle1'>LOCATION</Typography>
 
                                                 </Box>

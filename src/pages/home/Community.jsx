@@ -71,7 +71,7 @@ export default function Community() {
 
     }, [])
 
-    console.log(statisticsData)
+    // console.log(statisticsData)
 
     return (
         <>

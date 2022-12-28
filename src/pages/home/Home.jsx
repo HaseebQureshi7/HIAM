@@ -44,13 +44,13 @@ export default function Home() {
 
         axios.get(getUsernameURL + GetUID()).then(res => { setUserName(res.data) }).catch(res => console.log(res))
 
-        axios.get(userExperienceURL + GetUID()).then(res => { setUserExperience(res.data.data); setUserExperienceLength(res.data.data.length) }).catch(res => console.log(res))
+        axios.get(userExperienceURL + GetUID()).then(res => { setUserExperience(res.data.data); setUserExperienceLength(userExperience?.length) }).catch(res => console.log(res))
 
-        axios.get(userProjectsURL + GetUID()).then(res => { setUserProjects(res.data.data); setUserProjectsLength(res.data.data.length) }).catch(res => console.log(res))
+        axios.get(userProjectsURL + GetUID()).then(res => { setUserProjects(res.data.data); setUserProjectsLength(userProjects?.length) }).catch(res => console.log(res))
 
-        axios.get(userSkillsURL + GetUID()).then(res => { setUserSkills(res.data); setUserSkillsLength(res.data.length) }).catch(res => console.log(res))
+        axios.get(userSkillsURL + GetUID()).then(res => { setUserSkills(res.data); setUserSkillsLength(userSkills?.length) }).catch(res => console.log(res))
 
-        axios.get(userCertificatesURL + GetUID()).then(res => { setUserCertificates(res.data.data); setUserCertificatesLength(res.data.data.length) }).catch(res => console.log(res))
+        axios.get(userCertificatesURL + GetUID()).then(res => { setUserCertificates(res.data.data); setUserCertificatesLength(userCertificates?.length) }).catch(res => console.log(res))
 
         axios.get(userLinksURL + GetUID()).then(res => { setUserLinks(res.data.data); setUserLinksLength(res.data.data.length) }).catch(res => console.log(res))
 
@@ -155,7 +155,7 @@ export default function Home() {
 
                                             <Box sx={{ width: '100%', p: { xs: 1, lg: 2.5 }, height: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
 
-                                                <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                                                <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
 
                                                     <Typography sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', lg: '2rem' } }} variant='h4'>{data.qualification.toUpperCase()}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', fontWeight: 700, fontSize: { xs: '0.75rem', lg: '1rem' } }} variant='subtitle1'>QUALIFICATION</Typography>
@@ -169,9 +169,9 @@ export default function Home() {
 
                                                 </Box>
 
-                                                <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                                                <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
 
-                                                    <Typography sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', lg: '2rem' } }} variant='h4'>{data.location}</Typography>
+                                                    <Typography sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', lg: '2rem' } }} variant='h4'>{data.location.toUpperCase()}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', fontWeight: 700, fontSize: { xs: '0.75rem', lg: '1rem' } }} variant='subtitle1'>LOCATION</Typography>
 
                                                 </Box>
@@ -191,7 +191,7 @@ export default function Home() {
                                                         </Box>
 
                                                     </Box>
-                                                    
+
                                                     <Typography sx={{ color: 'text.secondary', fontWeight: 700, textAlign: { xs: 'start', lg: 'start' } }} variant='subtitle2'>{data.biography}</Typography>
 
                                                 </Box>
@@ -321,7 +321,7 @@ export default function Home() {
                                                 <CardActionArea>
                                                     <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.25rem', lg: '1.75rem' } }} variant="h4">{data.companyName}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1">{data.fullTime}</Typography>
-                                                    <Typography sx={{ color:'secondary.dark', textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle1"> {data.position.toUpperCase()} </Typography>
+                                                    <Typography sx={{ color: 'secondary.dark', textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle1"> {data.position.toUpperCase()} </Typography>
                                                     <Typography sx={{ color: 'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle2"> To {data.endDate}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle2"> From {data.startDate}</Typography>
                                                 </CardActionArea>
@@ -364,7 +364,7 @@ export default function Home() {
                                                 <CardActionArea>
                                                     <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.25rem', lg: '1.75rem' } }} variant="h4">{data.name}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1"> On: {data.issueDate}</Typography>
-                                                    <Typography sx={{ color:'secondary.dark', fontWeight: 700, p: 1 }} variant="subtitle1"> ISSUED BY : {data.issuedBy} </Typography>
+                                                    <Typography sx={{ color: 'secondary.dark', fontWeight: 700, p: 1 }} variant="subtitle1"> ISSUED BY : {data.issuedBy} </Typography>
                                                     <Typography sx={{ color: 'text.secondary', textAlign: 'start', fontWeight: 700, p: 1 }} variant="subtitle2">Link : {data.link}</Typography>
                                                 </CardActionArea>
                                             </Card>

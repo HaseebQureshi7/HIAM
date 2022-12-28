@@ -149,7 +149,7 @@ export default function ViewAllSkills() {
 
                 <Avatar sx={{ fontWeight: 700, bgcolor: (data.level == 3 ? 'primary.main' : 'secondary.dark') }}>{data.level}</Avatar>
 
-                <Typography sx={{ flex: 8, mx: 2.5, fontWeight: 700 }} variant="h6">{data.name.toUpperCase()}</Typography>
+                <Typography sx={{ flex: 8, mx: 2.5, fontWeight: 700, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}} variant="h6">{data.name.toUpperCase()}</Typography>
 
                 <Avatar sx={{ fontWeight: 900, bgcolor: 'transparent', color: 'primary.main' }}>
                   <Avatar onClick={() => DeleteSkill(data.id, data.name)} sx={{ bgcolor: 'error.main' }}><DeleteForever /></Avatar>
