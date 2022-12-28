@@ -47,13 +47,13 @@ export default function ViewUserProfile() {
 
         axios.get(getUsernameURL + id).then(res => { setUserName(res.data) }).catch(res => console.log(res))
 
-        axios.get(userExperienceURL + id).then(res => { setUserExperience(res.data.data); setUserExperienceLength(userExperience?.length) }).catch(res => console.log(res))
+        axios.get(userExperienceURL + id).then(res => { setUserExperience(res.data.data); setUserExperienceLength(res.data != null ? res.data.length : 0) }).catch(res => console.log(res))
 
-        axios.get(userProjectsURL + id).then(res => { setUserProjects(res.data.data); setUserProjectsLength(userProjects?.length) }).catch(res => console.log(res))
+        axios.get(userProjectsURL + id).then(res => { setUserProjects(res.data.data); setUserProjectsLength(res.data.data != null ? res.data.data.length : 0) }).catch(res => console.log(res))
 
-        axios.get(userSkillsURL + id).then(res => { setUserSkills(res.data); setUserSkillsLength(userSkills?.length) }).catch(res => console.log(res))
+        axios.get(userSkillsURL + id).then(res => { setUserSkills(res.data); setUserSkillsLength(res.data != null ? res.data.length : 0) }).catch(res => console.log(res))
 
-        axios.get(userCertificatesURL + id).then(res => { setUserCertificates(res.data.data); setUserCertificatesLength(userCertificates?.length) }).catch(res => console.log(res))
+        axios.get(userCertificatesURL + id).then(res => { setUserCertificates(res.data.data); setUserCertificatesLength(res.data.data != null ? res.data.data.length : 0) }).catch(res => console.log(res))
 
         axios.get(userLinksURL + id).then(res => { setUserLinks(res.data.data) }).catch(res => console.log(res))
 

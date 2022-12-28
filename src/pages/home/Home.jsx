@@ -44,15 +44,15 @@ export default function Home() {
 
         axios.get(getUsernameURL + GetUID()).then(res => { setUserName(res.data) }).catch(res => console.log(res))
 
-        axios.get(userExperienceURL + GetUID()).then(res => { setUserExperience(res.data.data); setUserExperienceLength(userExperience?.length) }).catch(res => console.log(res))
+        axios.get(userExperienceURL + GetUID()).then(res => { setUserExperience(res.data.data); setUserExperienceLength(res.data.data != null ? res.data.data.length : 0) }).catch(res => console.log(res))
 
-        axios.get(userProjectsURL + GetUID()).then(res => { setUserProjects(res.data.data); setUserProjectsLength(userProjects?.length) }).catch(res => console.log(res))
+        axios.get(userProjectsURL + GetUID()).then(res => { setUserProjects(res.data.data); setUserProjectsLength(res.data.data != null ? res.data.data.length : 0) }).catch(res => console.log(res))
 
-        axios.get(userSkillsURL + GetUID()).then(res => { setUserSkills(res.data); setUserSkillsLength(userSkills?.length) }).catch(res => console.log(res))
+        axios.get(userSkillsURL + GetUID()).then(res => { setUserSkills(res.data); setUserSkillsLength(res.data != null ? res.data.length : 0) }).catch(res => console.log(res))
 
-        axios.get(userCertificatesURL + GetUID()).then(res => { setUserCertificates(res.data.data); setUserCertificatesLength(userCertificates?.length) }).catch(res => console.log(res))
+        axios.get(userCertificatesURL + GetUID()).then(res => { setUserCertificates(res.data.data); setUserCertificatesLength(res.data.data != null ? res.data.data.length : 0) }).catch(res => console.log(res))
 
-        axios.get(userLinksURL + GetUID()).then(res => { setUserLinks(res.data.data); setUserLinksLength(res.data.data.length) }).catch(res => console.log(res))
+        axios.get(userLinksURL + GetUID()).then(res => { setUserLinks(res.data.data); setUserLinksLength(res.data.data != null ? res.data.data.length : 0) }).catch(res => console.log(res))
 
     }, [])
 
@@ -155,7 +155,7 @@ export default function Home() {
 
                                             <Box sx={{ width: '100%', p: { xs: 1, lg: 2.5 }, height: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
 
-                                                <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                                <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
 
                                                     <Typography sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', lg: '2rem' } }} variant='h4'>{data.qualification.toUpperCase()}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', fontWeight: 700, fontSize: { xs: '0.75rem', lg: '1rem' } }} variant='subtitle1'>QUALIFICATION</Typography>
