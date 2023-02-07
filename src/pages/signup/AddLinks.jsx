@@ -69,7 +69,7 @@ export default function AddLinks() {
                 axios.post(baseURL, { belongsTo: userId, name: 'Personal Website', link: personalWebRef.current.value }, axiosConfig)
 
             ])
-                .then(axios.spread((res) => { navigate('/singupcomplete') })).catch(err => { console.log(err); setIsLoading(false); setIsDisabled(false) })
+                .then(axios.spread((res) => { navigate('/signupcomplete') })).catch(err => { console.log(err); setIsLoading(false); setIsDisabled(false) })
         }
         else {
             setOpenSnack(true)
@@ -94,7 +94,7 @@ export default function AddLinks() {
 
             <Fade>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', marginTop: '5vh', marginBottom: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', paddingTop: '5vh', paddingBottom: { xs: '5vh', lg: '2vh' }, minHeight: "100vh", alignItems: "flex-start" }} gap={4}>
 
                     <Snackbar
                         open={openSnack}
@@ -166,7 +166,7 @@ export default function AddLinks() {
                     {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 0 } }}>
                         <Button onClick={(e) => PushLinks(e)} disabled={isDisabled} sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>FINISH</Button>
 
-                        <Box sx={{ width: { xs: '10%', md: '1%' }, height: 'auto', mr: 'auto', ml: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                        <Box sx={{ width: { xs: '10%', md: '0.0001%' }, height: 'auto', mr: 'auto', ml: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
                             <img style={{ width: '100%', height: 'auto' }} src="/images/party-emoji-png.png" alt="" />
                         </Box>
 

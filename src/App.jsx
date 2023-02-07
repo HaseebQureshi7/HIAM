@@ -171,7 +171,7 @@ function App() {
                       <Route path='/addcertificates' element={<AddCertificates />} />
                       <Route path='/makecertificate' element={<MakeCertificate />} />
                       <Route path='/addlinks' element={<AddLinks />} />
-                      <Route path='/singupcomplete' element={<SignupComplete />} />
+                      <Route path='/signupcomplete' element={<SignupComplete />} />
                     </>
                     :
                     <Route path="*" element={<Navigate to="/" replace />} />

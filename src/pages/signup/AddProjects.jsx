@@ -1,9 +1,12 @@
 import { Add, Close, NavigateNext } from '@mui/icons-material'
 import { Alert, Avatar, Box, Button, Card, CardContent, CardHeader, CardMedia, CircularProgress, Divider, Fab, FormControlLabel, Grid, Modal, Radio, RadioGroup, Snackbar, Stack, TextField, Typography } from '@mui/material'
 import axios from 'axios'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Fade } from '../../components/AnimationEngine'
+import { ThemeModeContext } from "../../context/ThemeModeContext"
+
+
 
 export default function AddProjects() {
 
@@ -11,6 +14,8 @@ export default function AddProjects() {
 
     const makeSkillURL = 'https://haseebxqureshi.pythonanywhere.com/api/makeuserskill'
     const viewSkillURL = 'https://haseebxqureshi.pythonanywhere.com/api/viewuserskill/'
+
+    const { themeMode } = useContext(ThemeModeContext)
 
     const [userId, setUserId] = useState()
     const [accessToken, setAccessToken] = useState()
@@ -75,7 +80,7 @@ export default function AddProjects() {
         <>
             <Fade>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', marginTop: '5vh', marginBottom: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', paddingTop: '5vh', paddingBottom: { xs: '6.75vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
 
                     <Snackbar
                         open={openSnack}
@@ -149,10 +154,10 @@ export default function AddProjects() {
                         >
                             <Box sx={{ width: { xs: '90%', md: '50%' }, height: '100vh', m: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 
-                                <Box sx={{ width: '100%', p: 2.5, minHeight: '50vh', borderRadius: 5, bgcolor: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
+                                <Box sx={{ width: '100%', p: 2.5, minHeight: '50vh', borderRadius: 5, bgcolor: (themeMode == 'dark' ? 'black' : 'white'), display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
 
                                     <Stack sx={{ width: '100%', p: "0.5vh 0vh" }} direction="row">
-                                        <Typography sx={{ fontWeight: '700', fontSize: '2rem' }} variant='h4'>ADD SKILLS</Typography>
+                                        <Typography sx={{ fontWeight: '700', fontSize: '2rem', color: 'text.primary' }} variant='h4'>ADD SKILLS</Typography>
                                         <Avatar onClick={() => setOpenModal(false)} sx={{ bgcolor: 'error.light', ml: 'auto' }}><Close /></Avatar>
                                     </Stack>
 
@@ -167,9 +172,9 @@ export default function AddProjects() {
 
                                             <RadioGroup onChange={(event) => { setLevel(event.target.value) }} sx={{ width: '100%', margin: '25px 0' }}>
                                                 <Box sx={{ width: '100%', display: 'flex', flexDirection: { xs: 'column', lg: 'row' }, justifyContent: 'space-evenly' }}>
-                                                    <FormControlLabel value={1} control={<Radio required />} label="Beginner(L1)" />
-                                                    <FormControlLabel value={2} control={<Radio />} label="Intermediate(L2)" />
-                                                    <FormControlLabel value={3} control={<Radio />} label="Advanced(L3)" />
+                                                    <FormControlLabel sx={{ color: 'text.primary' }} value={1} control={<Radio required />} label="Beginner(L1)" />
+                                                    <FormControlLabel sx={{ color: 'text.primary' }} value={2} control={<Radio />} label="Intermediate(L2)" />
+                                                    <FormControlLabel sx={{ color: 'text.primary' }} value={3} control={<Radio />} label="Advanced(L3)" />
                                                 </Box>
                                             </RadioGroup>
 

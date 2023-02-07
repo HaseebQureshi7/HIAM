@@ -44,7 +44,7 @@ export default function AddExperience() {
 
             <Fade>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', marginTop: '5vh', marginBottom: { xs: '5vh', lg: '2vh' }, height: "auto", alignItems: "flex-start" }} gap={4}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '90%', md: '90%', lg: '80%' }, m: 'auto', paddingTop: '5vh', paddingBottom: { xs: '5vh', lg: '2vh' }, minHeight: "100vh", alignItems: "flex-start" }} gap={4}>
 
                     <Snackbar
                         open={openSnack}
@@ -115,7 +115,7 @@ export default function AddExperience() {
                     </Grid>
 
                     {isLoading == false ? <Box sx={{ width: '100%', mt: { xs: 5, lg: 0 } }}>
-                        <Button color={xpLength >= 1 ? 'primary' : 'warning'} onClick={() => navigate('/addprojects')} sx={{ float: 'right' }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>{xpLength >= 1 ? 'NEXT' : 'SKIP'}</Button>
+                        <Button color={xpLength >= 1 ? 'primary' : 'warning'} onClick={() => navigate('/addprojects')} sx={{ float: 'right', color: 'text.primary', fontWeight: 700 }} size="large" variant='contained' endIcon={<NavigateNext sx={{ color: 'white' }} />}>{xpLength >= 1 ? 'NEXT' : 'SKIP'}</Button>
                     </Box> : <Box sx={{ width: '100%' }}>
                         <CircularProgress sx={{ float: 'right', m: 'auto', textAlign: 'center' }} />
                     </Box>
