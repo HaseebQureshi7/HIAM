@@ -20,7 +20,7 @@ export default function Landing() {
     return (
         <>
             <Fade>
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', pt: '2.5vh', height: "92.75vh", justifyContent: "center", alignItems: "center" }} gap={10}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', pt: '2.5vh', height: "100vh", justifyContent: "center", alignItems: "center" }} gap={10}>
 
                     <AnimatePresence mode='wait'>
                         {animate == true ?

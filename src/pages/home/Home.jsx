@@ -317,7 +317,7 @@ export default function Home() {
 
                                     {userExperience ? userExperience.slice(0, 1).map((data => {
                                         return (
-                                            <Card key={data.id} sx={{ flex: 1, boxShadow: 0, maxWidth: '100%' }}>
+                                            <Card elevation={0} key={data.id} sx={{ flex: 1, boxShadow: 0, maxWidth: '100%' }}>
                                                 <CardActionArea>
                                                     <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.25rem', lg: '1.75rem' } }} variant="h4">{data.companyName}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1">{data.fullTime}</Typography>
@@ -360,7 +360,7 @@ export default function Home() {
 
                                     {userCertificates ? userCertificates.slice(0, 1).map((data => {
                                         return (
-                                            <Card key={data.id} sx={{ flex: 1, boxShadow: 0, maxWidth: '100%' }}>
+                                            <Card elevation={0} key={data.id} sx={{ flex: 1, boxShadow: 0, maxWidth: '100%' }}>
                                                 <CardActionArea>
                                                     <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.25rem', lg: '1.75rem' } }} variant="h4">{data.name}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1"> On: {data.issueDate}</Typography>

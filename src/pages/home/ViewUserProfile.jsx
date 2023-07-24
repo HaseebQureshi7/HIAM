@@ -47,7 +47,7 @@ export default function ViewUserProfile() {
 
         axios.get(getUsernameURL + id).then(res => { setUserName(res.data) }).catch(res => console.log(res))
 
-        axios.get(userExperienceURL + id).then(res => { setUserExperience(res.data.data); setUserExperienceLength(res.data != null ? res.data.length : 0) }).catch(res => console.log(res))
+        axios.get(userExperienceURL + id).then(res => { setUserExperience(res.data.data); setUserExperienceLength(res.data != null ? res.data.data.length : 0) }).catch(res => console.log(res))
 
         axios.get(userProjectsURL + id).then(res => { setUserProjects(res.data.data); setUserProjectsLength(res.data.data != null ? res.data.data.length : 0) }).catch(res => console.log(res))
 
@@ -317,7 +317,7 @@ export default function ViewUserProfile() {
 
                                     {userExperience ? userExperience.slice(0, 1).map((data => {
                                         return (
-                                            <Card key={data.id} sx={{ flex: 1, boxShadow: 0, maxWidth: '100%' }}>
+                                            <Card elevation={0} key={data.id} sx={{ flex: 1, boxShadow: 0, maxWidth: '100%' }}>
                                                 <CardActionArea>
                                                     <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.25rem', lg: '1.75rem' } }} variant="h4">{data.companyName}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1">{data.fullTime}</Typography>
@@ -360,7 +360,7 @@ export default function ViewUserProfile() {
 
                                     {userCertificates ? userCertificates.slice(0, 1).map((data => {
                                         return (
-                                            <Card key={data.id} sx={{ flex: 1, boxShadow: 0, maxWidth: '100%' }}>
+                                            <Card elevation={0} key={data.id} sx={{ flex: 1, boxShadow: 0, maxWidth: '100%' }}>
                                                 <CardActionArea>
                                                     <Typography sx={{ textAlign: 'start', fontWeight: 700, p: 1, fontSize: { xs: '1.25rem', lg: '1.75rem' } }} variant="h4">{data.name}</Typography>
                                                     <Typography sx={{ color: 'text.secondary', float: 'right', fontWeight: 700, p: 1 }} variant="subtitle1"> On: {data.issueDate}</Typography>
